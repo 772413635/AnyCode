@@ -158,6 +158,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SeadFoodController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\WebChatController.cs" />
     <Compile Include="Models\AccountBLL.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Models\DAL\SysCompanyService.cs" />
     <Compile Include="Models\Entity\Sys_JobMessage.cs" />
     <Compile Include="Models\Entity\Sys_PerformLog.cs" />
+    <Compile Include="Models\Interfaces\ISeadFoodService.cs" />
     <Compile Include="Models\Interfaces\IWebChatService.cs" />
     <Compile Include="Models\Service\ContentService.cs" />
     <Compile Include="Models\DAL\SysUserStatusService.cs" />
@@ -177,6 +179,7 @@
     <Compile Include="Models\Service\CustomMessageHandler\CustomMessageHandler.cs" />
     <Compile Include="Models\Service\CustomMessageHandler\CustomMessageHandler_Events.cs" />
     <Compile Include="Models\Service\MenuService.cs" />
+    <Compile Include="Models\Service\SeadFoodService.cs" />
     <Compile Include="Models\Service\SystemService.cs" />
     <Compile Include="Models\Interfaces\IExceptionService.cs" />
     <Compile Include="Models\Interfaces\IMenuService.cs" />

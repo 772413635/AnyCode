@@ -5,7 +5,7 @@ using System.Text;
 using Common;
 using DBlinq;
 
-namespace AnyCode
+namespace AnyCode.Models.Service
 {
     public class SysMenuService : BaseService, ISysMenuService
     {

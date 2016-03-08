@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 11.5" name="GodBuild">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 16.25, 10.75" name="GodBuild">
   <DataContextMoniker Name="/GodBuildDB" />
   <nestedChildShapes>
     <classShape Id="1ac7b03d-d786-4f68-8ac9-e8b8291e7ce4" isExpanded="false" absoluteBounds="9.125, 0.5, 2, 0.45">
@@ -164,7 +164,7 @@
         <elementListCompartment Id="7708acec-729c-4d38-9ee3-e50ac2a510ae" absoluteBounds="0.7649999999999999, 10.46, 2.3449999999999998, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2ecb9532-a0f6-4d44-978e-a0de3e262596" absoluteBounds="8.375, 9.125, 2, 2.0916874186197916">
+    <classShape Id="2ecb9532-a0f6-4d44-978e-a0de3e262596" isExpanded="false" absoluteBounds="8.375, 9.125, 2, 0.45">
       <DataClassMoniker Name="/GodBuildDB/Sys_WebChat_MsgMap" />
       <nestedChildShapes>
         <elementListCompartment Id="9283d23c-a14e-4982-a4d0-716d4c0475aa" absoluteBounds="8.39, 9.585, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
@@ -194,10 +194,16 @@
         <elementListCompartment Id="7cbfb625-725d-4a30-a764-b30d09fc1a83" absoluteBounds="0.89000000000000012, 9.085, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a543c102-5c7d-4f1c-903c-e9cbbfda104d" absoluteBounds="3.5, 7.875, 2, 2.8308638509114576">
+    <classShape Id="a543c102-5c7d-4f1c-903c-e9cbbfda104d" isExpanded="false" absoluteBounds="3.5, 7.875, 2, 0.45">
       <DataClassMoniker Name="/GodBuildDB/Sys_WebChat_V_Menu" />
       <nestedChildShapes>
         <elementListCompartment Id="18fa8c36-339c-4e73-a00a-ca41842d91d4" absoluteBounds="3.5149999999999997, 8.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bfacc490-34f4-482b-89af-bd663a9b7171" isExpanded="false" absoluteBounds="14, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/GodBuildDB/Sf_Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4f9a36a-8436-440b-a6af-2778ac1f28c6" absoluteBounds="14.015, 1.2100000000000009, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
