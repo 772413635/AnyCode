@@ -21,13 +21,13 @@ namespace AnyCode.Controllers
         }
 
 
-        [HttpPost]
         public JsonpResult ProductList(DataGridParam param)
         {
             var data = _seadfood.ProductList(param);
             return new JsonpResult
             {
-                Data = data
+                Data = data,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
     }
