@@ -1,0 +1,1567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D13B13E3-14B6-451D-9499-D5B21D7DE3E4}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnyCode</RootNamespace>
+    <AssemblyName>AnyCode</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=68293a411f0cabcc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.7.0.4714, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.7.0.4714, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin">
+      <HintPath>..\lib\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP, Version=12.4.11.19570, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP.MvcExtension, Version=3.1.1.26958, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Senparc.Weixin.MP.MvcExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\AsnyHandler.cs" />
+    <Compile Include="Code\JsonpResult.cs" />
+    <Compile Include="Code\Logger.cs" />
+    <Compile Include="Code\Messages.cs" />
+    <Compile Include="Code\NPOIHelper.cs" />
+    <Compile Include="Code\ProcessCommon.cs" />
+    <Compile Include="Code\UpdateSessionMvcHandler.cs" />
+    <Compile Include="Code\UpdateSessionMvcRouteHandler.cs" />
+    <Compile Include="Code\UpdateSessionRouteCollectionExtensions.cs" />
+    <Compile Include="Code\ValidateCode.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\NewsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SeadFoodController.cs" />
+    <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\WebChatController.cs" />
+    <Compile Include="Models\AccountBLL.cs" />
+    <Compile Include="Models\BaseController.cs" />
+    <Compile Include="Models\Entity\ChangePwdSeatModel.cs" />
+    <Compile Include="Models\DAL\SysCompanyService.cs" />
+    <Compile Include="Models\Entity\Sys_JobMessage.cs" />
+    <Compile Include="Models\Entity\Sys_PerformLog.cs" />
+    <Compile Include="Models\Interfaces\ISeadFoodService.cs" />
+    <Compile Include="Models\Interfaces\IWebChatService.cs" />
+    <Compile Include="Models\Service\ContentService.cs" />
+    <Compile Include="Models\DAL\SysUserStatusService.cs" />
+    <Compile Include="Models\Interfaces\ICompanyService.cs" />
+    <Compile Include="Models\Interfaces\IContentService.cs" />
+    <Compile Include="Models\Interfaces\IUserStatusService.cs" />
+    <Compile Include="Models\Service\BaseService.cs" />
+    <Compile Include="Models\Service\CustomMessageHandler\CustomMessageContext.cs" />
+    <Compile Include="Models\Service\CustomMessageHandler\CustomMessageHandler.cs" />
+    <Compile Include="Models\Service\CustomMessageHandler\CustomMessageHandler_Events.cs" />
+    <Compile Include="Models\Service\MenuService.cs" />
+    <Compile Include="Models\Service\SeadFoodService.cs" />
+    <Compile Include="Models\Service\SystemService.cs" />
+    <Compile Include="Models\Interfaces\IExceptionService.cs" />
+    <Compile Include="Models\Interfaces\IMenuService.cs" />
+    <Compile Include="Models\Interfaces\ISystemService.cs" />
+    <Compile Include="Models\Entity\PrimaryTreeModel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service\WebChatService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ContentStyle.css" />
+    <Content Include="Content\default.css" />
+    <Content Include="Content\dlgbox.css" />
+    <Content Include="Content\images\apply2.png" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\catbg.jpg" />
+    <Content Include="Content\images\catbg2.jpg" />
+    <Content Include="Content\images\cross.png" />
+    <Content Include="Content\images\maintab_active_back.gif" />
+    <Content Include="Content\images\maintab_active_first.gif" />
+    <Content Include="Content\images\maintab_active_last.gif" />
+    <Content Include="Content\images\maintab_back.gif" />
+    <Content Include="Content\images\maintab_first.gif" />
+    <Content Include="Content\images\maintab_last.gif" />
+    <Content Include="Content\images\mirrortab_active_back.gif" />
+    <Content Include="Content\images\mirrortab_active_first.gif" />
+    <Content Include="Content\images\mirrortab_active_last.gif" />
+    <Content Include="Content\images\mirrortab_back.gif" />
+    <Content Include="Content\images\mirrortab_first.gif" />
+    <Content Include="Content\images\mirrortab_last.gif" />
+    <Content Include="Content\images\textfield_key.png" />
+    <Content Include="Content\images\titlebg.jpg" />
+    <Content Include="Content\jquery_buttons\Button.css" />
+    <Content Include="Content\jquery_buttons\Button.min.css">
+      <DependentUpon>Button.css</DependentUpon>
+    </Content>
+    <Content Include="Content\jquery_buttons\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\logincommon.css" />
+    <Content Include="Content\top.css" />
+    <Content Include="Content\UiDialog.css" />
+    <Content Include="Content\WebChat\WxMenuManger.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\advanced_menu_setting_z25404f.png" />
+    <Content Include="Images\beijingtiao.gif" />
+    <Content Include="Images\buttonOn_login.gif" />
+    <Content Include="Images\common-32.png" />
+    <Content Include="Images\content\ebc-load.gif" />
+    <Content Include="Images\content\icons.png" />
+    <Content Include="Images\content\load%282%29.gif" />
+    <Content Include="Images\content\load%283%29.gif" />
+    <Content Include="Images\content\load.gif" />
+    <Content Include="Images\content\nav.png" />
+    <Content Include="Images\content\text-bg.png" />
+    <Content Include="Images\content\upToTop_caret.gif" />
+    <Content Include="Images\head\headback.png" />
+    <Content Include="Images\head\jiuweilogo.png" />
+    <Content Include="Images\head\menu_head_bg.png" />
+    <Content Include="Images\logo_medium.png" />
+    <Content Include="Images\tabicons.png" />
+    <Content Include="img\0.png" />
+    <Content Include="img\button-left.png" />
+    <Content Include="img\button-right.png" />
+    <Content Include="img\button.png" />
+    <Content Include="img\checkbox.png" />
+    <Content Include="img\file.png" />
+    <Content Include="img\input-left.png" />
+    <Content Include="img\input-right.png" />
+    <Content Include="img\input.png" />
+    <Content Include="img\radio.png" />
+    <Content Include="img\select-left.png" />
+    <Content Include="img\select-right.png" />
+    <Content Include="img\textarea-bl.png" />
+    <Content Include="img\textarea-br.png" />
+    <Content Include="img\textarea-l-off.png" />
+    <Content Include="img\textarea-l-over.png" />
+    <Content Include="img\textarea-r-off.png" />
+    <Content Include="img\textarea-r-over.png" />
+    <Content Include="img\textarea-tl.png" />
+    <Content Include="img\textarea-tr.png" />
+    <Content Include="Javascripts\Account\Index.js" />
+    <Content Include="Javascripts\Content\Pwd.js" />
+    <Content Include="Javascripts\Content\Text.js" />
+    <Content Include="Javascripts\Content\Pwd_Add.js" />
+    <Content Include="Javascripts\Content\Text_Add.js" />
+    <Content Include="Javascripts\Home\Index.js" />
+    <Content Include="Javascripts\System\LoginUserManager.js" />
+    <Content Include="Javascripts\WebChat\WxAccount.js" />
+    <Content Include="Javascripts\WebChat\WxAccount_Add.js" />
+    <Content Include="Javascripts\WebChat\WxMenuManger.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\jquery-1.11.1.min.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\book.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\eye.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\icon16_wx_logo.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\passbook.png" />
+    <Content Include="Res\kindeditor-4.1.10\asp.net\bin\LitJSON.dll" />
+    <Content Include="Res\kindeditor-4.1.10\asp.net\demo.aspx" />
+    <Content Include="Res\kindeditor-4.1.10\asp.net\README.txt" />
+    <Content Include="Res\kindeditor-4.1.10\asp\demo.asp" />
+    <Content Include="Res\kindeditor-4.1.10\asp\file_manager_json.asp" />
+    <Content Include="Res\kindeditor-4.1.10\asp\JSON_2.0.4.asp" />
+    <Content Include="Res\kindeditor-4.1.10\asp\UpLoad_Class.asp" />
+    <Content Include="Res\kindeditor-4.1.10\asp\upload_json.asp" />
+    <Content Include="Res\kindeditor-4.1.10\examples\auto-height.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\colorpicker.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\custom-plugin.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\custom-theme.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\default.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\dialog.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\dynamic-load.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\file-dialog.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\file-manager.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\filter-mode.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\image-dialog.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\index.css" />
+    <Content Include="Res\kindeditor-4.1.10\examples\index.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\jquery-ui-1.9.2.custom.css" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\css\smoothness\jquery-ui-1.9.2.custom.min.css" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\js\jquery-ui-1.9.2.custom.js" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery-ui\js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\jquery.js" />
+    <Content Include="Res\kindeditor-4.1.10\examples\multi-image-dialog.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\multi-language.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\newline.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\node.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\paste-type.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\qqstyle.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\readonly.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\simple.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\uploadbutton.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\url-type.html" />
+    <Content Include="Res\kindeditor-4.1.10\examples\word-count.html" />
+    <Content Include="Res\kindeditor-4.1.10\jsp\lib\commons-fileupload-1.2.1.jar" />
+    <Content Include="Res\kindeditor-4.1.10\jsp\lib\commons-io-1.4.jar" />
+    <Content Include="Res\kindeditor-4.1.10\jsp\lib\json_simple-1.1.jar" />
+    <Content Include="Res\kindeditor-4.1.10\jsp\README.txt" />
+    <Content Include="Res\kindeditor-4.1.10\kindeditor-all-min.js" />
+    <Content Include="Res\kindeditor-4.1.10\kindeditor-all.js" />
+    <Content Include="Res\kindeditor-4.1.10\kindeditor-min.js" />
+    <Content Include="Res\kindeditor-4.1.10\kindeditor.js" />
+    <Content Include="Res\kindeditor-4.1.10\lang\ar.js" />
+    <Content Include="Res\kindeditor-4.1.10\lang\en.js" />
+    <Content Include="Res\kindeditor-4.1.10\lang\ko.js" />
+    <Content Include="Res\kindeditor-4.1.10\lang\zh_CN.js" />
+    <Content Include="Res\kindeditor-4.1.10\lang\zh_TW.js" />
+    <Content Include="Res\kindeditor-4.1.10\license.txt" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\anchor\anchor.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\autoheight\autoheight.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\baidumap\baidumap.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\baidumap\index.html" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\baidumap\map.html" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\clearhtml\clearhtml.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\code\code.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\code\prettify.css" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\code\prettify.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\emoticons.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\0.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\1.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\10.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\100.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\101.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\102.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\103.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\104.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\105.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\106.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\107.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\108.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\109.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\11.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\110.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\111.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\112.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\113.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\114.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\115.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\116.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\117.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\118.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\119.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\12.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\120.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\121.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\122.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\123.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\124.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\125.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\126.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\127.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\128.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\129.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\13.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\130.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\131.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\132.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\133.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\134.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\14.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\15.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\16.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\17.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\18.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\19.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\2.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\20.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\21.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\22.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\23.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\24.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\25.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\26.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\27.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\28.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\29.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\3.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\30.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\31.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\32.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\33.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\34.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\35.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\36.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\37.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\38.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\39.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\4.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\40.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\41.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\42.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\43.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\44.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\45.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\46.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\47.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\48.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\49.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\5.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\50.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\51.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\52.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\53.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\54.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\55.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\56.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\57.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\58.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\59.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\6.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\60.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\61.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\62.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\63.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\64.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\65.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\66.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\67.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\68.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\69.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\7.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\70.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\71.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\72.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\73.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\74.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\75.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\76.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\77.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\78.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\79.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\8.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\80.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\81.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\82.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\83.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\84.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\85.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\86.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\87.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\88.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\89.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\9.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\90.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\91.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\92.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\93.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\94.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\95.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\96.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\97.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\98.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\99.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\emoticons\images\static.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\filemanager\filemanager.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\filemanager\images\file-16.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\filemanager\images\file-64.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\filemanager\images\go-up.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\flash\flash.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\image\image.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\image\images\align_left.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\image\images\align_right.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\image\images\align_top.gif" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\image\images\refresh.png" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\insertfile\insertfile.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\lineheight\lineheight.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\link\link.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\map\map.html" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\map\map.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\media\media.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\multiimage\images\image.png" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\multiimage\images\select-files-zh_CN.png" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\multiimage\multiimage.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\pagebreak\pagebreak.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\plainpaste\plainpaste.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\preview\preview.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\quickformat\quickformat.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\table\table.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\template\html\1.html" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\template\html\2.html" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\template\html\3.html" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\template\template.js" />
+    <Content Include="Res\kindeditor-4.1.10\plugins\wordpaste\wordpaste.js" />
+    <Content Include="Res\kindeditor-4.1.10\themes\common\anchor.gif" />
+    <Content Include="Res\kindeditor-4.1.10\themes\common\blank.gif" />
+    <Content Include="Res\kindeditor-4.1.10\themes\common\flash.gif" />
+    <Content Include="Res\kindeditor-4.1.10\themes\common\loading.gif" />
+    <Content Include="Res\kindeditor-4.1.10\themes\common\media.gif" />
+    <Content Include="Res\kindeditor-4.1.10\themes\common\rm.gif" />
+    <Content Include="Res\kindeditor-4.1.10\themes\default\background.png" />
+    <Content Include="Res\kindeditor-4.1.10\themes\default\default.css" />
+    <Content Include="Res\kindeditor-4.1.10\themes\default\default.png" />
+    <Content Include="Res\kindeditor-4.1.10\themes\qq\editor.gif" />
+    <Content Include="Res\kindeditor-4.1.10\themes\qq\editor_new.png" />
+    <Content Include="Res\kindeditor-4.1.10\themes\qq\qq.css" />
+    <Content Include="Res\kindeditor-4.1.10\themes\simple\simple.css" />
+    <Content Include="Res\plugs\jquery.PrintArea.js" />
+    <Content Include="Res\plugs\LoginBase.js" />
+    <Content Include="Res\plugs\outlook2.js" />
+    <Content Include="Javascripts\System\ErrorLog.js" />
+    <Content Include="Javascripts\System\NewsDelivery.js" />
+    <Content Include="Res\plugs\jquery.pretext.js" />
+    <Content Include="Res\plugs\MeterBase.js" />
+    <Content Include="Javascripts\System\EditAllMenu.js" />
+    <Content Include="Javascripts\System\MenuManager.js" />
+    <Content Include="Javascripts\System\MenuManager_Add.js" />
+    <Content Include="Javascripts\System\EditCom.js" />
+    <Content Include="Javascripts\System\IndexCom.js" />
+    <Content Include="Javascripts\System\NewsList.js" />
+    <Content Include="Javascripts\System\PerformLof.js" />
+    <Content Include="Javascripts\System\RoleManager.js" />
+    <Content Include="Javascripts\System\Role_Add.js" />
+    <Content Include="Javascripts\System\ShowNews.js" />
+    <Content Include="Res\formValidator\css\template.css" />
+    <Content Include="Res\formValidator\css\validationEngine.jquery.css" />
+    <Content Include="Res\formValidator\js\contrib\other-validations.js" />
+    <Content Include="Res\formValidator\js\jquery.validationEngine.js" />
+    <Content Include="Res\formValidator\js\languages\jquery.validationEngine-zh_CN.js" />
+    <Content Include="Res\formValidator\test\AjaxTestServer.java" />
+    <Content Include="Res\formValidator\test\NanoHTTPD.java" />
+    <Content Include="Res\googleTime\clock.js" />
+    <Content Include="Res\googleTime\clock.swf" />
+    <Content Include="Res\googleTime\swflash.cab" />
+    <Content Include="Res\jquery-easyui-1.3.2\changelog.txt" />
+    <Content Include="Res\jquery-easyui-1.3.2\easyloader.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\jquery-1.8.0.min.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\jquery.easyui.min.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\jquery.form.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\licence_gpl.txt" />
+    <Content Include="Res\jquery-easyui-1.3.2\license_commercial.txt" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-af.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-ar.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-bg.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-ca.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-cs.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-cz.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-da.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-de.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-el.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-en.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-es.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-fr.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-it.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-jp.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-nl.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-pt_BR.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-ru.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-tr.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-zh_CN.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\locale\easyui-lang-zh_TW.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\datagrid-detailview.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.accordion.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.calendar.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.combo.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.combobox.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.combogrid.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.combotree.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.datagrid.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.datebox.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.datetimebox.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.dialog.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.draggable.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.droppable.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.form.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.layout.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.linkbutton.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.menu.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.menubutton.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.messager.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.numberbox.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.numberspinner.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.pagination.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.panel.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.parser.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.progressbar.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.propertygrid.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.resizable.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.searchbox.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.slider.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.spinner.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.splitbutton.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.tabs.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.timespinner.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.tree.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.treegrid.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.validatebox.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\plugins\jquery.window.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\readme.txt" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\easyloader.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.accordion.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.calendar.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.combobox.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.datebox.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.draggable.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.droppable.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.form.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.linkbutton.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.menu.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.parser.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.progressbar.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.propertygrid.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.resizable.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.slider.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.tabs.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\src\jquery.window.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\accordion.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\calendar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\combo.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\combobox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\datagrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\datebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\dialog.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\layout.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\linkbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\menu.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\menubutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\messager.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\pagination.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\panel.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\progressbar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\propertygrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\searchbox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\slider.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\spinner.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\splitbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\tabs.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\tree.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\validatebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\window.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\accordion.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\calendar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\combo.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\combobox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\datagrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\datebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\dialog.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\layout.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\linkbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\menu.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\menubutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\messager.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\pagination.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\panel.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\progressbar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\propertygrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\searchbox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\slider.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\spinner.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\splitbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\tabs.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\tree.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\validatebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\window.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\accordion.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\calendar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\combo.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\combobox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\datagrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\datebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\dialog.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\layout.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\linkbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\menu.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\menubutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\messager.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\pagination.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\panel.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\progressbar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\propertygrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\searchbox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\slider.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\spinner.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\splitbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\tabs.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\tree.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\validatebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\window.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\accordion.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\calendar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\combo.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\combobox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\datagrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\datebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\dialog.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\layout.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\linkbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\menu.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\menubutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\messager.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\pagination.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\panel.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\progressbar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\propertygrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\searchbox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\slider.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\spinner.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\splitbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\tabs.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\tree.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\validatebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\window.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icon.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\back.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\bommanager.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\cancel.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\cdr.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\company.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\customer.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\cut.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\edit_add.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\edit_remove.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\edit_removeall.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\error.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\filesave.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\headphones.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\help.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\home.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\lock.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\log.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\mini_add.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\mini_edit.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\mini_refresh.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\no.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\ok.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\pencil.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\print.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\recharge.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\redo.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\reload.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\report.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\scmanager.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\search.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\seat.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\seater.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\sms.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\star.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\sum.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\system.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\team.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\tip.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\undo.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\icons\wired.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\accordion.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\calendar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\combo.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\combobox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\datagrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\datebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\dialog.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\easyui.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\accordion_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\blank.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\calendar_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\combo_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\datagrid_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\datebox_arrow.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\layout_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\loading.gif" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\menu_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\messager_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\pagination_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\panel_tools.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\searchbox_button.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\slider_handle.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\spinner_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\tabs_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\tree_icons.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\validatebox_arrows.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\validatebox_warning.png" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\layout.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\linkbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\menu.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\menubutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\messager.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\pagination.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\panel.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\progressbar.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\propertygrid.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\searchbox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\slider.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\spinner.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\splitbutton.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\tabs.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\tree.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\validatebox.css" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\window.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\animated-overlay.gif" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-icons_454545_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-icons_666666_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\jquery-ui-1.10.2.custom.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\css\flick\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\AUTHORS.txt" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\external\globalize.culture.de-DE.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\external\globalize.culture.ja-JP.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\external\globalize.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\external\jquery.mousewheel.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\external\jshint.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\external\qunit.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\external\qunit.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\Gruntfile.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\jquery-1.9.1.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\MIT-LICENSE.txt" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\animated-overlay.gif" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery-ui.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.all.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.base.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.button.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.core.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.menu.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.slider.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.theme.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\animated-overlay.gif" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-icons_454545_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-icons_666666_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery-ui.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.accordion.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.all.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.autocomplete.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.base.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.button.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.core.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.datepicker.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.dialog.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.menu.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.progressbar.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.resizable.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.selectable.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.slider.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.spinner.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.tabs.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.theme.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\jquery.ui.tooltip.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\animated-overlay.gif" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-icons_666666_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery-ui.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.button.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.core.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.menu.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.slider.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.theme.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\themes\flick\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery-ui-i18n.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-af.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ar.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-az.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-be.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-bg.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-bs.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ca.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-cs.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-cy-GB.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-da.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-de.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-el.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-en-AU.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-en-NZ.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-eo.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-et.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-eu.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-fa.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-fi.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-fo.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-fr-CA.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-fr.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-gl.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-he.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-hi.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-hr.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-hu.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-hy.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-id.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-is.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-it.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ja.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ka.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-kk.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-km.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ko.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ky.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-lb.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-lt.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-lv.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-mk.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ml.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ms.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-nb.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-nl-BE.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-nl.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-nn.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-no.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-pl.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-pt.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-rm.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ro.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ru.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-sk.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-sl.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-sq.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-sr.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-sv.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-ta.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-th.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-tj.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-tr.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-uk.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-vi.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery-ui.custom.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.accordion.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.autocomplete.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.button.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.core.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.datepicker.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.dialog.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.draggable.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.droppable.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-blind.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-bounce.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-clip.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-drop.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-explode.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-fade.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-fold.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-highlight.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-pulsate.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-scale.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-shake.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-slide.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect-transfer.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.effect.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.menu.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.mouse.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.position.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.progressbar.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.resizable.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.selectable.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.slider.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.sortable.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.spinner.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.tabs.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.tooltip.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\jquery.ui.widget.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery-ui-i18n.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-af.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ar-DZ.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ar.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-az.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-be.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-bg.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-bs.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ca.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-cs.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-cy-GB.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-da.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-de.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-el.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-en-AU.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-en-GB.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-en-NZ.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-eo.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-es.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-et.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-eu.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-fa.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-fi.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-fo.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-fr-CA.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-fr-CH.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-fr.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-gl.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-he.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-hi.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-hr.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-hu.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-hy.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-id.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-is.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-it.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ja.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ka.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-kk.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-km.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ko.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ky.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-lb.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-lt.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-lv.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-mk.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ml.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ms.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-nb.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-nl-BE.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-nl.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-nn.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-no.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-pl.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-pt-BR.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-pt.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-rm.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ro.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ru.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-sk.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-sl.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-sq.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-sr-SR.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-sr.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-sv.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-ta.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-th.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-tj.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-tr.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-uk.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-vi.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-zh-CN.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-zh-HK.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\i18n\jquery.ui.datepicker-zh-TW.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery-ui.custom.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.accordion.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.autocomplete.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.button.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.datepicker.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.dialog.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.draggable.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.droppable.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-blind.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-bounce.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-clip.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-drop.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-explode.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-fade.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-fold.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-highlight.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-pulsate.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-scale.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-shake.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-slide.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect-transfer.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.effect.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.menu.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.mouse.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.progressbar.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.resizable.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.selectable.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.slider.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.sortable.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.spinner.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.tabs.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.tooltip.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\index.html" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\js\jquery-1.9.1.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\js\jquery-ui-1.10.2.custom.js" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\js\jquery-ui-1.10.2.custom.min.js" />
+    <Content Include="Res\jquery.cftoaster.1.0.0\jquery.cftoaster.1.0.0.css" />
+    <Content Include="Res\jquery.cftoaster.1.0.0\jquery.cftoaster.1.0.0.js" />
+    <Content Include="Res\jquery.cftoaster.1.0.0\jquery.cftoaster.1.0.0.min.js" />
+    <Content Include="Res\plugs\jquery.cookie.js" />
+    <Content Include="Res\My97DatePicker\calendar.js" />
+    <Content Include="Res\My97DatePicker\lang\en.js" />
+    <Content Include="Res\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Res\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Res\My97DatePicker\skin\datePicker.png" />
+    <Content Include="Res\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Res\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Res\My97DatePicker\skin\text-bg.png" />
+    <Content Include="Res\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Res\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Res\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Res\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Res\My97DatePicker\WdatePicker.js" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-blue\images\Thumbs.db" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-gray\images\Thumbs.db" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\Thumbs.db" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\Thumbs.db" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\webmvc.pubxml" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\Thumbs.db" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\Thumbs.db" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\default\images\Thumbs.db" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\gray\images\Thumbs.db" />
+    <Content Include="Res\jquery-easyui-1.3.2\themes\metro\images\Thumbs.db" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\package.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\README.md" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.accordion.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.autocomplete.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.button.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.core.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.datepicker.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.dialog.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.draggable.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.droppable.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-blind.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-bounce.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-clip.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-drop.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-explode.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-fade.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-fold.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-highlight.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-pulsate.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-scale.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-shake.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-slide.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect-transfer.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.effect.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.menu.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.mouse.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.position.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.progressbar.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.resizable.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.selectable.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.slider.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.sortable.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.spinner.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.tabs.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.tooltip.jquery.json" />
+    <Content Include="Res\jquery-ui-1.10.2.custom\development-bundle\ui.widget.jquery.json" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_LayoutMainTwo.cshtml" />
+    <Content Include="Views\System\PerformLog.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\System\MenuManager.cshtml" />
+    <Content Include="Views\System\NewsDelivery.cshtml" />
+    <Content Include="Views\System\EditAllMenu.cshtml" />
+    <Content Include="Views\System\MenuManager_Add.cshtml" />
+    <Content Include="Views\System\UserManager.cshtml" />
+    <Content Include="Views\System\User_Add.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\System\RoleManager.cshtml" />
+    <Content Include="Views\System\Role_Add.cshtml" />
+    <Content Include="Views\System\ErrorLog.cshtml" />
+    <Content Include="Views\News\NewsList.cshtml" />
+    <Content Include="Views\News\ShowNews.cshtml" />
+    <Content Include="Views\System\SystemManager.cshtml" />
+    <Content Include="Views\Content\Text.cshtml" />
+    <Content Include="Views\Content\Image.cshtml" />
+    <Content Include="Views\Content\Video.cshtml" />
+    <Content Include="Views\Content\Text_Add.cshtml" />
+    <Content Include="Res\kindeditor-4.1.10\asp.net\file_manager_json.ashx" />
+    <Content Include="Res\kindeditor-4.1.10\asp.net\upload_json.ashx" />
+    <Content Include="Res\kindeditor-4.1.10\jsp\demo.jsp" />
+    <Content Include="Res\kindeditor-4.1.10\jsp\file_manager_json.jsp" />
+    <Content Include="Res\kindeditor-4.1.10\jsp\upload_json.jsp" />
+    <Content Include="Res\kindeditor-4.1.10\php\demo.php" />
+    <Content Include="Res\kindeditor-4.1.10\php\file_manager_json.php" />
+    <Content Include="Res\kindeditor-4.1.10\php\JSON.php" />
+    <Content Include="Res\kindeditor-4.1.10\php\upload_json.php" />
+    <Content Include="Views\WebChat\WxAccount.cshtml" />
+    <Content Include="Views\WebChat\WxAccount_Add.cshtml" />
+    <Content Include="Views\WebChat\WxMenuManger.cshtml" />
+    <Content Include="Views\System\LoginUserManager.cshtml" />
+    <Content Include="Views\Content\Pwd.cshtml" />
+    <Content Include="Views\Content\Pwd_Add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Res\kindeditor-4.1.10\attached\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res\formValidator\test\AjaxTestServer%24AjaxValidationFieldResponse.class" />
+    <None Include="Res\formValidator\test\AjaxTestServer%24AjaxValidationFormResponse.class" />
+    <None Include="Res\formValidator\test\AjaxTestServer.class" />
+    <None Include="Res\formValidator\test\NanoHTTPD%24HTTPSession.class" />
+    <None Include="Res\formValidator\test\NanoHTTPD%24Response.class" />
+    <None Include="Res\formValidator\test\NanoHTTPD.class" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{4385FB82-9F46-4D6B-9F7C-ABB954639FD3}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBlinq\DBlinq.csproj">
+      <Project>{877C8EE2-B8C1-4C01-A9E2-2AAAC3679656}</Project>
+      <Name>DBlinq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EfSearchModel\EfSearchModel.csproj">
+      <Project>{787dbfb5-1861-493f-8d8c-35886810445b}</Project>
+      <Name>EfSearchModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2158</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2158/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AnyCode" Class="GodBuildDB" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=www.isaacxu.com;Initial Catalog=AnyCode;Persist Security Info=True;User ID=wsoft" SettingsObjectName="DBlinq.Properties.Settings" SettingsPropertyName="AnyCodeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Sys_Exception" Member="Sys_Exception">
+    <Type Name="Sys_Exception">
+      <Column Name="Id" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LeiXing" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Result" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatePerson" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Log" Member="Sys_Log">
+    <Type Name="Sys_Log">
+      <Column Name="Id" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PersonId" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Result" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MenuId" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="Ip" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatePerson" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_BlackList" Member="Sys_BlackList">
+    <Type Name="Sys_BlackList">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_CompanyStatus" Member="Sys_CompanyStatus">
+    <Type Name="Sys_CompanyStatus">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="Sys_CompanyStatus_Sys_Company" Member="Sys_Company" ThisKey="Id" OtherKey="Status" Type="Sys_Company" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_UserStatus" Member="Sys_UserStatus">
+    <Type Name="Sys_UserStatus">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="Sys_UserStatus_Sys_User" Member="Sys_User" ThisKey="Id" OtherKey="Status" Type="Sys_User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Function" Member="Sys_Function">
+    <Type Name="Sys_Function">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="[Function]" Member="Function" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Role" Member="Sys_Role">
+    <Type Name="Sys_Role">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Pid" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Fid" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Cid" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsSystem" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Sys_Role_Sys_User" Member="Sys_User" ThisKey="Id" OtherKey="RoleId" Type="Sys_User" />
+      <Association Name="Sys_Company_Sys_Role" Member="Sys_Company" ThisKey="Cid" OtherKey="Id" Type="Sys_Company" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Icon" Member="Sys_Icon">
+    <Type Name="Sys_Icon">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(36) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IconClass" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Menu" Member="Sys_Menu">
+    <Type Name="Sys_Menu">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="SystemWeb" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyWeb" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Controller" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Iconic" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="[Function]" Member="Function" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="IsColumn" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebNews" Member="Sys_WebNews">
+    <Type Name="Sys_WebNews">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="News" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.String" DbType="NVarChar(36)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Sys_WebNews_Sys_WebNewsCode" Member="Sys_WebNewsCode" ThisKey="Id" OtherKey="NewId" Type="Sys_WebNewsCode" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebNewsCode" Member="Sys_WebNewsCode">
+    <Type Name="Sys_WebNewsCode">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NewId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsRead" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Sys_WebNews_Sys_WebNewsCode" Member="Sys_WebNews" ThisKey="NewId" OtherKey="Id" Type="Sys_WebNews" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.News_User_Company" Member="News_User_Company">
+    <Type Name="News_User_Company">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatePerson" Type="System.String" DbType="NVarChar(36)" CanBeNull="true" />
+      <Column Name="MyName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsRead" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="News" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Company" Member="Sys_Company">
+    <Type Name="Sys_Company">
+      <Column Name="Id" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CompanyName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactPerson" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Icp" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Logo" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Footer" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Sys_Company_Sys_Role" Member="Sys_Role" ThisKey="Id" OtherKey="Cid" Type="Sys_Role" />
+      <Association Name="Sys_Company_Sys_User" Member="Sys_User" ThisKey="Id" OtherKey="Cid" Type="Sys_User" />
+      <Association Name="Sys_CompanyStatus_Sys_Company" Member="Sys_CompanyStatus" ThisKey="Status" OtherKey="Id" Type="Sys_CompanyStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_User" Member="Sys_User">
+    <Type Name="Sys_User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cid" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="Pid" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="MyName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MobilePhoneNumber" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="IsSystem" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Association Name="Sys_Company_Sys_User" Member="Sys_Company" ThisKey="Cid" OtherKey="Id" Type="Sys_Company" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Sys_Role_Sys_User" Member="Sys_Role" ThisKey="RoleId" OtherKey="Id" Type="Sys_Role" IsForeignKey="true" />
+      <Association Name="Sys_UserStatus_Sys_User" Member="Sys_UserStatus" ThisKey="Status" OtherKey="Id" Type="Sys_UserStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Text" Member="Sys_Text">
+    <Type Name="Sys_Text">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_MsgType" Member="Sys_WebChat_MsgType">
+    <Type Name="Sys_WebChat_MsgType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MsgType" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sys_webchat_ReplyMsgs" Member="sys_webchat_ReplyMsgs">
+    <Type Name="sys_webchat_ReplyMsgs">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Token" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AppId" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MsgType" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="createtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_MsgNews" Member="Sys_WebChat_MsgNews">
+    <Type Name="Sys_WebChat_MsgNews">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[Group]" Member="Group" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PicUrl" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_MsgText" Member="Sys_WebChat_MsgText">
+    <Type Name="Sys_WebChat_MsgText">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_AutoReplyMap" Member="Sys_WebChat_AutoReplyMap">
+    <Type Name="Sys_WebChat_AutoReplyMap">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Token" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AppId" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Command" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MsgTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MsgOrGroupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_MsgMap" Member="Sys_WebChat_MsgMap">
+    <Type Name="Sys_WebChat_MsgMap">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Token" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AppId" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MsgOrGroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MsgType" Storage="_MsgTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Password" Member="Sys_Password">
+    <Type Name="Sys_Password">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_Config" Member="Sys_WebChat_Config">
+    <Type Name="Sys_WebChat_Config">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Token" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AppId" Type="System.String" DbType="Char(18) NOT NULL" CanBeNull="false" />
+      <Column Name="AppSecret" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EncodingAESKey" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_MenuType" Member="Sys_WebChat_MenuType">
+    <Type Name="Sys_WebChat_MenuType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="IsAutoRePly" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_Menu" Member="Sys_WebChat_Menu">
+    <Type Name="Sys_WebChat_Menu">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CfgId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Key]" Member="Key" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Media_id" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="Fid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_V_Menu" Member="Sys_WebChat_V_Menu">
+    <Type Name="Sys_WebChat_V_Menu">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cfgid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="typeid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="[key]" Member="key" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="url" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="media_id" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="sub_button" Type="dynamic" DbType="Int" CanBeNull="true" />
+      <Column Name="sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sf_Product" Member="Sf_Product">
+    <Type Name="Sf_Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Describe" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,1) NOT NULL" CanBeNull="false" />
+      <Column Name="Oprice" Type="System.Decimal" DbType="Decimal(18,1) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
