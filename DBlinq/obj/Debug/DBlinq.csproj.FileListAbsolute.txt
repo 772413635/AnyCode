@@ -1,8 +1,0 @@
-E:\test\AnyCode\DBlinq\bin\Debug\DBlinq.dll.config
-E:\test\AnyCode\DBlinq\bin\Debug\DBlinq.dll
-E:\test\AnyCode\DBlinq\bin\Debug\DBlinq.pdb
-E:\test\AnyCode\DBlinq\bin\Debug\MongoDB.Bson.dll
-E:\test\AnyCode\DBlinq\bin\Debug\MongoDB.Driver.dll
-E:\test\AnyCode\DBlinq\obj\Debug\DBlinq.csprojResolveAssemblyReference.cache
-E:\test\AnyCode\DBlinq\obj\Debug\DBlinq.dll
-E:\test\AnyCode\DBlinq\obj\Debug\DBlinq.pdb

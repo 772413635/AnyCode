@@ -1,5 +1,0 @@
-E:\test\AnyCode\EfSearchModel\bin\Release\EfSearchModel.dll
-E:\test\AnyCode\EfSearchModel\bin\Release\EfSearchModel.pdb
-E:\test\AnyCode\EfSearchModel\obj\Release\EfSearchModel.csprojResolveAssemblyReference.cache
-E:\test\AnyCode\EfSearchModel\obj\Release\EfSearchModel.dll
-E:\test\AnyCode\EfSearchModel\obj\Release\EfSearchModel.pdb

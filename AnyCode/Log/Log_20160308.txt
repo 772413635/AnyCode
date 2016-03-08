@@ -1,0 +1,122 @@
+
+----------------------开始--------------------------
+2016-03-08 16:06:24,939 [9] ERROR FastLogger : 
+Error Url :: http://localhost:2158/Account/Login
+------ Exception ------
+Class Name :: MongoDB.Driver.Internal.DirectMongoServerProxy
+Method Name :: Connect
+Message :: Unable to connect to server www.isaacxu.com:27017: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 114.215.202.15:27017.
+StackTrace ::    在 MongoDB.Driver.Internal.DirectMongoServerProxy.Connect(TimeSpan timeout, ReadPreference readPreference)
+   在 MongoDB.Driver.MongoServer.Connect(TimeSpan timeout)
+   在 MongoDB.Driver.MongoServer.Connect()
+   在 DBlinq.MongoDbHelper.get_Server() 位置 e:\test\AnyCode\DBlinq\MongoDbHelper.cs:行号 21
+   在 DBlinq.MongoDbHelper.get_DataBase() 位置 e:\test\AnyCode\DBlinq\MongoDbHelper.cs:行号 37
+   在 AnyCode.Controllers.AccountController.Login(Sys_User model) 位置 e:\test\AnyCode\AnyCode\Controllers\AccountController.cs:行号 48
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+Source :: MongoDB.Driver
+InnerException :: System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 114.215.202.15:27017
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 MongoDB.Driver.Internal.MongoConnection.Open()
+   在 MongoDB.Driver.Internal.MongoConnection.GetNetworkStream()
+   在 MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, WriteConcern writeConcern, String databaseName)
+   在 MongoDB.Driver.Internal.MongoConnection.RunCommand(String databaseName, QueryFlags queryFlags, CommandDocument command, Boolean throwOnError)
+   在 MongoDB.Driver.MongoServerInstance.Ping(MongoConnection connection)
+   在 MongoDB.Driver.MongoServerInstance.Connect()
+   在 MongoDB.Driver.Internal.DirectMongoServerProxy.Connect(TimeSpan timeout, ReadPreference readPreference)
+
+
+
+
+----------------------开始--------------------------
+2016-03-08 16:07:29,228 [6] ERROR FastLogger : 
+Error Url :: http://localhost:2158/Account/Login
+------ Exception ------
+Class Name :: MongoDB.Driver.Internal.DirectMongoServerProxy
+Method Name :: Connect
+Message :: Unable to connect to server www.isaacxu.com:27017: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 114.215.202.15:27017.
+StackTrace ::    在 MongoDB.Driver.Internal.DirectMongoServerProxy.Connect(TimeSpan timeout, ReadPreference readPreference)
+   在 MongoDB.Driver.MongoServer.Connect(TimeSpan timeout)
+   在 MongoDB.Driver.MongoServer.Connect()
+   在 DBlinq.MongoDbHelper.get_Server() 位置 e:\test\AnyCode\DBlinq\MongoDbHelper.cs:行号 21
+   在 DBlinq.MongoDbHelper.get_DataBase() 位置 e:\test\AnyCode\DBlinq\MongoDbHelper.cs:行号 37
+   在 AnyCode.Controllers.AccountController.Login(Sys_User model) 位置 e:\test\AnyCode\AnyCode\Controllers\AccountController.cs:行号 48
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+Source :: MongoDB.Driver
+InnerException :: System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 114.215.202.15:27017
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 MongoDB.Driver.Internal.MongoConnection.Open()
+   在 MongoDB.Driver.Internal.MongoConnection.GetNetworkStream()
+   在 MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, WriteConcern writeConcern, String databaseName)
+   在 MongoDB.Driver.Internal.MongoConnection.RunCommand(String databaseName, QueryFlags queryFlags, CommandDocument command, Boolean throwOnError)
+   在 MongoDB.Driver.MongoServerInstance.Ping(MongoConnection connection)
+   在 MongoDB.Driver.MongoServerInstance.Connect()
+   在 MongoDB.Driver.Internal.DirectMongoServerProxy.Connect(TimeSpan timeout, ReadPreference readPreference)
+
+
+
+2016-03-08 16:07:59,181 [11] ERROR FastLogger : 
+Error Url :: http://localhost:2158/Account/Login
+------ Exception ------
+Class Name :: MongoDB.Driver.Internal.DirectMongoServerProxy
+Method Name :: Connect
+Message :: Unable to connect to server www.isaacxu.com:27017: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 114.215.202.15:27017.
+StackTrace ::    在 MongoDB.Driver.Internal.DirectMongoServerProxy.Connect(TimeSpan timeout, ReadPreference readPreference)
+   在 MongoDB.Driver.MongoServer.Connect(TimeSpan timeout)
+   在 MongoDB.Driver.MongoServer.Connect()
+   在 DBlinq.MongoDbHelper.get_Server() 位置 e:\test\AnyCode\DBlinq\MongoDbHelper.cs:行号 27
+   在 DBlinq.MongoDbHelper.get_DataBase() 位置 e:\test\AnyCode\DBlinq\MongoDbHelper.cs:行号 37
+   在 AnyCode.BaseController.OnActionExecuting(ActionExecutingContext filterContext) 位置 e:\test\AnyCode\AnyCode\Models\BaseController.cs:行号 125
+   在 System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuting(ActionExecutingContext filterContext)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<>c__DisplayClass3b.<BeginInvokeActionMethodWithFilters>b__35()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+Source :: MongoDB.Driver
+InnerException :: System.Net.Sockets.SocketException (0x80004005): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 114.215.202.15:27017
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 MongoDB.Driver.Internal.MongoConnection.Open()
+   在 MongoDB.Driver.Internal.MongoConnection.GetNetworkStream()
+   在 MongoDB.Driver.Internal.MongoConnection.SendMessage(MongoRequestMessage message, WriteConcern writeConcern, String databaseName)
+   在 MongoDB.Driver.Internal.MongoConnection.RunCommand(String databaseName, QueryFlags queryFlags, CommandDocument command, Boolean throwOnError)
+   在 MongoDB.Driver.MongoServerInstance.Ping(MongoConnection connection)
+   在 MongoDB.Driver.MongoServerInstance.Connect()
+   在 MongoDB.Driver.Internal.DirectMongoServerProxy.Connect(TimeSpan timeout, ReadPreference readPreference)
+
+
+
