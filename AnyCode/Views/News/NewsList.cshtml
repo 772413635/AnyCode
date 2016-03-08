@@ -1,0 +1,45 @@
+﻿@using EfSearchModel.Extensions
+@using EfSearchModel.Model
+@{
+    ViewBag.Title = "NewList";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script type="text/javascript" src="../../Javascripts/System/NewsList.js"></script>
+}
+<div region="center" style="padding: 5px;" border="false">
+            <table id="test">
+        </table>
+</div>
+
+<div id="divQuery" title="查询列表" class="easyui-window" closed="true" modal="false"
+        width="auto" height="auto" style="padding: 5px; background: #fafafa;">
+        <form action="javascript:;" id="formsearch" method="post">
+        <table cellpadding="0" cellspacing="0" cellspacing="1" class="Admin_Table" style="width: 100%;
+            margin: 0px auto;">
+            <tr>
+            <td style="width:10%; text-align:right">起始日期：</td>
+            <td style="width:40%; text-align:left">@Html.TextBox("CreateTime",null, new { @class="Wdate text",@style="width:80%",@onclick = "WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" }).ForSearch(QueryMethod.GreaterThanOrEqual)</td>
+            <td style="width:10%; text-align:right">截止日期：</td>
+            <td style="width:40%; text-align:left"> @Html.TextBox("CreateTime", null, new {@class="Wdate text",@style="width:80%", @onclick = "WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" }).ForSearch(QueryMethod.LessThanOrEqual)</td>
+           </tr>
+            <tr>
+                <td style="width:10%; text-align:right">标&nbsp;&nbsp;&nbsp;&nbsp;题：</td>
+                <td style="width:40%; text-align:left">@Html.TextBox("Title", "", new { @class = "text", @style = "width:80%"}).ForSearch(QueryMethod.Contains)</td>
+                <td style="width: 10%; text-align: right">
+                    内容包含：
+                </td>
+                <td style="width:40%; text-align: left">
+                    @Html.TextBox("News", null, new { @style = "width:80%;height:18px",@class="text" }).ForSearch(QueryMethod.Contains)
+                </td>
+                   
+            </tr>
+        </table>
+        <div style="height: 10px">
+        </div>
+        <div region="south" border="false" style="text-align: right; height: 30px; line-height: 30px;">
+            <button class="btn-sub" type="button" onclick="Search()">
+                查询</button>
+        </div>
+        </form>
+    </div>

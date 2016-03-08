@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "IndexCom";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script src="@Url.Content("~/Javascripts/System/IndexCom.js")"></script>
+}
+@Html.Hidden("companyId", ViewData["companyId"])
+@Html.Hidden("companyName", ViewData["companyName"])
+<div region="center" class="content-center" border="false">
+    <table id="test"></table>
+</div>
+<div id="divQuery" title="查询列表">
+    <form id="formsearch" action="javascript:;" class="form">
+        <table cellpadding="0" cellspacing="0" class="Admin_Table query_table">
+
+            <tr>
+                <td style="width: 100px; text-align: right">用户名称：</td>
+                <td style="width: 200px; text-align: left">
+                    <input id="Name" name="[Contains]Name" type="text" style="width: 77%; height: 18px" />
+                </td>
+                <td style="width: 100px; text-align: right">姓 名：</td>
+                <td style="width: 200px; text-align: left">
+                    <input id="MyName" name="[Contains]MyName" type="text" style="width: 77%; height: 18px" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right">创建时间：</td>
+                <td style="width: 200px; text-align: left" colspan="3">
+                    <input id="CreateTime" name="[GreaterThanOrEqual]CreateTime" type="text" class="Wdate" style="width: 40%; height: 18px" />
+                    <input id="CreateTime" name="[LessThanOrEqual]CreateTime" type="text" class="Wdate" style="width: 40%; height: 18px" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right">管 理 员：</td>
+                <td style="width: 200px; text-align: left">
+
+                    <input id="IsSystem" name="[Equal]IsSystem" type="checkbox" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div id="dd" title="确认删除" style="display: none;">
+    <div class="dialog-content-me">
+        您确认删除所选的这<span id="ddText" style='color: red'></span>条数据吗？
+    </div>
+</div>

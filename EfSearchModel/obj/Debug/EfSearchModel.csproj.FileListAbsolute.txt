@@ -1,0 +1,5 @@
+E:\test\AnyCode\EfSearchModel\bin\Debug\EfSearchModel.dll
+E:\test\AnyCode\EfSearchModel\bin\Debug\EfSearchModel.pdb
+E:\test\AnyCode\EfSearchModel\obj\Debug\EfSearchModel.csprojResolveAssemblyReference.cache
+E:\test\AnyCode\EfSearchModel\obj\Debug\EfSearchModel.dll
+E:\test\AnyCode\EfSearchModel\obj\Debug\EfSearchModel.pdb

@@ -1,0 +1,86 @@
+﻿@model DBlinq.Sys_WebNews
+@{
+    ViewBag.Title = "NewsDelivery";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script type="text/javascript" src="@Url.Content("~/Javascripts/System/NewsDelivery.js")"></script> 
+    <style type="text/css">
+        .formTable {
+            width: 80%;
+            -moz-min-width: 800px;
+            -ms-min-width: 800px;
+            -o-min-width: 800px;
+            -webkit-min-width: 800px;
+            min-width: 800px;
+        }
+    </style>
+}
+
+@Html.Hidden("People",ViewData["People"]);
+<div region="center" class="content-center" border="false">
+    <form id="sendfm" name="sendfm">
+        <div class="content-box" style="border-left-width:0">
+            <h3 class="title">
+                新增推送消息
+            </h3>
+            <table border="0" cellpadding="4" cellspacing="1" class="formTable">
+                <tr>
+                    <td style="width: 8%">
+                        <div style="float: left; padding-left: 5px">
+                            <label class="label-text" style="padding-top: 3px">
+                                推送用户:
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <select id="ddlSeat" name="dept" style="width: 555px;"></select>
+                        <input type="text" id="usersel" name="usersel" readonly="readonly" class="validate[required]" style="position: relative;z-index: -99;left: -148px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 8%">
+                        <div style="float: left; padding-left: 5px">
+                            <label class="label-text" style="padding-top: 3px">
+                                消息标题:
+                            </label>
+                        </div>
+                    </td>
+                    <td style="height: 150px;line-height: 150px;">
+                        <input id="title" name="title" type="text" style="width:550px" class="text validate[required,maxSize[50]]" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="content-box-edit" style="border-left-width: 0;padding-top: 0; ">
+            <table border="0" cellpadding="4" cellspacing="1" class="formTable">
+                <tr>
+                    <td style="width: 8%">
+                        <div style="float: left; padding-left: 5px">
+                            <label class="label-text" style="padding-top: 3px">
+                                消息内容:
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(model => model.News, new { @Class = "text validate[required]", Style = "width:550px;height:200px;overflow-y:auto" })
+                    </td>
+                </tr>
+            </table>
+            <div class="clr">
+            </div>
+            <div style="height: 10px">
+            </div>
+            <div class="btn-bar" style="padding-left:65px;">
+                <button class="btn-back" type="button" onclick="backList();">
+                    返回列表
+                </button>
+                <button class="btn-sub" type="button" id="btnSend">
+                    发送消息
+                </button>
+            </div>
+        </div>
+      
+    </form>
+   
+</div>

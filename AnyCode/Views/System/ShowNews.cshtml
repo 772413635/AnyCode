@@ -1,0 +1,50 @@
+﻿@model DBlinq.Sys_WebNews
+@{
+    ViewBag.Title = "ShowNews";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head2{
+    <script type="text/javascript" src="@Url.Content("~/Javascripts/Company/ShowNews.js")"></script>
+    <style type="text/css">
+        .item-th
+        {
+            font-weight: bold;
+            color: #515151;
+            width: 100px;
+        }
+
+        .item-td
+        {
+            font-weight: normal;
+            color: #000;
+        }
+    </style>
+}
+
+<div region="center" class="content-center" border="false">
+    <div class="btn-bar">
+        <button class="btn-back" type="button" onclick="backList();">返回列表</button>
+    </div>
+    <div class="clr"></div>
+    <h3 class="title">公告信息</h3>
+    <table class="tb-edit" border="0" cellpadding="4" cellspacing="0" width="50%">
+        <tr>
+            <td width="4%">
+                <label class="item-th">创建日期：</label></td>
+            <td width="44%"><span class="item-td" style="font-size: 12px">@ViewData["CreateTime"]</span>  </td>
+        </tr>
+        <tr>
+            <td width="4%">
+                <label class="item-th">创 建 人：</label></td>
+            <td width="44%"><span class="item-td" style="font-size: 12px">@ViewData["CreatePerson"]</span></td>
+        </tr>
+        <tr>
+            <td width="4%">
+                <label class="item-th">内    容：</label></td>
+            <td width="44%">
+                <div style="width: 800px; font-size: 12px; line-height: 20px; -ms-word-wrap: break-word; word-wrap: break-word;">@ViewData["News"]</div>
+            </td>
+        </tr>
+
+    </table>
+</div>

@@ -1,0 +1,130 @@
+﻿@using AnyCode.Models
+@model DBlinq.Sys_User
+@{
+    ViewBag.Title = "EditCom";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script src="@Url.Content("~/Javascripts/System/EditCom.js")"></script>
+}
+<div region="center" border="false" class="content-center">
+    <form id="fm" action="/User/EditCom" method="post">
+        @Html.Hidden("companyId", ViewData["companyId"].ToString())
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.RoleId)
+        <div class="btn-bar">
+            <button class="btn-back" type="button" onclick=" BackPage();">返回</button>
+            <button class="btn-sub" type="button" onclick="Save()">保存</button>
+        </div>
+        <h3 class="title">用户信息</h3>
+        <div>
+            <table class="tb-edit">
+                <tr>
+                    <td>
+                        <label class="item-th">用户名</label>
+                    </td>
+                    <td>
+                        @{
+                            if (ViewData["Id"] == null)
+                            {
+                                @Html.TextBoxFor(model => model.Name, new {@class = "text validate[required,maxSize[20],custom[onlyLetterNumber]]", style = "width:40%"})
+                            }
+                            else
+                            {
+                                 @Html.TextBoxFor(model => model.Name, new {@class = "text validate[required,maxSize[20],custom[onlyLetterNumber]]", style = "width:40%;",@readonly="readonly"})
+                            }
+                        }
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">姓名</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.MyName, new { @class = "text validate[required,maxSize[20]]", style = "width:70%" })
+                    </td>
+                </tr>
+                @{
+                    if (ViewData["Id"] == null)
+                    {
+                        <tr>
+                            <td>
+                                <label class="item-th">密码</label>
+                            </td>
+                            <td>
+                                @Html.PasswordFor(model => model.Password, new { @class = "text validate[required,maxSize[20]]", style = "width:50%" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="item-th">密码确认</label>
+                            </td>
+                            <td>@Html.Password("verifypwd", "", new { @class = "text validate[required,equals[Password]]", style = "width:50%" }) </td>
+                        </tr>
+                    }
+                }
+                <tr>
+                    <td>
+                        <label class="item-th">手机号码</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.MobilePhoneNumber, new { @class = "text", style = "width:40%" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">办公电话</label>
+                    </td>
+                    <td>@Html.TextBoxFor(model => model.PhoneNumber, new { @class = "text", style = "width:40%" }) </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">电子邮箱</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "text", style = "width:50%" })
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">用户状态</label>
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(model => model.Status, (SelectList)ViewData["UserStatus"], new { @class = "select-edit", style = "width:20%" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <h3 class="title">权限信息</h3>
+        <div>
+            <table class="tb-edit">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label class="item-th">角色选择</label>
+                        </td>
+                        <td>
+                            <select id="cc" class="roleSelect" name="dept" style="width: 100px;"></select>
+                            <span id="info" style="display: none;color: red">系统内置账户无法更改角色</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="item-th">权限树</label>
+                        </td>
+                        <td>
+                            <ul id="pTree"></ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn-bar">
+            <button class="btn-back" type="button" onclick=" BackPage();">返回</button>
+            <button class="btn-sub" type="button" onclick="Save()">保存</button>
+        </div>
+    </form>
+</div>

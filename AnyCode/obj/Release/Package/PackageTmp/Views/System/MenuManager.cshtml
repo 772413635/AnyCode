@@ -1,0 +1,108 @@
+﻿@model DBlinq.Sys_Menu
+@{
+    ViewBag.Title = "MenuManager";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script src="@Url.Content("~/Javascripts/System/MenuManager.js")"></script>
+    <style type="text/css">
+        #tree .tree-node {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+}
+<div id="Menu_west" split="true" region="west" border="false" style="width: 200px;overflow-x: hidden" class="content-center">
+    <div class="left_div">
+        <div id="left_div_search">
+            <div style="width: 35px">
+                <button class="btn-add" onclick="treeEdit('添加菜单类别')"></button>
+            </div>
+            <div id="left_div_search_d">
+                <input id="left_div_search_text" type="text"  style="width: 100%"/>
+            </div>
+            <div style="width: 31px;text-align: center;float: right" >
+                <button class="btn-search" onclick="searchTree()"></button>
+            </div>
+        </div>
+        <ul id="tree">
+        </ul>
+    </div>
+</div>
+<div region="center" border="false" class="content-center">
+
+    <table id="test">
+    </table>
+
+</div>
+<!--查询框-->
+<div id="divQuery" title="查询列表" style="display: none">
+    <form id="formsearch" action="javascript:;" class="form">
+        <table cellpadding="0" cellspacing="0" class="Admin_Table query_table">
+            <tr>
+                <td style="width: 100px; border-right: none; text-align: right">
+                    名 称：
+                </td>
+                <td style="width: 200px; text-align: left">
+                    <input id="UserName" name="[Contains]Name" type="text" class="text" style="width: 77%; height: 18px" />
+                </td>
+                <td style="width: 100px; border-right: none; text-align: right">
+                    属 于：
+                </td>
+                <td style="width: 200px; text-align: left">
+                    <select id="ParentId" name="[Equal]ParentId" type="text" class="text" style="width: 77%; height: 20px"></select>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div id="dd" title="确认删除" style="display: none;">
+    <div class="dialog-content-me">
+        您确认删除所选的这<span id="ddText" style='color: red'></span>条数据吗？
+    </div>
+</div>
+<div id="mm_Manager" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="treeEdit('编辑菜单类别')" iconcls="icon-edit">
+        编辑
+    </div>
+    <div onclick="treeDelete()" iconcls="icon-remove">
+        删除
+    </div>
+</div>
+<div id="treeEdit" style="padding: 5px; background: #fafafa; display: none;">
+    <form id="treeEditFrom">
+        <input type="hidden" id="Id" name="Id"/>
+        <input type="hidden" id="Controller" name="Controller"/>
+        <input type="hidden" id="Action" name="Action"/>
+        <input type="hidden" id="IsColumn" name="IsColumn" value="true"/>
+        <table cellpadding="0" cellspacing="0" class="Admin_Table" style="width: 100%; margin: 0px auto;">
+            <tr>
+                <td style="width: 100px; border-right: none; text-align: right">名称：
+                </td>
+                <td style="width: 200px; text-align: left">
+                    <input id="Name" name="Name" type="text" class="text" style="width: 77%; height: 18px" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; border-right: none; text-align: right">排序：
+                </td>
+                <td style="width: 200px; text-align: left">
+                    <input id="Sort" name="Sort" type="text" class="text" style="width: 77%; height: 18px" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; border-right: none; text-align: right">图标：
+                </td>
+                <td style="width: 200px; text-align: left;">
+                    <input id="Iconic" name="Iconic" type="text" class="text" style="width: 77%; height: 18px" />
+
+                </td>
+            </tr>
+        </table>
+        <div region="south" border="false" class="toolbar">
+            <button class="btn-sub" type="button" onclick="treeEditSave()">
+                确定</button>
+        </div>
+
+    </form>
+</div>

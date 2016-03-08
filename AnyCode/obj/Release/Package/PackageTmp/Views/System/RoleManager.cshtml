@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "RoleManager";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script src="@Url.Content("~/Javascripts/System/RoleManager.js")"></script>
+}
+<div region="center" class="content-center" border="false">
+    @Html.Hidden("companyId", ViewData["companyId"])
+    <table id="test"></table>
+</div>
+
+
+<div id="divQuery" title="查询列表">
+    <form id="formsearch" action="javascript:;" class="form">
+        <table cellpadding="0" cellspacing="0" class="Admin_Table query_table">
+
+            <tr>
+                <td style="width: 100px; text-align: right">角色名称：</td>
+                <td style="width: 200px; text-align: left">
+                    <input id="Name" name="[Contains]RoleName" type="text" style="width: 77%; height: 18px" />
+                </td>
+                <td style="width: 120px; text-align: right">管理员角色：</td>
+                <td style="width: 200px; text-align: left">
+                    <input id="IsSystem" name="[Equal]IsSystem" type="checkbox" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div id="dd" title="确认删除" style="display: none;">
+    <div class="dialog-content-me">
+        您确认删除所选的这<span id="ddText" style='color: red'></span>条数据吗？删除角色同时，其下的用户也会被删除，请谨慎操作！
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿body {
+}
+.t_nav_li {
+	float: right; margin: 0px 10px 3px 0; _display: inline
+}
+.t_nav_li ul {
+	margin: 0; padding: 0; list-style: none;
+}
+.t_nav_li ul li {
+	float: left; margin: 0; text-align: center; line-height: 1.6;
+	width: 53px; height: 56px; padding: 4px 0 0;
+}
+.t_nav_li ul li .imgwap {
+	width: 32px; height: 32px; margin: 0 auto;
+}
+.t_nav_li ul li a {
+	color: #fff;
+}
+.t_nav_li ul li a:hover {
+	color: #f00;
+}
+.j_ico_customer,
+.j_ico_contact,
+.j_ico_notice,
+.j_ico_addressBook,
+.j_ico_case,
+.j_ico_report,
+.j_ico_file,
+.j_ico_more
+{
+	display: block; width: 32px; height: 32px; margin: 0 auto; cursor: pointer;
+}
+.j_ico_customer{
+	background: url(../Images/head/customer_head.png) no-repeat; 	
+}
+.j_ico_contact{
+	background: url(../Images/head/contact_head.png) no-repeat; 	
+}
+.j_ico_notice{
+	background: url(../Images/head/notice_head.png) no-repeat; 	
+}
+.j_ico_addressBook{
+	background: url(../Images/head/addressbook_head.png) no-repeat; 	
+}
+.j_ico_case{
+	background: url(../Images/head/case_head.png) no-repeat; 	
+}
+.j_ico_report{
+	background: url(../Images/head/report_head.png) no-repeat; 	
+}
+.j_ico_file{
+	background: url(../Images/head/file_head.png) no-repeat; 	
+}
+.j_ico_more{
+	background: url(../Images/head/more_head.png) no-repeat; 	
+}

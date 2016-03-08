@@ -1,0 +1,7 @@
+E:\test\AnyCode\DBlinq\bin\Release\DBlinq.dll.config
+E:\test\AnyCode\DBlinq\bin\Release\DBlinq.dll
+E:\test\AnyCode\DBlinq\bin\Release\DBlinq.pdb
+E:\test\AnyCode\DBlinq\bin\Release\MongoDB.Bson.dll
+E:\test\AnyCode\DBlinq\bin\Release\MongoDB.Driver.dll
+E:\test\AnyCode\DBlinq\obj\Release\DBlinq.dll
+E:\test\AnyCode\DBlinq\obj\Release\DBlinq.pdb

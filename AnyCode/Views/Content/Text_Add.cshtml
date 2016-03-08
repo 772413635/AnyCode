@@ -1,0 +1,45 @@
+﻿@model DBlinq.Sys_Text
+@{
+    ViewBag.Title = "文本维护";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script type="text/javascript" src="../../Res/kindeditor-4.1.10/kindeditor-min.js"></script>
+    <script type="text/javascript" src="../../Res/kindeditor-4.1.10/lang/zh_CN.js"></script>
+    <script type="text/javascript" src="../../Javascripts/Content/Text_Add.js"></script>
+}
+<div region="center" class="content-center" border="false">
+    <form id="fm" action="javascript:;">
+        @Html.HiddenFor(c => c.Id)
+        <div class="btn-bar">
+            <button class="btn-back" type="button" onclick=" BackPage();">返回</button>
+            <button class="btn-sub" type="button" onclick="Save()">保存</button>
+        </div>
+        <h3 class="title">文本信息</h3>
+        <div>
+            <table class="tb-edit" style="width: 100%">
+                <tr>
+                    <td>
+                        <label class="item-th">标题</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Title, new { @class = "text validate[required,maxSize[100]]", style = "width:300px" })
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">内容</label>
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(model => model.Content, new { @class = "text", style = "width:98%;height:300px;resize:none" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="btn-bar">
+            <button class="btn-back" type="button" onclick=" BackPage();">返回</button>
+            <button class="btn-sub" type="button" onclick="Save()">保存</button>
+        </div>
+    </form>
+</div>

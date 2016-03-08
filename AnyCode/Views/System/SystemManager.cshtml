@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+
+}
+<div region="center" border="false" class="content-center">
+    <div class="btn-bar">
+        <button class="btn-sub" type="submit" onclick="SaveFull()">保存</button>
+    </div>
+    <h3 class="title">@ViewBag.Title</h3>
+    <form id="fm" action="javascript:;">
+        @Html.Hidden("Name", (string)ViewBag.Id)
+        <table class="EditTable">
+            <tr>
+                <td>
+                    <label class="item-th">
+                        名称
+                    </label>
+                </td>
+                <td>
+                    <input type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="item-th">
+                        主题
+                    </label>
+                </td>
+                <td>
+                    <input type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="item-th">
+                        图标
+                    </label>
+                </td>
+                <td>
+                    <input type="file" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="item-th">
+                        Logo
+                    </label>
+                </td>
+                <td>
+                    <input type="file" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="item-th">
+                        页眉背景
+                    </label>
+                </td>
+                <td>
+                    <input type="file" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="item-th">
+                        页尾内容
+                    </label>
+                </td>
+                <td>
+                    <input type="text" style="width: 200px"  class="validate[maxSize[5]]"/>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+    <div class="btn-bar" style="margin-top: 50px">
+        <button class="btn-sub" type="submit" onclick="SaveFull()">保存</button>
+    </div>
+</div>

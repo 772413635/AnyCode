@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "PerformLog";
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+
+@section head{
+    <script src="@Url.Content("~/Javascripts/System/PerformLof.js")"></script>
+}
+
+<div region="center" border="false" style="padding: 5px; padding-bottom: 0px;">
+    <table id="test">
+    </table>
+</div>
+
+
+
+<!--查询框-->
+<div id="divQuery" title="查询列表" style="padding: 5px;display: none; background: #fafafa;">
+    <form id="formsearch" action="javascript:;">
+        <table cellpadding="0" cellspacing="0" class="Admin_Table" style="width: 100%; margin: 0px auto;">
+            <tr>
+                <td style="width: 100px; border-right: none; text-align: right">时间：
+                </td>
+                <td style="width: 200px; text-align: left">
+                    <input type="text" id="CreateTime" name="[GreaterThanOrEqual]CreateTime" class="Wdate" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" />
+                </td>
+                <td style="width: 100px; border-right: none; text-align: right">至：
+                </td>
+                <td style="width: 200px; text-align: left">
+                    <input type="text" id="CreateTime" name="[LessThanOrEqual]CreateTime" class="Wdate" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; border-right: none; text-align: right">用户：
+                </td>
+                <td style="width: 200px; text-align: left">
+                    <input type="text" id="UserName" name="[Contains]UserName" class="text" />
+                </td>
+                <td style="width: 100px; border-right: none; text-align: right">IP地址：
+                </td>
+                <td style="width: 200px; text-align: left">
+                    <input type="text" id="Ip" name="[Equal]Ip" class="text" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

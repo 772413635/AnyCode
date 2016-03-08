@@ -1,0 +1,176 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Common
+@model DBlinq.Sys_Menu
+@{
+    ViewBag.Title = ViewBag.MyTitle;
+    Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script type="text/javascript" src="@Url.Content("~/Javascripts/System/MenuManager_Add.js")"></script>
+}
+<div region="center" border="false" class="content-center">
+    <div class="btn-bar">
+        <button class="btn-back" type="button" onclick="BaseBackPage('@ViewBag.Title','菜单管理','/System/CommonSearch/MenuManager');">返回</button>
+        <button class="btn-sub" type="submit" onclick="Save()">保存</button>
+    </div>
+    <h3 class="title">填写信息</h3>
+    @Html.Hidden("isEdit", ViewData["isEdit"].ToString())
+    <form id="fm" action="javascript:;">
+        @Html.HiddenFor(c => c.Id)
+        @Html.HiddenFor(c => c.Function)
+        <input type="hidden" name="CompanyWeb" id="CompanyWeb" value="true" />
+        <input type="hidden" name="SystemWeb" id="SystemWeb" value="true" />
+        <div>
+            <table class="tb-edit edit_h">
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            名称
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.Name, new { @class = "text validate[required,maxSize[200]]", style = "width: 40%" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            属于
+                        </label>
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(c => c.ParentId, (SelectList)ViewBag.dropType, new { @class = "text", style = "width: 20%;height:22px" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            排序序列
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.Sort, new { @class = "text validate[custom[integer]]", style = "width: 10%" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            路径
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.Url, new { @class = "text validate[required,maxSize[200]]", style = "width: 80%" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            控制器
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.Controller, new { @class = "text validate[required,maxSize[200]]", style = "width: 40%" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            方法
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.Action, new { @class = "text validate[required,maxSize[200]]", style = "width: 40%" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            图标
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.Iconic, new { @class = "text validate[required,maxSize[200]]", style = "width: 40%" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            备注
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.Remark, new { @class = "text validate[maxSize[4000]]", style = "width: 60%" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="item-th">
+                            状态
+                        </label>
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(c => c.State, new[]
+                    {
+                        new SelectListItem{Text="启用",Value="true"},
+                        new SelectListItem{Text="禁用",Value="false"}
+                    }, new { @class = "text", style = "width: 20%;height:22px" })
+                    </td>
+                </tr>
+            </table>
+
+            <div class="ver_line">
+
+            </div>
+
+            <div class="edit_h">
+                <h5> 功能模块</h5>
+
+                @{
+                    int rp = 18;
+                    int page = 1;
+
+                    var functionList = (List<FunctionS>)ViewBag.Functions;
+                    int totalPage = functionList.Count / rp + (functionList.Count % rp == 0 ? 0 : 1);
+                    while (page <= totalPage)
+                    {
+                        <ul class="functionUl">
+                            @{
+                                foreach (FunctionS fs in functionList.Skip((page-1)*rp).Take(rp))
+                                {
+                                    if (fs.IsSelect)
+                                    {
+                                        <li><label>@fs.Name</label><input type="checkbox" value="@fs.Id" checked="checked" /></li>
+                                    }
+                                    else
+                                    {
+                                        <li><label>@fs.Name</label><input type="checkbox" value="@fs.Id" /></li>
+                                    }
+
+
+                                }
+                            }
+
+
+                        </ul>
+                        page++;
+                    }
+                }
+
+
+
+
+
+
+
+
+
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </form>
+    <div class="btn-bar" style="margin-top: 50px">
+        <button class="btn-back" type="button" onclick="BaseBackPage('@ViewBag.Title','菜单管理','/System/CommonSearch/MenuManager');">返回</button>
+        <button class="btn-sub" type="submit" onclick="Save()">保存</button>
+    </div>
+</div>
