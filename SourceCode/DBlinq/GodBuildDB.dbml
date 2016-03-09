@@ -325,7 +325,7 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Describe" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,1) NOT NULL" CanBeNull="false" />
       <Column Name="Oprice" Type="System.Decimal" DbType="Decimal(18,1) NOT NULL" CanBeNull="false" />
       <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
