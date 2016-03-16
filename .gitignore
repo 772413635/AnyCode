@@ -1,1 +1,11 @@
 SourceCode/AnyCode.v12.suo
+SourceCode/AnyCode/bin
+SourceCode/AnyCode/obj
+SourceCode/Common/bin
+SourceCode/Common/obj
+SourceCode/DBlinq/bin
+SourceCode/DBlinq/obj
+SourceCode/EfSearchModel/bin
+SourceCode/EfSearchModel/obj
+SourceCode/LinqTODB/bin
+SourceCode/LinqTODB/obj
