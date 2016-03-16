@@ -119,11 +119,10 @@ namespace AnyCode
                         Action = actionName,
                         CreateTime = DateTime.Now,
                         UserId = LoginUser.Id,
-                        UserName = LoginUser.Name,
                         Params = sb.ToString()
                     };
-                    var collection = MongoDbHelper.DataBase.GetCollection("Sys_PerformLog");
-                    collection.Insert<Sys_PerformLog>(log);
+                    Db.InsertOnSubmit(log);
+                    Db.SubmitChanges();
                 }
             }
             else

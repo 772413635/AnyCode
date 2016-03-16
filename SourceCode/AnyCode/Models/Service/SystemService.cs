@@ -27,9 +27,31 @@ namespace AnyCode
         {
             return DataSearch<T>(param);
         }
-        public JsonResult GetMongoData<T>(DataGridParam param) where T : class,new()
+
+        public JsonResult GetPerformLogList(DataGridParam param)
         {
-            return MongoDataSearch<T>(param);
+            var qm = param.Query.GetModel();
+            var tquery = from tt in _db.Sys_PerformLog
+                join cc in _db.Sys_User on tt.UserId equals cc.Id
+                select new
+                {
+                    tt.Id,
+                    UserName = cc.Name,
+                    tt.Ip,
+                    tt.Controller,
+                    tt.Action,
+                    tt.Params,
+                    tt.CreateTime
+                };
+            var query = tquery.Where(qm);
+            var jq = new JqueryGridObject
+            {
+                DataGridParam = param,
+                total = query.Count(),
+                Query = query.Skip((param.Page-1)*param.RP).Take(param.RP)
+            };
+            return new JsonResult { Data = jq };
+
         }
         public string SystemDeleteData<T>(string id) where T : class, new()
         {

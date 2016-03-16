@@ -166,7 +166,6 @@
     <Compile Include="Models\Entity\ChangePwdSeatModel.cs" />
     <Compile Include="Models\DAL\SysCompanyService.cs" />
     <Compile Include="Models\Entity\Sys_JobMessage.cs" />
-    <Compile Include="Models\Entity\Sys_PerformLog.cs" />
     <Compile Include="Models\Interfaces\ISeadFoodService.cs" />
     <Compile Include="Models\Interfaces\IWebChatService.cs" />
     <Compile Include="Models\Service\ContentService.cs" />
@@ -309,7 +308,7 @@
     <Content Include="Javascripts\System\EditCom.js" />
     <Content Include="Javascripts\System\IndexCom.js" />
     <Content Include="Javascripts\System\NewsList.js" />
-    <Content Include="Javascripts\System\PerformLof.js" />
+    <Content Include="Javascripts\System\PerformLog.js" />
     <Content Include="Javascripts\System\RoleManager.js" />
     <Content Include="Javascripts\System\Role_Add.js" />
     <Content Include="Javascripts\System\ShowNews.js" />

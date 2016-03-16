@@ -428,7 +428,7 @@ namespace AnyCode.Controllers
         /// <returns></returns>
         public JsonResult GetPerformLogList(DataGridParam param)
         {
-            return _system.GetMongoData<Sys_PerformLog>(param);
+            return _system.GetPerformLogList(param);
         }
 
         [HttpPost]

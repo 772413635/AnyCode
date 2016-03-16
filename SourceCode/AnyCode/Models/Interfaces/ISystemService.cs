@@ -8,7 +8,7 @@ namespace AnyCode
     public interface ISysSystem:IDisposable
     {
         JsonResult GetData<T>(DataGridParam param) where T : class, new();
-        JsonResult GetMongoData<T>(DataGridParam param) where T : class, new();
+        JsonResult GetPerformLogList(DataGridParam param);
         string SystemDeleteData<T>(string id) where T : class, new();
         string SystemDeleteData_string<T>(string id) where T : class, new();
         JsonResult GetColumn(string id);

@@ -331,4 +331,15 @@
       <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Sys_PerformLog" Member="Sys_PerformLog">
+    <Type Name="Sys_PerformLog">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Controller" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Params" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

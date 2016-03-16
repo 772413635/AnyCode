@@ -42,11 +42,10 @@ namespace AnyCode.Controllers
                         Action = "Login",
                         CreateTime = DateTime.Now,
                         UserId = LoginUser.Id,
-                        UserName = LoginUser.Name,
                         Params = ""
                     };
-                    var collection = MongoDbHelper.DataBase.GetCollection("Sys_PerformLog");
-                    collection.Insert(log);
+                    Db.InsertOnSubmit(log);
+                    Db.SubmitChanges();
                 }
                 return "1";
             }

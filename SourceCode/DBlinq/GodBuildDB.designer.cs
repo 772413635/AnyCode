@@ -102,6 +102,9 @@ namespace DBlinq
     partial void InsertSf_Product(Sf_Product instance);
     partial void UpdateSf_Product(Sf_Product instance);
     partial void DeleteSf_Product(Sf_Product instance);
+    partial void InsertSys_PerformLog(Sys_PerformLog instance);
+    partial void UpdateSys_PerformLog(Sys_PerformLog instance);
+    partial void DeleteSys_PerformLog(Sys_PerformLog instance);
     #endregion
 		
 		public GodBuildDB() : 
@@ -347,6 +350,14 @@ namespace DBlinq
 			get
 			{
 				return this.GetTable<Sf_Product>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sys_PerformLog> Sys_PerformLog
+		{
+			get
+			{
+				return this.GetTable<Sys_PerformLog>();
 			}
 		}
 	}
@@ -6573,6 +6584,212 @@ namespace DBlinq
 					this._Oprice = value;
 					this.SendPropertyChanged("Oprice");
 					this.OnOpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateTime
+		{
+			get
+			{
+				return this._CreateTime;
+			}
+			set
+			{
+				if ((this._CreateTime != value))
+				{
+					this.OnCreateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreateTime = value;
+					this.SendPropertyChanged("CreateTime");
+					this.OnCreateTimeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sys_PerformLog")]
+	public partial class Sys_PerformLog : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Ip;
+		
+		private string _Controller;
+		
+		private string _Action;
+		
+		private string _Params;
+		
+		private System.Nullable<int> _UserId;
+		
+		private System.Nullable<System.DateTime> _CreateTime;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnIpChanging(string value);
+    partial void OnIpChanged();
+    partial void OnControllerChanging(string value);
+    partial void OnControllerChanged();
+    partial void OnActionChanging(string value);
+    partial void OnActionChanged();
+    partial void OnParamsChanging(string value);
+    partial void OnParamsChanged();
+    partial void OnUserIdChanging(System.Nullable<int> value);
+    partial void OnUserIdChanged();
+    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateTimeChanged();
+    #endregion
+		
+		public Sys_PerformLog()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ip", DbType="VarChar(50)")]
+		public string Ip
+		{
+			get
+			{
+				return this._Ip;
+			}
+			set
+			{
+				if ((this._Ip != value))
+				{
+					this.OnIpChanging(value);
+					this.SendPropertyChanging();
+					this._Ip = value;
+					this.SendPropertyChanged("Ip");
+					this.OnIpChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Controller", DbType="VarChar(50)")]
+		public string Controller
+		{
+			get
+			{
+				return this._Controller;
+			}
+			set
+			{
+				if ((this._Controller != value))
+				{
+					this.OnControllerChanging(value);
+					this.SendPropertyChanging();
+					this._Controller = value;
+					this.SendPropertyChanged("Controller");
+					this.OnControllerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Action", DbType="VarChar(50)")]
+		public string Action
+		{
+			get
+			{
+				return this._Action;
+			}
+			set
+			{
+				if ((this._Action != value))
+				{
+					this.OnActionChanging(value);
+					this.SendPropertyChanging();
+					this._Action = value;
+					this.SendPropertyChanged("Action");
+					this.OnActionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Params", DbType="NVarChar(MAX)")]
+		public string Params
+		{
+			get
+			{
+				return this._Params;
+			}
+			set
+			{
+				if ((this._Params != value))
+				{
+					this.OnParamsChanging(value);
+					this.SendPropertyChanging();
+					this._Params = value;
+					this.SendPropertyChanged("Params");
+					this.OnParamsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
+		public System.Nullable<int> UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
 				}
 			}
 		}
