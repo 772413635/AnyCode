@@ -77,12 +77,12 @@ namespace AnyCode.Models.Service
             return text == null ? "" : text.Content;
         }
 
-        public bool JJobMessage(Sys_JobMessage message)
+        public bool JJobMessage(JB_JobMessage message)
         {
             try
             {
-                var collection = MongoDbHelper.DataBase.GetCollection("Sys_JobMessage");
-                collection.Insert<Sys_JobMessage>(message);
+                _db.InsertOnSubmit(message);
+                _db.SubmitChanges();
                 return true;
             }
             catch (Exception ex)

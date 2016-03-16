@@ -79,7 +79,7 @@ namespace AnyCode.Controllers
         {
             return new JsonpResult
             {
-                Data = _content.JJobMessage(new Sys_JobMessage
+                Data = _content.JJobMessage(new JB_JobMessage
                 {
                     Name = param.SortName,
                     Email=param.SortOrder,

@@ -165,7 +165,6 @@
     <Compile Include="Models\BaseController.cs" />
     <Compile Include="Models\Entity\ChangePwdSeatModel.cs" />
     <Compile Include="Models\DAL\SysCompanyService.cs" />
-    <Compile Include="Models\Entity\Sys_JobMessage.cs" />
     <Compile Include="Models\Interfaces\ISeadFoodService.cs" />
     <Compile Include="Models\Interfaces\IWebChatService.cs" />
     <Compile Include="Models\Service\ContentService.cs" />

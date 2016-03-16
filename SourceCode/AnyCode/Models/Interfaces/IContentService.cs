@@ -1,4 +1,5 @@
 ﻿using Common;
+using DBlinq;
 
 namespace AnyCode.Models.Interfaces
 {
@@ -8,7 +9,7 @@ namespace AnyCode.Models.Interfaces
         JqueryGridObject PwdList(DataGridParam param);
         string ShowContent(int id);
 
-        bool JJobMessage(Sys_JobMessage message);
+        bool JJobMessage(JB_JobMessage message);
 
         string DeleteText<T>(string id) where T : class, new();
         string DeletePwd<T>(string id) where T : class, new();
