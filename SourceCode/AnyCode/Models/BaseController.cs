@@ -273,7 +273,9 @@ namespace AnyCode
             var company = Db.Sys_Company.Single();
             ViewBag.WebTitle = company.Title;
             ViewBag.Footer = company.Footer;
+
         }
+
 
     }
 

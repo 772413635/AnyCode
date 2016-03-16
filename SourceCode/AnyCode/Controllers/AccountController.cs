@@ -25,6 +25,10 @@ namespace AnyCode.Controllers
             if (user != null)//成功登录
             {
                 AccountBLL.SaveCookie("AnyCode", user.Id.ToString(CultureInfo.InvariantCulture), DateTime.Now.AddDays(1), "/");//储存cookie
+                if (!string.IsNullOrWhiteSpace(user.Theme))
+                {
+                    AccountBLL.SaveCookie("Theme", user.Theme.ToString(CultureInfo.InvariantCulture), DateTime.Now.AddDays(1), "/");//储存主题
+                }
                 lock (MvcApplication.lockObject)
                 {
                     if (UserTicket.Users.All(c => c.Id != user.Id))
@@ -47,6 +51,8 @@ namespace AnyCode.Controllers
                     Db.InsertOnSubmit(log);
                     Db.SubmitChanges();
                 }
+
+
                 return "1";
             }
             return "账号或密码错误";

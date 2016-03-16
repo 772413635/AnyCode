@@ -1,4 +1,10 @@
-﻿html, body, div, p, span, a, strong, form, table, th, td, ul, li, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6, fieldset, iframe, object, pre, img, b, i {
+﻿html, body, div, p, span, a, strong, form, ul, li, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6, fieldset, iframe, object, pre, img, b, i {
+    border: 0 none;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+}
+#mainctrl table {
     border: 0 none;
     margin: 0;
     outline: 0 none;

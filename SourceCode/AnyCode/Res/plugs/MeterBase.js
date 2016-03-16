@@ -205,6 +205,14 @@ var funList = {
 if ($.GetRequest()["funnames"] != undefined) {
     funNames = $.GetRequest()["funnames"];
 }
+
+var cookieTheme = $.cookie("Theme");
+var theme = $("#theme").attr("href");
+if (cookieTheme != undefined) {
+    var reg = /themes\/\w+/g;
+   var newTheme= theme.replace(reg, "themes/" + cookieTheme);
+   $("#theme").attr("href", newTheme);
+}
 $(function () {
     //    各种初始化
 
