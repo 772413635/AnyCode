@@ -96,9 +96,6 @@ namespace DBlinq
     partial void InsertSys_WebChat_Menu(Sys_WebChat_Menu instance);
     partial void UpdateSys_WebChat_Menu(Sys_WebChat_Menu instance);
     partial void DeleteSys_WebChat_Menu(Sys_WebChat_Menu instance);
-    partial void InsertSf_Product(Sf_Product instance);
-    partial void UpdateSf_Product(Sf_Product instance);
-    partial void DeleteSf_Product(Sf_Product instance);
     partial void InsertSys_PerformLog(Sys_PerformLog instance);
     partial void UpdateSys_PerformLog(Sys_PerformLog instance);
     partial void DeleteSys_PerformLog(Sys_PerformLog instance);
@@ -108,6 +105,9 @@ namespace DBlinq
     partial void InsertSys_User(Sys_User instance);
     partial void UpdateSys_User(Sys_User instance);
     partial void DeleteSys_User(Sys_User instance);
+    partial void InsertSf_Product(Sf_Product instance);
+    partial void UpdateSf_Product(Sf_Product instance);
+    partial void DeleteSf_Product(Sf_Product instance);
     #endregion
 		
 		public GodBuildDB() : 
@@ -340,14 +340,6 @@ namespace DBlinq
 			}
 		}
 		
-		public System.Data.Linq.Table<Sf_Product> Sf_Product
-		{
-			get
-			{
-				return this.GetTable<Sf_Product>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Sys_PerformLog> Sys_PerformLog
 		{
 			get
@@ -369,6 +361,14 @@ namespace DBlinq
 			get
 			{
 				return this.GetTable<Sys_User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sf_Product> Sf_Product
+		{
+			get
+			{
+				return this.GetTable<Sf_Product>();
 			}
 		}
 	}
@@ -5793,212 +5793,6 @@ namespace DBlinq
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sf_Product")]
-	public partial class Sf_Product : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Name;
-		
-		private string _Describe;
-		
-		private string _Image;
-		
-		private decimal _Price;
-		
-		private decimal _Oprice;
-		
-		private System.Nullable<System.DateTime> _CreateTime;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnDescribeChanging(string value);
-    partial void OnDescribeChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnPriceChanging(decimal value);
-    partial void OnPriceChanged();
-    partial void OnOpriceChanging(decimal value);
-    partial void OnOpriceChanged();
-    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateTimeChanged();
-    #endregion
-		
-		public Sf_Product()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Describe", DbType="NVarChar(200)")]
-		public string Describe
-		{
-			get
-			{
-				return this._Describe;
-			}
-			set
-			{
-				if ((this._Describe != value))
-				{
-					this.OnDescribeChanging(value);
-					this.SendPropertyChanging();
-					this._Describe = value;
-					this.SendPropertyChanged("Describe");
-					this.OnDescribeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(200)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,1) NOT NULL")]
-		public decimal Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Oprice", DbType="Decimal(18,1) NOT NULL")]
-		public decimal Oprice
-		{
-			get
-			{
-				return this._Oprice;
-			}
-			set
-			{
-				if ((this._Oprice != value))
-				{
-					this.OnOpriceChanging(value);
-					this.SendPropertyChanging();
-					this._Oprice = value;
-					this.SendPropertyChanged("Oprice");
-					this.OnOpriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreateTime
-		{
-			get
-			{
-				return this._CreateTime;
-			}
-			set
-			{
-				if ((this._CreateTime != value))
-				{
-					this.OnCreateTimeChanging(value);
-					this.SendPropertyChanging();
-					this._CreateTime = value;
-					this.SendPropertyChanged("CreateTime");
-					this.OnCreateTimeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sys_PerformLog")]
 	public partial class Sys_PerformLog : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -7003,6 +6797,260 @@ namespace DBlinq
 						this._Status = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Sys_UserStatus");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sf_Product")]
+	public partial class Sf_Product : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private string _Describe;
+		
+		private string _Image;
+		
+		private System.Nullable<int> _Sales;
+		
+		private decimal _Price;
+		
+		private decimal _Oprice;
+		
+		private string _Tag;
+		
+		private System.Nullable<System.DateTime> _CreateTime;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDescribeChanging(string value);
+    partial void OnDescribeChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
+    partial void OnSalesChanging(System.Nullable<int> value);
+    partial void OnSalesChanged();
+    partial void OnPriceChanging(decimal value);
+    partial void OnPriceChanged();
+    partial void OnOpriceChanging(decimal value);
+    partial void OnOpriceChanged();
+    partial void OnTagChanging(string value);
+    partial void OnTagChanged();
+    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateTimeChanged();
+    #endregion
+		
+		public Sf_Product()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Describe", DbType="NVarChar(200)")]
+		public string Describe
+		{
+			get
+			{
+				return this._Describe;
+			}
+			set
+			{
+				if ((this._Describe != value))
+				{
+					this.OnDescribeChanging(value);
+					this.SendPropertyChanging();
+					this._Describe = value;
+					this.SendPropertyChanged("Describe");
+					this.OnDescribeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(200)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sales", DbType="Int")]
+		public System.Nullable<int> Sales
+		{
+			get
+			{
+				return this._Sales;
+			}
+			set
+			{
+				if ((this._Sales != value))
+				{
+					this.OnSalesChanging(value);
+					this.SendPropertyChanging();
+					this._Sales = value;
+					this.SendPropertyChanged("Sales");
+					this.OnSalesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,1) NOT NULL")]
+		public decimal Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Oprice", DbType="Decimal(18,1) NOT NULL")]
+		public decimal Oprice
+		{
+			get
+			{
+				return this._Oprice;
+			}
+			set
+			{
+				if ((this._Oprice != value))
+				{
+					this.OnOpriceChanging(value);
+					this.SendPropertyChanging();
+					this._Oprice = value;
+					this.SendPropertyChanged("Oprice");
+					this.OnOpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tag", DbType="NVarChar(50)")]
+		public string Tag
+		{
+			get
+			{
+				return this._Tag;
+			}
+			set
+			{
+				if ((this._Tag != value))
+				{
+					this.OnTagChanging(value);
+					this.SendPropertyChanging();
+					this._Tag = value;
+					this.SendPropertyChanged("Tag");
+					this.OnTagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateTime
+		{
+			get
+			{
+				return this._CreateTime;
+			}
+			set
+			{
+				if ((this._CreateTime != value))
+				{
+					this.OnCreateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreateTime = value;
+					this.SendPropertyChanged("CreateTime");
+					this.OnCreateTimeChanged();
 				}
 			}
 		}

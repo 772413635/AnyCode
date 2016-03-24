@@ -32,7 +32,9 @@ namespace AnyCode.Models.Service
                             tt.Name,
                             tt.Price,
                             tt.Oprice,
-                            tt.Image
+                            tt.Image,
+                            tt.Sales,
+                            tt.Tag
                         };
             var count = query.Count();
             return new JqueryGridObject

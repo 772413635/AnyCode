@@ -293,17 +293,6 @@
       <Column Name="sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Sf_Product" Member="Sf_Product">
-    <Type Name="Sf_Product">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Describe" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,1) NOT NULL" CanBeNull="false" />
-      <Column Name="Oprice" Type="System.Decimal" DbType="Decimal(18,1) NOT NULL" CanBeNull="false" />
-      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Sys_PerformLog" Member="Sys_PerformLog">
     <Type Name="Sys_PerformLog">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -350,6 +339,19 @@
       <Association Name="Sys_Company_Sys_User" Member="Sys_Company" ThisKey="Cid" OtherKey="Id" Type="Sys_Company" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Sys_Role_Sys_User" Member="Sys_Role" ThisKey="RoleId" OtherKey="Id" Type="Sys_Role" IsForeignKey="true" />
       <Association Name="Sys_UserStatus_Sys_User" Member="Sys_UserStatus" ThisKey="Status" OtherKey="Id" Type="Sys_UserStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sf_Product" Member="Sf_Product">
+    <Type Name="Sf_Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Describe" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Sales" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,1) NOT NULL" CanBeNull="false" />
+      <Column Name="Oprice" Type="System.Decimal" DbType="Decimal(18,1) NOT NULL" CanBeNull="false" />
+      <Column Name="Tag" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
