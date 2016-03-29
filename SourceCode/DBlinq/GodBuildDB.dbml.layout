@@ -218,5 +218,11 @@
         <elementListCompartment Id="5c15a6c7-33be-4d26-a2a7-baa9688e6c02" absoluteBounds="12.515, 1.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="5d64870e-f7e9-446b-aa76-14b8d703e7d6" isExpanded="false" absoluteBounds="12.5, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/GodBuildDB/Sf_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e22ca906-30ae-40e7-bb0a-d8afc81ea936" absoluteBounds="12.515, 2.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

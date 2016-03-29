@@ -9,9 +9,9 @@ using EfSearchModel;
 
 namespace AnyCode.Models.Service
 {
-    public class SeadFoodService : BaseService, ISeadFoodService
+    public class SeaFoodService : BaseService, ISeaFoodService
     {
-        public SeadFoodService(LinqToDB db, Sys_User loginUser)
+        public SeaFoodService(LinqToDB db, Sys_User loginUser)
             : base(db, loginUser)
         {
         }
@@ -43,6 +43,33 @@ namespace AnyCode.Models.Service
                 total = count,
                 Query = query.Skip((param.Page - 1) * param.RP).Take(param.RP)
             };
+        }
+
+        /// <summary>
+        /// 初始化微信用户
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public bool IntiUser(DataGridParam param)
+        {
+            var openid = param.Query;
+            var user = _db.Sf_User.FirstOrDefault(c => c.OpenId == openid);
+            if (user != null)
+            {
+                return true;
+            }
+            else
+            {
+                var res=DataControl<Sf_User>("Id", 0, 0, new Sf_User { OpenId = openid }, null);
+                if (res == Suggestion.InsertSucceed)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace AnyCode.Models.Service
 
 
         //微信回复消息
-        private IResponseMessageBase ReplyMsaage(int msgType, int msgId)
+        private IResponseMessageBase ReplyMsaage(int msgType, int msgId, Senparc.Weixin.MP.Entities.RequestMessageBase requestMessage)
         {
             switch ((ResponseMsgType)msgType)
             {
@@ -31,7 +31,7 @@ namespace AnyCode.Models.Service
                         if (text != null)
                         {
 
-                            responseMessage.Content = text.Content;//文本内容
+                            responseMessage.Content = ReplaceWeiXinText(text.Content, requestMessage);//文本内容
                         }
                         return responseMessage;
 
@@ -48,33 +48,33 @@ namespace AnyCode.Models.Service
                             {
                                 responseMessage.Articles.Add(new Article()
                                 {
-                                    Title =n.Title,
+                                    Title = n.Title,
                                     Description = n.Description,
                                     PicUrl = n.PicUrl,
-                                    Url = n.Url
+                                    Url = ReplaceWeiXinText(n.Url, requestMessage) + "&random=" + (new Random()).Next(100)
                                 });
                             }
-                            
+
                         }
                         return responseMessage;
                     }
                 case ResponseMsgType.News:
-                {
-                    var news = _db.Sys_WebChat_MsgNews.SingleOrDefault(c => c.Id == msgId);
-                    var responseMessage = CreateResponseMessage<ResponseMessageNews>();
-                    if (news!=null)
                     {
-                        responseMessage.Articles.Add(new Article()
+                        var news = _db.Sys_WebChat_MsgNews.SingleOrDefault(c => c.Id == msgId);
+                        var responseMessage = CreateResponseMessage<ResponseMessageNews>();
+                        if (news != null)
                         {
-                            Title = news.Title,
-                            Description = news.Description,
-                            PicUrl = news.PicUrl,
-                            Url = news.Url
-                        });
+                            responseMessage.Articles.Add(new Article()
+                            {
+                                Title = news.Title,
+                                Description = news.Description,
+                                PicUrl = news.PicUrl,
+                                Url = ReplaceWeiXinText(news.Url, requestMessage) + "&random=" + (new Random()).Next(100)
+                            });
 
+                        }
+                        return responseMessage;
                     }
-                    return responseMessage;
-                }
                 default:
                     return null;
             }
@@ -109,7 +109,7 @@ namespace AnyCode.Models.Service
                     response.Content = replyContent;
                     return response;
                 }
-                return ReplyMsaage(autoReplyMap.MsgTypeId, (int)autoReplyMap.MsgOrGroupId);
+                return ReplyMsaage(autoReplyMap.MsgTypeId, (int)autoReplyMap.MsgOrGroupId,null);
             }
             response.Content = "暂时不知道怎么回复你啊";
             return response;
@@ -149,7 +149,14 @@ namespace AnyCode.Models.Service
             return "";
         }
 
+        //替换占位符
+        private string ReplaceWeiXinText(string text, Senparc.Weixin.MP.Entities.RequestMessageBase requestMessage)
+        {
+            text = text.Replace(":FromUserName", requestMessage.FromUserName);
+            text = text.Replace(":ToUserName", requestMessage.ToUserName);
+            return text;
+        }
 
-        
+
     }
 }

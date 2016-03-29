@@ -68,17 +68,22 @@ namespace AnyCode.Models.Service
               _db.Sys_WebChat_MsgMap.SingleOrDefault(c => c.Token == _postModel.Token && c.Code == "subscribe");
             if (replyType != null)
             {
-                return ReplyMsaage(replyType.MsgType, replyType.MsgOrGroupId);
+                return ReplyMsaage(replyType.MsgType, replyType.MsgOrGroupId, requestMessage);
             }
             return null;
         }
 
+        /// <summary>
+        /// 菜单点击事件
+        /// </summary>
+        /// <param name="requestMessage">事件消息</param>
+        /// <returns></returns>
         public override IResponseMessageBase OnEvent_ClickRequest(RequestMessageEvent_Click requestMessage)
         {
             var msgType = _db.Sys_WebChat_MsgMap.SingleOrDefault(c => c.Code == requestMessage.EventKey);
             if (msgType != null)
             {
-                return ReplyMsaage(msgType.MsgType, msgType.MsgOrGroupId);
+                return ReplyMsaage(msgType.MsgType, msgType.MsgOrGroupId, requestMessage);
             }
             //后台未设置则返回默认消息
             var responseMessage = CreateResponseMessage<ResponseMessageText>();
