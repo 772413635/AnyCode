@@ -44,7 +44,7 @@ namespace AnyCode.Controllers
         {
             return new JsonpResult
             {
-                Data = null,
+                Data = new{},
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
