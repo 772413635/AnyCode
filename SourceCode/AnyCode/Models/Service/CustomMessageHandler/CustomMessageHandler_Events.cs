@@ -51,7 +51,7 @@ namespace AnyCode.Models.Service
                                     Title = n.Title,
                                     Description = n.Description,
                                     PicUrl = n.PicUrl,
-                                    Url = ReplaceWeiXinText(n.Url, requestMessage) + "&random=" + (new Random()).Next(100)
+                                    Url = ReplaceWeiXinText(n.Url, requestMessage)
                                 });
                             }
 
@@ -69,7 +69,7 @@ namespace AnyCode.Models.Service
                                 Title = news.Title,
                                 Description = news.Description,
                                 PicUrl = news.PicUrl,
-                                Url = ReplaceWeiXinText(news.Url, requestMessage) + "&random=" + (new Random()).Next(100)
+                                Url = ReplaceWeiXinText(news.Url, requestMessage)
                             });
 
                         }

@@ -45,12 +45,69 @@ namespace AnyCode.Models.Service
             };
         }
 
+
+        /// <summary>
+        /// 获取用户默认地址
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public Sf_Address DefaultAddress(DataGridParam param)
+        {
+            var openid = param.Query;
+            var address = _db.Sf_Address.SingleOrDefault(c => c.OpenId == openid&&c.IsDefault==true);
+            return address;
+        }
+
+        /// <summary>
+        /// 获取用户收货地址
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public JqueryGridObject AddressList(DataGridParam param)
+        {
+            var query = (from tt in _db.Sf_Address
+                        where tt.OpenId == param.Query
+                        select new
+                        {
+                            tt.Id,
+                            tt.Contacts,
+                            tt.Phone,
+                            tt.IsDefault,
+                            tt.Address
+                        }).ToList();
+            var count = query.Count;
+            return new JqueryGridObject
+            {
+                DataGridParam = param,
+                total = count,
+                Query = query
+            };
+        }
+
+        /// <summary>
+        /// 更新默认地址
+        /// </summary>
+        /// <param name="param"></param>
+        public void UpdateAddressDefault(DataGridParam param)
+        {
+            var id = Int32.Parse(param.Query);
+
+            var addressList = _db.GetTable<Sf_Address>().Where(c => c.Id != id);
+            var singeAddress = _db.GetTable<Sf_Address>().Single(c => c.Id == id);
+            foreach (var address in addressList)
+            {
+                address.IsDefault = false;
+            }
+            singeAddress.IsDefault = true;
+            _db.SubmitChanges();
+        }
+
         /// <summary>
         /// 初始化微信用户
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public bool IntiUser(DataGridParam param)
+        public bool InitUser(DataGridParam param)
         {
             var openid = param.Query;
             var user = _db.Sf_User.FirstOrDefault(c => c.OpenId == openid);
@@ -60,7 +117,7 @@ namespace AnyCode.Models.Service
             }
             else
             {
-                var res=DataControl<Sf_User>("Id", 0, 0, new Sf_User { OpenId = openid }, null);
+                var res = DataControl<Sf_User>("Id", 0, 0, new Sf_User { OpenId = openid }, null);
                 if (res == Suggestion.InsertSucceed)
                 {
                     return true;

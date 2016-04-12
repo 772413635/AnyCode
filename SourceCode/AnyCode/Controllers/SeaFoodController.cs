@@ -31,22 +31,51 @@ namespace AnyCode.Controllers
             };
         }
 
-        public JsonpResult IntiUser(DataGridParam param)
+        public JsonpResult InitUser(DataGridParam param)
         {
             return new JsonpResult
             {
-                Data = _seafood.IntiUser(param),
+                Data = _seafood.InitUser(param),
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
 
         public JsonpResult AddressList(DataGridParam param)
         {
+            var data = _seafood.AddressList(param);
             return new JsonpResult
             {
-                Data = new{},
+                Data = data,
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
+        }
+
+        public JsonpResult DefaultAddress(DataGridParam param)
+        {
+            var address = _seafood.DefaultAddress(param);
+            if (address == null)
+            {
+                return new JsonpResult
+                {
+                    Data = "",
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+            return new JsonpResult
+            {
+                Data = address,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
+
+        public JsonpResult UpdateAddressDefault(DataGridParam param)
+        {
+            _seafood.UpdateAddressDefault(param);
+            return new JsonpResult
+            {
+                Data = true,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            }; 
         }
     }
 }

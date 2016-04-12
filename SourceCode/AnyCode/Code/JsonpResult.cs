@@ -10,10 +10,9 @@ namespace AnyCode.Controllers
         private static readonly string CallbackApplicationType = "application/json";
 
         /// <summary>
-        /// Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult"/> class.
+        /// 使一个动作方法的结果处理由继承自T:System.Web.Mvc.ActionResult类.
         /// </summary>
-        /// <param name="context">The context within which the result is executed.</param>
-        /// <exception cref="T:System.ArgumentNullException">The <paramref name="context"/> parameter is null.</exception>
+        /// <param name="context">执行结果的上下文</param>
         public override void ExecuteResult(ControllerContext context)
         {
             if (context == null)
