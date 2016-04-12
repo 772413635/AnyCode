@@ -73,9 +73,20 @@ namespace AnyCode.Controllers
             _seafood.UpdateAddressDefault(param);
             return new JsonpResult
             {
-                Data = true,
+                Data =true,
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             }; 
         }
+
+        public JsonpResult AddAddress(DataGridParam param)
+        {
+           var res= _seafood.AddAddress(param);
+           return new JsonpResult
+            {
+                Data = res,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        } 
+
     }
 }

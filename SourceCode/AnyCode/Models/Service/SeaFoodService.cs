@@ -128,5 +128,38 @@ namespace AnyCode.Models.Service
                 }
             }
         }
+
+        /// <summary>
+        /// 添加收货地址，并设置为默认地址
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public bool AddAddress(DataGridParam param)
+        {
+            if (!string.IsNullOrWhiteSpace(param.Query))
+            {
+                var addressInfo = param.Query.Split('&');
+                var address = new Sf_Address
+                {
+                    Contacts=addressInfo[0],
+                    Phone=addressInfo[1],
+                    Address=addressInfo[2],
+                    OpenId=addressInfo[3],
+                    IsDefault=true,
+                    CreateTime=DateTime.Now
+
+                };
+                _db.GetTable<Sf_Address>().InsertOnSubmit(address);
+                var query = _db.GetTable<Sf_Address>().SingleOrDefault(c => c.IsDefault == true && c.OpenId == address.OpenId);
+                if (query != null)
+                {
+                    query.IsDefault = false;
+                }
+                _db.SubmitChanges();
+                return true;
+            }
+            return false;
+
+        }
     }
 }

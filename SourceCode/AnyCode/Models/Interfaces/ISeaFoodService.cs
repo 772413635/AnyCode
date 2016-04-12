@@ -38,5 +38,12 @@ namespace AnyCode.Models.Interfaces
         /// <param name="param">传递的对象</param>
         /// <returns>初始化结果</returns>
         bool InitUser(DataGridParam param);
+
+        /// <summary>
+        /// 添加地址并设置为默认地址
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        bool AddAddress(DataGridParam param);
     }
 }
