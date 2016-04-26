@@ -12,3 +12,6 @@ SourceCode/LinqTODB/obj
 SourceCode/AnyCode.v12.suo
 SourceCode/AnyCode/AnyCode.v12.suo
 SourceCode/AnyCode.v12.suo
+SourceCode/AnyCode.v12.suo
+*.suo
+/SourceCode/.vs/config

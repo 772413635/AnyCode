@@ -20,23 +20,6 @@ namespace DBlinq
         public LinqToDB()
         {
             _dc = new GodBuildDB();
-            // System.Data.Linq.DataContext _dcc = new DataContext("Data Source=58.211.88.98;Initial Catalog=CCmanager;User ID=sa;Password=allismine0");
-            // System.Reflection.PropertyInfo[] ss = _dc.GetType().GetProperties();
-            // System.Reflection.PropertyInfo[] ssc = _dcc.GetType().GetProperties();
-            //foreach (System.Reflection.PropertyInfo pi in _dc.GetType().GetProperties())
-            //{
-            //    string typeName = pi.PropertyType.ToString();
-            //    if (typeName.Contains("System.Data.Linq.Table"))//判断是否为数据库中的表
-            //    {
-            //        string tableName = typeName.Substring(typeName.IndexOf('['));
-            //        tableName = tableName.Substring(1, tableName.Length - 2);//获得与数据库中表相对应的Linq类
-            //        foreach (System.Reflection.PropertyInfo pro in Type.GetType(tableName).GetProperties())
-            //        {
-            //            int cc = 1;
-            //            //获取表中的各个字段
-            //        }
-            //    }
-            //}
         }
         public LinqToDB(IDbConnection connection)
         {
