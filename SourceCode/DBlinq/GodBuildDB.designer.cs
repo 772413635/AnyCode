@@ -99,9 +99,6 @@ namespace DBlinq
     partial void InsertJB_JobMessage(JB_JobMessage instance);
     partial void UpdateJB_JobMessage(JB_JobMessage instance);
     partial void DeleteJB_JobMessage(JB_JobMessage instance);
-    partial void InsertSys_User(Sys_User instance);
-    partial void UpdateSys_User(Sys_User instance);
-    partial void DeleteSys_User(Sys_User instance);
     partial void InsertSf_Product(Sf_Product instance);
     partial void UpdateSf_Product(Sf_Product instance);
     partial void DeleteSf_Product(Sf_Product instance);
@@ -114,6 +111,9 @@ namespace DBlinq
     partial void InsertSys_Password(Sys_Password instance);
     partial void UpdateSys_Password(Sys_Password instance);
     partial void DeleteSys_Password(Sys_Password instance);
+    partial void InsertSys_User(Sys_User instance);
+    partial void UpdateSys_User(Sys_User instance);
+    partial void DeleteSys_User(Sys_User instance);
     #endregion
 		
 		public GodBuildDB() : 
@@ -354,14 +354,6 @@ namespace DBlinq
 			}
 		}
 		
-		public System.Data.Linq.Table<Sys_User> Sys_User
-		{
-			get
-			{
-				return this.GetTable<Sys_User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Sf_Product> Sf_Product
 		{
 			get
@@ -391,6 +383,14 @@ namespace DBlinq
 			get
 			{
 				return this.GetTable<Sys_Password>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sys_User> Sys_User
+		{
+			get
+			{
+				return this.GetTable<Sys_User>();
 			}
 		}
 	}
@@ -6021,671 +6021,6 @@ namespace DBlinq
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sys_User")]
-	public partial class Sys_User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Cid;
-		
-		private string _Pid;
-		
-		private string _Name;
-		
-		private string _MyName;
-		
-		private string _Password;
-		
-		private string _Address;
-		
-		private string _Email;
-		
-		private string _MobilePhoneNumber;
-		
-		private string _PhoneNumber;
-		
-		private string _Remark;
-		
-		private System.Nullable<int> _Status;
-		
-		private System.Nullable<System.DateTime> _CreateTime;
-		
-		private System.Nullable<int> _CreatePerson;
-		
-		private System.Nullable<int> _UpdatePerson;
-		
-		private System.Nullable<System.DateTime> _UpdateTime;
-		
-		private System.Data.Linq.Binary _Version;
-		
-		private bool _IsSystem;
-		
-		private bool _IsDelete;
-		
-		private int _RoleId;
-		
-		private string _Theme;
-		
-		private EntityRef<Sys_Company> _Sys_Company;
-		
-		private EntityRef<Sys_Role> _Sys_Role;
-		
-		private EntityRef<Sys_UserStatus> _Sys_UserStatus;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnCidChanging(string value);
-    partial void OnCidChanged();
-    partial void OnPidChanging(string value);
-    partial void OnPidChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnMyNameChanging(string value);
-    partial void OnMyNameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnMobilePhoneNumberChanging(string value);
-    partial void OnMobilePhoneNumberChanged();
-    partial void OnPhoneNumberChanging(string value);
-    partial void OnPhoneNumberChanged();
-    partial void OnRemarkChanging(string value);
-    partial void OnRemarkChanged();
-    partial void OnStatusChanging(System.Nullable<int> value);
-    partial void OnStatusChanged();
-    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateTimeChanged();
-    partial void OnCreatePersonChanging(System.Nullable<int> value);
-    partial void OnCreatePersonChanged();
-    partial void OnUpdatePersonChanging(System.Nullable<int> value);
-    partial void OnUpdatePersonChanged();
-    partial void OnUpdateTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdateTimeChanged();
-    partial void OnVersionChanging(System.Data.Linq.Binary value);
-    partial void OnVersionChanged();
-    partial void OnIsSystemChanging(bool value);
-    partial void OnIsSystemChanged();
-    partial void OnIsDeleteChanging(bool value);
-    partial void OnIsDeleteChanged();
-    partial void OnRoleIdChanging(int value);
-    partial void OnRoleIdChanged();
-    partial void OnThemeChanging(string value);
-    partial void OnThemeChanged();
-    #endregion
-		
-		public Sys_User()
-		{
-			this._Sys_Company = default(EntityRef<Sys_Company>);
-			this._Sys_Role = default(EntityRef<Sys_Role>);
-			this._Sys_UserStatus = default(EntityRef<Sys_UserStatus>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cid", DbType="VarChar(36)", UpdateCheck=UpdateCheck.Never)]
-		public string Cid
-		{
-			get
-			{
-				return this._Cid;
-			}
-			set
-			{
-				if ((this._Cid != value))
-				{
-					if (this._Sys_Company.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCidChanging(value);
-					this.SendPropertyChanging();
-					this._Cid = value;
-					this.SendPropertyChanged("Cid");
-					this.OnCidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pid", DbType="VarChar(4000)", UpdateCheck=UpdateCheck.Never)]
-		public string Pid
-		{
-			get
-			{
-				return this._Pid;
-			}
-			set
-			{
-				if ((this._Pid != value))
-				{
-					this.OnPidChanging(value);
-					this.SendPropertyChanging();
-					this._Pid = value;
-					this.SendPropertyChanged("Pid");
-					this.OnPidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MyName", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
-		public string MyName
-		{
-			get
-			{
-				return this._MyName;
-			}
-			set
-			{
-				if ((this._MyName != value))
-				{
-					this.OnMyNameChanging(value);
-					this.SendPropertyChanging();
-					this._MyName = value;
-					this.SendPropertyChanged("MyName");
-					this.OnMyNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(200) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilePhoneNumber", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
-		public string MobilePhoneNumber
-		{
-			get
-			{
-				return this._MobilePhoneNumber;
-			}
-			set
-			{
-				if ((this._MobilePhoneNumber != value))
-				{
-					this.OnMobilePhoneNumberChanging(value);
-					this.SendPropertyChanging();
-					this._MobilePhoneNumber = value;
-					this.SendPropertyChanged("MobilePhoneNumber");
-					this.OnMobilePhoneNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
-		public string PhoneNumber
-		{
-			get
-			{
-				return this._PhoneNumber;
-			}
-			set
-			{
-				if ((this._PhoneNumber != value))
-				{
-					this.OnPhoneNumberChanging(value);
-					this.SendPropertyChanging();
-					this._PhoneNumber = value;
-					this.SendPropertyChanged("PhoneNumber");
-					this.OnPhoneNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remark", DbType="VarChar(4000)", UpdateCheck=UpdateCheck.Never)]
-		public string Remark
-		{
-			get
-			{
-				return this._Remark;
-			}
-			set
-			{
-				if ((this._Remark != value))
-				{
-					this.OnRemarkChanging(value);
-					this.SendPropertyChanging();
-					this._Remark = value;
-					this.SendPropertyChanged("Remark");
-					this.OnRemarkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					if (this._Sys_UserStatus.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CreateTime
-		{
-			get
-			{
-				return this._CreateTime;
-			}
-			set
-			{
-				if ((this._CreateTime != value))
-				{
-					this.OnCreateTimeChanging(value);
-					this.SendPropertyChanging();
-					this._CreateTime = value;
-					this.SendPropertyChanged("CreateTime");
-					this.OnCreateTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatePerson", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> CreatePerson
-		{
-			get
-			{
-				return this._CreatePerson;
-			}
-			set
-			{
-				if ((this._CreatePerson != value))
-				{
-					this.OnCreatePersonChanging(value);
-					this.SendPropertyChanging();
-					this._CreatePerson = value;
-					this.SendPropertyChanged("CreatePerson");
-					this.OnCreatePersonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatePerson", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> UpdatePerson
-		{
-			get
-			{
-				return this._UpdatePerson;
-			}
-			set
-			{
-				if ((this._UpdatePerson != value))
-				{
-					this.OnUpdatePersonChanging(value);
-					this.SendPropertyChanging();
-					this._UpdatePerson = value;
-					this.SendPropertyChanged("UpdatePerson");
-					this.OnUpdatePersonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateTime", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> UpdateTime
-		{
-			get
-			{
-				return this._UpdateTime;
-			}
-			set
-			{
-				if ((this._UpdateTime != value))
-				{
-					this.OnUpdateTimeChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateTime = value;
-					this.SendPropertyChanged("UpdateTime");
-					this.OnUpdateTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Version
-		{
-			get
-			{
-				return this._Version;
-			}
-			set
-			{
-				if ((this._Version != value))
-				{
-					this.OnVersionChanging(value);
-					this.SendPropertyChanging();
-					this._Version = value;
-					this.SendPropertyChanged("Version");
-					this.OnVersionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSystem", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public bool IsSystem
-		{
-			get
-			{
-				return this._IsSystem;
-			}
-			set
-			{
-				if ((this._IsSystem != value))
-				{
-					this.OnIsSystemChanging(value);
-					this.SendPropertyChanging();
-					this._IsSystem = value;
-					this.SendPropertyChanged("IsSystem");
-					this.OnIsSystemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public bool IsDelete
-		{
-			get
-			{
-				return this._IsDelete;
-			}
-			set
-			{
-				if ((this._IsDelete != value))
-				{
-					this.OnIsDeleteChanging(value);
-					this.SendPropertyChanging();
-					this._IsDelete = value;
-					this.SendPropertyChanged("IsDelete");
-					this.OnIsDeleteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int RoleId
-		{
-			get
-			{
-				return this._RoleId;
-			}
-			set
-			{
-				if ((this._RoleId != value))
-				{
-					if (this._Sys_Role.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRoleIdChanging(value);
-					this.SendPropertyChanging();
-					this._RoleId = value;
-					this.SendPropertyChanged("RoleId");
-					this.OnRoleIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Theme", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string Theme
-		{
-			get
-			{
-				return this._Theme;
-			}
-			set
-			{
-				if ((this._Theme != value))
-				{
-					this.OnThemeChanging(value);
-					this.SendPropertyChanging();
-					this._Theme = value;
-					this.SendPropertyChanged("Theme");
-					this.OnThemeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sys_Company_Sys_User", Storage="_Sys_Company", ThisKey="Cid", OtherKey="Id", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Sys_Company Sys_Company
-		{
-			get
-			{
-				return this._Sys_Company.Entity;
-			}
-			set
-			{
-				Sys_Company previousValue = this._Sys_Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Sys_Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sys_Company.Entity = null;
-						previousValue.Sys_User.Remove(this);
-					}
-					this._Sys_Company.Entity = value;
-					if ((value != null))
-					{
-						value.Sys_User.Add(this);
-						this._Cid = value.Id;
-					}
-					else
-					{
-						this._Cid = default(string);
-					}
-					this.SendPropertyChanged("Sys_Company");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sys_Role_Sys_User", Storage="_Sys_Role", ThisKey="RoleId", OtherKey="Id", IsForeignKey=true)]
-		public Sys_Role Sys_Role
-		{
-			get
-			{
-				return this._Sys_Role.Entity;
-			}
-			set
-			{
-				Sys_Role previousValue = this._Sys_Role.Entity;
-				if (((previousValue != value) 
-							|| (this._Sys_Role.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sys_Role.Entity = null;
-						previousValue.Sys_User.Remove(this);
-					}
-					this._Sys_Role.Entity = value;
-					if ((value != null))
-					{
-						value.Sys_User.Add(this);
-						this._RoleId = value.Id;
-					}
-					else
-					{
-						this._RoleId = default(int);
-					}
-					this.SendPropertyChanged("Sys_Role");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sys_UserStatus_Sys_User", Storage="_Sys_UserStatus", ThisKey="Status", OtherKey="Id", IsForeignKey=true)]
-		public Sys_UserStatus Sys_UserStatus
-		{
-			get
-			{
-				return this._Sys_UserStatus.Entity;
-			}
-			set
-			{
-				Sys_UserStatus previousValue = this._Sys_UserStatus.Entity;
-				if (((previousValue != value) 
-							|| (this._Sys_UserStatus.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sys_UserStatus.Entity = null;
-						previousValue.Sys_User.Remove(this);
-					}
-					this._Sys_UserStatus.Entity = value;
-					if ((value != null))
-					{
-						value.Sys_User.Add(this);
-						this._Status = value.Id;
-					}
-					else
-					{
-						this._Status = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Sys_UserStatus");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sf_Product")]
 	public partial class Sf_Product : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -7485,6 +6820,695 @@ namespace DBlinq
 					this._CreatePerson = value;
 					this.SendPropertyChanged("CreatePerson");
 					this.OnCreatePersonChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sys_User")]
+	public partial class Sys_User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Cid;
+		
+		private string _Pid;
+		
+		private string _Name;
+		
+		private string _MyName;
+		
+		private string _Password;
+		
+		private string _Address;
+		
+		private string _Email;
+		
+		private string _MobilePhoneNumber;
+		
+		private string _PhoneNumber;
+		
+		private string _Remark;
+		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<System.DateTime> _CreateTime;
+		
+		private System.Nullable<int> _CreatePerson;
+		
+		private System.Nullable<int> _UpdatePerson;
+		
+		private System.Nullable<System.DateTime> _UpdateTime;
+		
+		private System.Data.Linq.Binary _Version;
+		
+		private bool _IsSystem;
+		
+		private bool _IsDelete;
+		
+		private int _RoleId;
+		
+		private string _Theme;
+		
+		private string _UserToken;
+		
+		private EntityRef<Sys_Company> _Sys_Company;
+		
+		private EntityRef<Sys_Role> _Sys_Role;
+		
+		private EntityRef<Sys_UserStatus> _Sys_UserStatus;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnCidChanging(string value);
+    partial void OnCidChanged();
+    partial void OnPidChanging(string value);
+    partial void OnPidChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnMyNameChanging(string value);
+    partial void OnMyNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnMobilePhoneNumberChanging(string value);
+    partial void OnMobilePhoneNumberChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
+    partial void OnRemarkChanging(string value);
+    partial void OnRemarkChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateTimeChanged();
+    partial void OnCreatePersonChanging(System.Nullable<int> value);
+    partial void OnCreatePersonChanged();
+    partial void OnUpdatePersonChanging(System.Nullable<int> value);
+    partial void OnUpdatePersonChanged();
+    partial void OnUpdateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdateTimeChanged();
+    partial void OnVersionChanging(System.Data.Linq.Binary value);
+    partial void OnVersionChanged();
+    partial void OnIsSystemChanging(bool value);
+    partial void OnIsSystemChanged();
+    partial void OnIsDeleteChanging(bool value);
+    partial void OnIsDeleteChanged();
+    partial void OnRoleIdChanging(int value);
+    partial void OnRoleIdChanged();
+    partial void OnThemeChanging(string value);
+    partial void OnThemeChanged();
+    partial void OnUserTokenChanging(string value);
+    partial void OnUserTokenChanged();
+    #endregion
+		
+		public Sys_User()
+		{
+			this._Sys_Company = default(EntityRef<Sys_Company>);
+			this._Sys_Role = default(EntityRef<Sys_Role>);
+			this._Sys_UserStatus = default(EntityRef<Sys_UserStatus>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cid", DbType="VarChar(36)", UpdateCheck=UpdateCheck.Never)]
+		public string Cid
+		{
+			get
+			{
+				return this._Cid;
+			}
+			set
+			{
+				if ((this._Cid != value))
+				{
+					if (this._Sys_Company.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCidChanging(value);
+					this.SendPropertyChanging();
+					this._Cid = value;
+					this.SendPropertyChanged("Cid");
+					this.OnCidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pid", DbType="VarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string Pid
+		{
+			get
+			{
+				return this._Pid;
+			}
+			set
+			{
+				if ((this._Pid != value))
+				{
+					this.OnPidChanging(value);
+					this.SendPropertyChanging();
+					this._Pid = value;
+					this.SendPropertyChanged("Pid");
+					this.OnPidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(200) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MyName", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
+		public string MyName
+		{
+			get
+			{
+				return this._MyName;
+			}
+			set
+			{
+				if ((this._MyName != value))
+				{
+					this.OnMyNameChanging(value);
+					this.SendPropertyChanging();
+					this._MyName = value;
+					this.SendPropertyChanged("MyName");
+					this.OnMyNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(200) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilePhoneNumber", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
+		public string MobilePhoneNumber
+		{
+			get
+			{
+				return this._MobilePhoneNumber;
+			}
+			set
+			{
+				if ((this._MobilePhoneNumber != value))
+				{
+					this.OnMobilePhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._MobilePhoneNumber = value;
+					this.SendPropertyChanged("MobilePhoneNumber");
+					this.OnMobilePhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(200)", UpdateCheck=UpdateCheck.Never)]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this.OnPhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remark", DbType="VarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string Remark
+		{
+			get
+			{
+				return this._Remark;
+			}
+			set
+			{
+				if ((this._Remark != value))
+				{
+					this.OnRemarkChanging(value);
+					this.SendPropertyChanging();
+					this._Remark = value;
+					this.SendPropertyChanged("Remark");
+					this.OnRemarkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					if (this._Sys_UserStatus.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CreateTime
+		{
+			get
+			{
+				return this._CreateTime;
+			}
+			set
+			{
+				if ((this._CreateTime != value))
+				{
+					this.OnCreateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreateTime = value;
+					this.SendPropertyChanged("CreateTime");
+					this.OnCreateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatePerson", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> CreatePerson
+		{
+			get
+			{
+				return this._CreatePerson;
+			}
+			set
+			{
+				if ((this._CreatePerson != value))
+				{
+					this.OnCreatePersonChanging(value);
+					this.SendPropertyChanging();
+					this._CreatePerson = value;
+					this.SendPropertyChanged("CreatePerson");
+					this.OnCreatePersonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatePerson", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> UpdatePerson
+		{
+			get
+			{
+				return this._UpdatePerson;
+			}
+			set
+			{
+				if ((this._UpdatePerson != value))
+				{
+					this.OnUpdatePersonChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatePerson = value;
+					this.SendPropertyChanged("UpdatePerson");
+					this.OnUpdatePersonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateTime", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> UpdateTime
+		{
+			get
+			{
+				return this._UpdateTime;
+			}
+			set
+			{
+				if ((this._UpdateTime != value))
+				{
+					this.OnUpdateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateTime = value;
+					this.SendPropertyChanged("UpdateTime");
+					this.OnUpdateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSystem", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public bool IsSystem
+		{
+			get
+			{
+				return this._IsSystem;
+			}
+			set
+			{
+				if ((this._IsSystem != value))
+				{
+					this.OnIsSystemChanging(value);
+					this.SendPropertyChanging();
+					this._IsSystem = value;
+					this.SendPropertyChanged("IsSystem");
+					this.OnIsSystemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public bool IsDelete
+		{
+			get
+			{
+				return this._IsDelete;
+			}
+			set
+			{
+				if ((this._IsDelete != value))
+				{
+					this.OnIsDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._IsDelete = value;
+					this.SendPropertyChanged("IsDelete");
+					this.OnIsDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleId", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		public int RoleId
+		{
+			get
+			{
+				return this._RoleId;
+			}
+			set
+			{
+				if ((this._RoleId != value))
+				{
+					if (this._Sys_Role.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRoleIdChanging(value);
+					this.SendPropertyChanging();
+					this._RoleId = value;
+					this.SendPropertyChanged("RoleId");
+					this.OnRoleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Theme", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string Theme
+		{
+			get
+			{
+				return this._Theme;
+			}
+			set
+			{
+				if ((this._Theme != value))
+				{
+					this.OnThemeChanging(value);
+					this.SendPropertyChanging();
+					this._Theme = value;
+					this.SendPropertyChanged("Theme");
+					this.OnThemeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserToken", DbType="VarChar(36)", UpdateCheck=UpdateCheck.Never)]
+		public string UserToken
+		{
+			get
+			{
+				return this._UserToken;
+			}
+			set
+			{
+				if ((this._UserToken != value))
+				{
+					this.OnUserTokenChanging(value);
+					this.SendPropertyChanging();
+					this._UserToken = value;
+					this.SendPropertyChanged("UserToken");
+					this.OnUserTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sys_Company_Sys_User", Storage="_Sys_Company", ThisKey="Cid", OtherKey="Id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Sys_Company Sys_Company
+		{
+			get
+			{
+				return this._Sys_Company.Entity;
+			}
+			set
+			{
+				Sys_Company previousValue = this._Sys_Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Sys_Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sys_Company.Entity = null;
+						previousValue.Sys_User.Remove(this);
+					}
+					this._Sys_Company.Entity = value;
+					if ((value != null))
+					{
+						value.Sys_User.Add(this);
+						this._Cid = value.Id;
+					}
+					else
+					{
+						this._Cid = default(string);
+					}
+					this.SendPropertyChanged("Sys_Company");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sys_Role_Sys_User", Storage="_Sys_Role", ThisKey="RoleId", OtherKey="Id", IsForeignKey=true)]
+		public Sys_Role Sys_Role
+		{
+			get
+			{
+				return this._Sys_Role.Entity;
+			}
+			set
+			{
+				Sys_Role previousValue = this._Sys_Role.Entity;
+				if (((previousValue != value) 
+							|| (this._Sys_Role.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sys_Role.Entity = null;
+						previousValue.Sys_User.Remove(this);
+					}
+					this._Sys_Role.Entity = value;
+					if ((value != null))
+					{
+						value.Sys_User.Add(this);
+						this._RoleId = value.Id;
+					}
+					else
+					{
+						this._RoleId = default(int);
+					}
+					this.SendPropertyChanged("Sys_Role");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sys_UserStatus_Sys_User", Storage="_Sys_UserStatus", ThisKey="Status", OtherKey="Id", IsForeignKey=true)]
+		public Sys_UserStatus Sys_UserStatus
+		{
+			get
+			{
+				return this._Sys_UserStatus.Entity;
+			}
+			set
+			{
+				Sys_UserStatus previousValue = this._Sys_UserStatus.Entity;
+				if (((previousValue != value) 
+							|| (this._Sys_UserStatus.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sys_UserStatus.Entity = null;
+						previousValue.Sys_User.Remove(this);
+					}
+					this._Sys_UserStatus.Entity = value;
+					if ((value != null))
+					{
+						value.Sys_User.Add(this);
+						this._Status = value.Id;
+					}
+					else
+					{
+						this._Status = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Sys_UserStatus");
 				}
 			}
 		}

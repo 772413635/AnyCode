@@ -4,11 +4,13 @@
     Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
 }
 @section head{
+<script type="text/javascript" src="@Url.Content("~/Res/plugs/DES.js")"></script>
     <script type="text/javascript" src="../../Javascripts/Content/Pwd_Add.js"></script>
 }
 <div region="center" class="content-center" border="false">
     <form id="fm" action="javascript:;">
         @Html.HiddenFor(c => c.Id)
+        <input type="hidden" id="UserToken" value="@ViewBag.UserToken" />
         <div class="btn-bar">
             <button class="btn-back" type="button" onclick=" BackPage();">返回</button>
             <button class="btn-sub" type="button" onclick="Save()">保存</button>
@@ -38,7 +40,7 @@
                         <label class="item-th">密码</label>
                     </td>
                     <td>
-                        @Html.PasswordFor(model => model.Password, new { @class = "text validate[required,maxSize[50]]", style = "width:300px" })
+                        @Html.TextAreaFor(model => model.Password, new { @class = "text validate[required,maxSize[50]]", style = "width:300px" })
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +48,7 @@
                         <label class="item-th">确认密码</label>
                     </td>
                     <td>
-                        <input id="Password2" name="Password2" type="password" class="text validate[maxSize[50],equals[Password]]" style="width: 300px" />
+                        @Html.TextAreaFor(model => model.Password, new { @class = "text validate[maxSize[50],equals[Password]]", style = "width:300px",id= "Password2" })
                     </td>
                 </tr>
                 <tr>

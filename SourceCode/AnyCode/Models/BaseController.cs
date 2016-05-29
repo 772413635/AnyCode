@@ -27,16 +27,6 @@ namespace AnyCode
             Db = db;
         }
 
-        /// <summary>
-        /// 显现试图基础方法
-        /// </summary>
-        /// <param name="id">视图名</param>
-        /// <returns></returns>
-        public ActionResult GetView(string id)
-        {
-            return View(id);
-        }
-
         public Sys_User GetCreatePerson()
         {
             var user = UserTicket.Users.SingleOrDefault(c => c.Id == UserTicket.Id);

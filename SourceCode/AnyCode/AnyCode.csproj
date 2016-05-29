@@ -315,6 +315,7 @@
     <Content Include="Res\kindeditor-4.1.10\themes\qq\editor_new.png" />
     <Content Include="Res\kindeditor-4.1.10\themes\qq\qq.css" />
     <Content Include="Res\kindeditor-4.1.10\themes\simple\simple.css" />
+    <Content Include="Res\plugs\DES.js" />
     <Content Include="Res\plugs\jquery.PrintArea.js" />
     <Content Include="Res\plugs\LoginBase.js" />
     <Content Include="Res\plugs\outlook2.js" />
@@ -812,6 +813,7 @@
     <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\Thumbs.db" />
     <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\Thumbs.db" />
     <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\ftp.pubxml" />
     <None Include="Properties\PublishProfiles\webmvc.pubxml" />
     <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\Thumbs.db" />
     <Content Include="Res\jquery-easyui-1.3.2\themes\bootstrap\images\Thumbs.db" />

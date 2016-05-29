@@ -573,13 +573,13 @@ $.JsonToDate = function (val) {
         var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
         var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
         var fullDataString = date.getFullYear() + "-" + month + "-" + currentDate + " " + (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ":" + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) + ":" + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds());
-        returnData = new $.JsonDate(date, fullDataString);
+        returnData = new JsonDate(date, fullDataString);
     }
     return returnData;
 };
 
 //Json
-$.JsonDate = function (dateObject, fullDateString) {
+function JsonDate(dateObject, fullDateString) {
     this.dateObject = dateObject;
     this.fullDateString = fullDateString;
 };

@@ -304,34 +304,6 @@
       <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Sys_User" Member="Sys_User">
-    <Type Name="Sys_User">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Cid" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
-      <Column Name="Pid" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="MyName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="MobilePhoneNumber" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Remark" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CreatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UpdatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-      <Column Name="IsSystem" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Theme" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="Sys_Company_Sys_User" Member="Sys_Company" ThisKey="Cid" OtherKey="Id" Type="Sys_Company" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Sys_Role_Sys_User" Member="Sys_Role" ThisKey="RoleId" OtherKey="Id" Type="Sys_Role" IsForeignKey="true" />
-      <Association Name="Sys_UserStatus_Sys_User" Member="Sys_UserStatus" ThisKey="Status" OtherKey="Id" Type="Sys_UserStatus" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Sf_Product" Member="Sf_Product">
     <Type Name="Sf_Product">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -374,6 +346,35 @@
       <Column Name="Remark" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="CreatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_User" Member="Sys_User">
+    <Type Name="Sys_User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cid" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Column Name="Pid" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="MyName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MobilePhoneNumber" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Remark" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatePerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Version" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="IsSystem" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Theme" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="UserToken" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
+      <Association Name="Sys_Company_Sys_User" Member="Sys_Company" ThisKey="Cid" OtherKey="Id" Type="Sys_Company" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Sys_Role_Sys_User" Member="Sys_Role" ThisKey="RoleId" OtherKey="Id" Type="Sys_Role" IsForeignKey="true" />
+      <Association Name="Sys_UserStatus_Sys_User" Member="Sys_UserStatus" ThisKey="Status" OtherKey="Id" Type="Sys_UserStatus" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

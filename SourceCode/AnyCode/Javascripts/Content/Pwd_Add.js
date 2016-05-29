@@ -19,3 +19,12 @@ if ($("#fm").validationEngine('validate')) {
         return false;
 
 }
+$(function () {
+    var usertoken = $("#UserToken").val();
+    var userName = uncMe($("#UserName").val(), usertoken);
+    var password = uncMe($("#Password").val(), usertoken);
+    var password2 = uncMe($("#Password2").val(), usertoken);
+    $("#UserName").val(userName);
+    $("#Password").val(password);
+    $("#Password2").val(password2);
+})
