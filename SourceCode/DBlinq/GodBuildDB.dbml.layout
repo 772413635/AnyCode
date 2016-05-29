@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.75, 10.75" name="GodBuild">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.75, 12.5" name="GodBuild">
   <DataContextMoniker Name="/GodBuildDB" />
   <nestedChildShapes>
     <classShape Id="1ac7b03d-d786-4f68-8ac9-e8b8291e7ce4" isExpanded="false" absoluteBounds="9.125, 0.5, 2, 0.45">
@@ -143,12 +143,6 @@
         <elementListCompartment Id="9283d23c-a14e-4982-a4d0-716d4c0475aa" absoluteBounds="8.39, 9.585, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="96017f4a-4d71-4714-8fdd-c12b3c5f74ff" isExpanded="false" absoluteBounds="3.625, 10, 2, 0.45">
-      <DataClassMoniker Name="/GodBuildDB/Sys_Password" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a4708dfd-c5c2-4863-9a69-e8bab4ae481d" absoluteBounds="3.6399999999999997, 10.46, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="c1b3a967-4349-4068-8717-68358cb6f234" isExpanded="false" absoluteBounds="0.75, 7.75, 2, 0.45">
       <DataClassMoniker Name="/GodBuildDB/Sys_WebChat_Config" />
       <nestedChildShapes>
@@ -228,6 +222,12 @@
       <DataClassMoniker Name="/GodBuildDB/Sf_Address" />
       <nestedChildShapes>
         <elementListCompartment Id="7bcd48a6-768a-4959-bf1d-0c287be7f69c" absoluteBounds="12.515, 3.21, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ce8a14a2-d31f-412b-a7ed-be08b375b469" absoluteBounds="3.5, 10.125, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/GodBuildDB/Sys_Password" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e50d9617-a809-44a3-aaf9-0660039216c4" absoluteBounds="3.515, 10.585, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
