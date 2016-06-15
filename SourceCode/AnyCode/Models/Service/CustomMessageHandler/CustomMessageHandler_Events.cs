@@ -131,6 +131,11 @@ namespace AnyCode.Models.Service
             foreach (var p in pwdList)
             {
                 replyContent += string.Format("{0}:\r\n{1}\r\n{2}\r\n{3}\r\n", p.Name, p.UserName, p.Password, p.Remark);
+//查询数据的添加人
+//获取加密token
+//解密
+
+
             }
             if (string.IsNullOrWhiteSpace(replyContent))
             {
