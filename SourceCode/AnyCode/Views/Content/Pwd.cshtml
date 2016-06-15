@@ -5,10 +5,11 @@
     Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
 }
 @section head{
-
+    <script type="text/javascript" src="@Url.Content("~/Res/plugs/DES.js")"></script>
     <script type="text/javascript" src="../../Javascripts/Content/Pwd.js"></script>
 }
 <div region="center" style="padding: 5px;" border="false">
+    <input type="hidden" id="UserToken" value="@ViewBag.UserToken" />
     <table id="table"></table>
 </div>
 

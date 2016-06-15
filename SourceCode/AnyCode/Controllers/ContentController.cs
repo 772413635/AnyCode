@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.Linq;
 using System.Web.Mvc;
 using Common;
 using DBlinq;
@@ -107,10 +105,18 @@ namespace AnyCode.Controllers
 
         public ActionResult Pwd_Edit(int id)
         {
+            ViewBag.UserToken = LoginUser.UserToken;
             return GetModelView<Sys_Password>("Id", id, "Pwd_Add");
         }
         public ActionResult Text_Add()
         {
+            ViewBag.UserToken = LoginUser.UserToken;
+            return View();
+        }
+
+        public ActionResult Pwd()
+        {
+            ViewBag.UserToken = LoginUser.UserToken;
             return View();
         }
 
@@ -138,8 +144,8 @@ namespace AnyCode.Controllers
             var updateModel = new
             {
                 t.Name,
-                t.UserName,
-                t.Password,
+                UserName=MeDes.encMe(t.UserName,LoginUser.UserToken) ,
+                Password=MeDes.encMe(t.Password,LoginUser.UserToken),
                 t.Remark
             };
             return _content.CreateOrUpdate("Id", t.Id, 0, t, updateModel);

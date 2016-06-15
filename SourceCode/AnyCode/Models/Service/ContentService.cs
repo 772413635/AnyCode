@@ -56,7 +56,8 @@ namespace AnyCode.Models.Service
                             tt.Name,
                             tt.UserName,
                             tt.Password,
-                            tt.Remark
+                            tt.Remark,
+                            tt.CreateTime
                         };
             return new JqueryGridObject
             {
