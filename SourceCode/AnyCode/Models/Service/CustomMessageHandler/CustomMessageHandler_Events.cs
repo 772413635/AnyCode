@@ -6,6 +6,7 @@ using System.Web;
 using System.Data.Linq;
 using System.Web.Script.Serialization;
 using AnyCode.Models.Interfaces;
+using Common;
 using Senparc.Weixin.Entities;
 using Senparc.Weixin.MP;
 using Senparc.Weixin.MP.CommonAPIs;
@@ -130,10 +131,16 @@ namespace AnyCode.Models.Service
             var replyContent = "";
             foreach (var p in pwdList)
             {
+                //查询数据的添加人
+                var addUser = p.CreatePerson==null?null:_db.Sys_User.SingleOrDefault(c=>c.Id==p.CreatePerson) ;
+                if (addUser != null)
+                {
+                    //获取加密token，解密
+                    p.UserName = MeDes.uncMe(p.UserName, addUser.UserToken);
+                    p.Password = MeDes.uncMe(p.Password, addUser.UserToken);
+                }
                 replyContent += string.Format("{0}:\r\n{1}\r\n{2}\r\n{3}\r\n", p.Name, p.UserName, p.Password, p.Remark);
-//查询数据的添加人
-//获取加密token
-//解密
+
 
 
             }
