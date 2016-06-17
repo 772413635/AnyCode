@@ -49,15 +49,27 @@ namespace AnyCode.Controllers
 
         }
 
+        [HttpPost]
         public JsonResult PwdList(DataGridParam param)
         {
             return Json(_content.PwdList(param));
+        }
+
+        public JsonpResult JsPwdList(DataGridParam param)
+        {
+            var data = _content.PwdList(param);
+            return new JsonpResult
+            {
+                Data= data,
+                JsonRequestBehavior=JsonRequestBehavior.AllowGet
+            };
         }
 
         public string ShowContent(int id)
         {
             return _content.ShowContent(id);
         }
+
          [OutputCache(VaryByParam = "*", Duration = 3600)]
         public JsonpResult JShowContent(DataGridParam param)
         {
