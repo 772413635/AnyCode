@@ -103,6 +103,11 @@ namespace AnyCode.Models.Service
             return responseMessage;
         }
 
+        /// <summary>
+        /// 文字消息处理
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <returns></returns>
         public override IResponseMessageBase OnTextRequest(RequestMessageText requestMessage)
         {
             return MessageText(requestMessage.Content);
