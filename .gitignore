@@ -15,3 +15,7 @@ SourceCode/AnyCode.v12.suo
 SourceCode/AnyCode.v12.suo
 *.suo
 /SourceCode/.vs/config
+/SourceCode/AnyCode/Log
+/SourceCode/packages/Microsoft.AspNet.WebPages.3.2.3/lib/net45
+/SourceCode/packages
+/SourceCode/AnyCode/packages.config
