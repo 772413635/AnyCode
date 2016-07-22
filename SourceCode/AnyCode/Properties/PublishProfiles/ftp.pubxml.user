@@ -6,13 +6,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>ftp://www.isaacxu.com/AnyCode</_PublishTargetUrl>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAtcSEVwqAuk275iHGp/FxnQAAAAACAAAAAAAQZgAAAAEAACAAAABaJ1c6/hqyCrZtynimN60/G5Ihj75pFV0/ipTJqfL7HQAAAAAOgAAAAAIAACAAAAD1SjCP6ZObNF+QFYvW0880i1/R7Z+c/qPSSH6je+axRDAAAAAWZEw6bTSI2YMoHrO+ewnxLA5fJhE/qZPvQLKA4I8glR72Zo+W/rnENw3KGB/AJ8BAAAAApdr52ctEToczpLgjNtEmvMiL4uiwyacNUMr4eyis6krdXVZQusbriAQk2fGs+uDuc4eDpOAbbvyGMI54evV3QA==</EncryptedPassword>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AnyCode.dll">
-      <publishTime>07/22/2016 11:11:48</publishTime>
+      <publishTime>07/22/2016 13:36:10</publishTime>
     </File>
     <File Include="bin/AnyCode.pdb">
-      <publishTime>07/22/2016 11:11:48</publishTime>
+      <publishTime>07/22/2016 13:36:10</publishTime>
     </File>
     <File Include="bin/Common.dll">
       <publishTime>07/22/2016 11:11:47</publishTime>
@@ -2097,7 +2099,7 @@
       <publishTime>06/15/2016 18:15:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/19/2016 11:37:39</publishTime>
+      <publishTime>07/22/2016 11:49:31</publishTime>
     </File>
   </ItemGroup>
 </Project>

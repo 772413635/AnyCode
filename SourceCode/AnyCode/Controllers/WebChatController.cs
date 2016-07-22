@@ -99,6 +99,11 @@ namespace AnyCode.Controllers
             return View();
         }
 
+        public ActionResult MsgManager()
+        {
+            return View();
+        }
+
         //保存或更新数据
         [HttpPost]
         public string CreateWxAccount(Sys_WebChat_Config t)

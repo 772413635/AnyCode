@@ -162,13 +162,19 @@ namespace AnyCode.Controllers
         [HttpPost]
         public string CreatePwd(Sys_Password t)
         {
+
+            t.UserName = MeDes.encMe(t.UserName, LoginUser.UserToken);
+            t.Password = MeDes.encMe(t.Password, LoginUser.UserToken);
+
             var updateModel = new
             {
                 t.Name,
-                UserName=MeDes.encMe(t.UserName,LoginUser.UserToken) ,
-                Password=MeDes.encMe(t.Password,LoginUser.UserToken),
+                t.UserName,
+                t.Password,
                 t.Remark
             };
+            t.UserName = updateModel.UserName;
+            t.Password = updateModel.Password;
             return _content.CreateOrUpdate("Id", t.Id, 0, t, updateModel);
         }
     }
