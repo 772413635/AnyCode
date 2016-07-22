@@ -115,6 +115,15 @@ namespace AnyCode.Controllers
             return GetModelView<Sys_Text>("Id", id, "Text_Add");
         }
 
+        /// <summary>
+        /// 用户名密码添加页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Pwd_Add()
+        {
+            return View();
+        }
+
         public ActionResult Pwd_Edit(int id)
         {
             ViewBag.UserToken = LoginUser.UserToken;

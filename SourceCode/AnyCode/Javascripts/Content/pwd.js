@@ -47,7 +47,7 @@ toolbar = DealWithFunction([{
     text: '添加',
     iconCls: 'icon-add',
     handler: function () {
-        parent.addTab("添加PassPage", "/Content/GetView/Pwd_Add");
+        parent.addTab("添加PassPage", "/Content/Pwd_Add");
     }
 }], funList.AddData, toolbar);
 
