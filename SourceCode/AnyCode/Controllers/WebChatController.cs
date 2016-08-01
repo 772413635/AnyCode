@@ -101,6 +101,8 @@ namespace AnyCode.Controllers
 
         public ActionResult MsgManager()
         {
+            var msgType = _db.Sys_WebChat_MsgType.Where(c => c.IsReply);
+            ViewBag.MsgType = new SelectList(msgType,"MsgType","Name");
             return View();
         }
 
@@ -225,6 +227,11 @@ namespace AnyCode.Controllers
         {
             var wxres = _service.CreateMenu(cfgid, appId);
             return Json(wxres);
+        }
+
+        public JsonResult MsgMapList(DataGridParam param)
+        {
+            return Json(_service.MsgMapList(param));
         }
     }
 }

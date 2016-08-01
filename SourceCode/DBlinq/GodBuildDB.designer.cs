@@ -69,9 +69,6 @@ namespace DBlinq
     partial void InsertSys_Text(Sys_Text instance);
     partial void UpdateSys_Text(Sys_Text instance);
     partial void DeleteSys_Text(Sys_Text instance);
-    partial void InsertSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
-    partial void UpdateSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
-    partial void DeleteSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
     partial void InsertSys_WebChat_MsgNews(Sys_WebChat_MsgNews instance);
     partial void UpdateSys_WebChat_MsgNews(Sys_WebChat_MsgNews instance);
     partial void DeleteSys_WebChat_MsgNews(Sys_WebChat_MsgNews instance);
@@ -114,6 +111,9 @@ namespace DBlinq
     partial void InsertSys_User(Sys_User instance);
     partial void UpdateSys_User(Sys_User instance);
     partial void DeleteSys_User(Sys_User instance);
+    partial void InsertSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
+    partial void UpdateSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
+    partial void DeleteSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
     #endregion
 		
 		public GodBuildDB() : 
@@ -258,14 +258,6 @@ namespace DBlinq
 			}
 		}
 		
-		public System.Data.Linq.Table<Sys_WebChat_MsgType> Sys_WebChat_MsgType
-		{
-			get
-			{
-				return this.GetTable<Sys_WebChat_MsgType>();
-			}
-		}
-		
 		public System.Data.Linq.Table<sys_webchat_ReplyMsgs> sys_webchat_ReplyMsgs
 		{
 			get
@@ -391,6 +383,22 @@ namespace DBlinq
 			get
 			{
 				return this.GetTable<Sys_User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sys_WebChat_V_MsgMap> Sys_WebChat_V_MsgMap
+		{
+			get
+			{
+				return this.GetTable<Sys_WebChat_V_MsgMap>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sys_WebChat_MsgType> Sys_WebChat_MsgType
+		{
+			get
+			{
+				return this.GetTable<Sys_WebChat_MsgType>();
 			}
 		}
 	}
@@ -3804,116 +3812,6 @@ namespace DBlinq
 					this._RoleId = value;
 					this.SendPropertyChanged("RoleId");
 					this.OnRoleIdChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sys_WebChat_MsgType")]
-	public partial class Sys_WebChat_MsgType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Name;
-		
-		private string _MsgType;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnMsgTypeChanging(string value);
-    partial void OnMsgTypeChanged();
-    #endregion
-		
-		public Sys_WebChat_MsgType()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MsgType", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string MsgType
-		{
-			get
-			{
-				return this._MsgType;
-			}
-			set
-			{
-				if ((this._MsgType != value))
-				{
-					this.OnMsgTypeChanging(value);
-					this.SendPropertyChanging();
-					this._MsgType = value;
-					this.SendPropertyChanged("MsgType");
-					this.OnMsgTypeChanged();
 				}
 			}
 		}
@@ -7509,6 +7407,257 @@ namespace DBlinq
 						this._Status = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Sys_UserStatus");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sys_WebChat_V_MsgMap")]
+	public partial class Sys_WebChat_V_MsgMap
+	{
+		
+		private string _AppName;
+		
+		private string _Token;
+		
+		private string _Code;
+		
+		private int _MsgOrGroupId;
+		
+		private string _MsgTypeName;
+		
+		private int _MsgType;
+		
+		public Sys_WebChat_V_MsgMap()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppName", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string AppName
+		{
+			get
+			{
+				return this._AppName;
+			}
+			set
+			{
+				if ((this._AppName != value))
+				{
+					this._AppName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Token
+		{
+			get
+			{
+				return this._Token;
+			}
+			set
+			{
+				if ((this._Token != value))
+				{
+					this._Token = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Code", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Code
+		{
+			get
+			{
+				return this._Code;
+			}
+			set
+			{
+				if ((this._Code != value))
+				{
+					this._Code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MsgOrGroupId", DbType="Int NOT NULL")]
+		public int MsgOrGroupId
+		{
+			get
+			{
+				return this._MsgOrGroupId;
+			}
+			set
+			{
+				if ((this._MsgOrGroupId != value))
+				{
+					this._MsgOrGroupId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MsgTypeName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MsgTypeName
+		{
+			get
+			{
+				return this._MsgTypeName;
+			}
+			set
+			{
+				if ((this._MsgTypeName != value))
+				{
+					this._MsgTypeName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MsgType", DbType="Int NOT NULL")]
+		public int MsgType
+		{
+			get
+			{
+				return this._MsgType;
+			}
+			set
+			{
+				if ((this._MsgType != value))
+				{
+					this._MsgType = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sys_WebChat_MsgType")]
+	public partial class Sys_WebChat_MsgType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private int _MsgType;
+		
+		private bool _IsReply;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnMsgTypeChanging(int value);
+    partial void OnMsgTypeChanged();
+    partial void OnIsReplyChanging(bool value);
+    partial void OnIsReplyChanged();
+    #endregion
+		
+		public Sys_WebChat_MsgType()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MsgType", DbType="Int NOT NULL")]
+		public int MsgType
+		{
+			get
+			{
+				return this._MsgType;
+			}
+			set
+			{
+				if ((this._MsgType != value))
+				{
+					this.OnMsgTypeChanging(value);
+					this.SendPropertyChanging();
+					this._MsgType = value;
+					this.SendPropertyChanged("MsgType");
+					this.OnMsgTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReply", DbType="Bit NOT NULL")]
+		public bool IsReply
+		{
+			get
+			{
+				return this._IsReply;
+			}
+			set
+			{
+				if ((this._IsReply != value))
+				{
+					this.OnIsReplyChanging(value);
+					this.SendPropertyChanging();
+					this._IsReply = value;
+					this.SendPropertyChanged("IsReply");
+					this.OnIsReplyChanged();
 				}
 			}
 		}

@@ -11,31 +11,31 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AnyCode.dll">
-      <publishTime>07/22/2016 13:36:10</publishTime>
+      <publishTime>08/01/2016 17:51:55</publishTime>
     </File>
     <File Include="bin/AnyCode.pdb">
-      <publishTime>07/22/2016 13:36:10</publishTime>
+      <publishTime>08/01/2016 17:51:55</publishTime>
     </File>
     <File Include="bin/Common.dll">
-      <publishTime>07/22/2016 11:11:47</publishTime>
+      <publishTime>08/01/2016 17:51:55</publishTime>
     </File>
     <File Include="bin/Common.pdb">
-      <publishTime>07/22/2016 11:11:47</publishTime>
+      <publishTime>08/01/2016 17:51:55</publishTime>
     </File>
     <File Include="bin/DBlinq.dll">
-      <publishTime>07/22/2016 11:11:46</publishTime>
+      <publishTime>08/01/2016 17:51:54</publishTime>
     </File>
     <File Include="bin/DBlinq.pdb">
-      <publishTime>07/22/2016 11:11:46</publishTime>
+      <publishTime>08/01/2016 17:51:54</publishTime>
     </File>
     <File Include="bin/Dynamic.dll">
       <publishTime>03/09/2016 09:22:29</publishTime>
     </File>
     <File Include="bin/EfSearchModel.dll">
-      <publishTime>07/22/2016 11:11:46</publishTime>
+      <publishTime>08/01/2016 17:51:54</publishTime>
     </File>
     <File Include="bin/EfSearchModel.pdb">
-      <publishTime>07/22/2016 11:11:46</publishTime>
+      <publishTime>08/01/2016 17:51:54</publishTime>
     </File>
     <File Include="bin/Ionic.Zip.dll">
       <publishTime>03/09/2016 09:22:29</publishTime>
@@ -387,6 +387,9 @@
     </File>
     <File Include="Javascripts/System/ShowNews.js">
       <publishTime>06/15/2016 18:15:32</publishTime>
+    </File>
+    <File Include="Javascripts/WebChat/MsgManager.js">
+      <publishTime>08/01/2016 17:49:06</publishTime>
     </File>
     <File Include="Javascripts/WebChat/WxAccount.js">
       <publishTime>06/15/2016 18:15:32</publishTime>
@@ -2003,7 +2006,7 @@
       <publishTime>06/15/2016 18:15:34</publishTime>
     </File>
     <File Include="Res/plugs/MeterBase.js">
-      <publishTime>06/15/2016 18:15:34</publishTime>
+      <publishTime>08/01/2016 17:02:57</publishTime>
     </File>
     <File Include="Res/plugs/outlook2.js">
       <publishTime>06/15/2016 18:15:34</publishTime>
@@ -2087,7 +2090,7 @@
       <publishTime>06/15/2016 18:15:34</publishTime>
     </File>
     <File Include="Views/WebChat/MsgManager.cshtml">
-      <publishTime>07/19/2016 12:09:38</publishTime>
+      <publishTime>08/01/2016 17:50:30</publishTime>
     </File>
     <File Include="Views/WebChat/WxAccount.cshtml">
       <publishTime>06/15/2016 18:15:34</publishTime>

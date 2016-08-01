@@ -1,8 +1,12 @@
 ﻿@using EfSearchModel.Extensions
 @using EfSearchModel.Model
+
 @{
     ViewBag.Ttitle = "消息管理，管理微信回复消息";
     Layout = "~/Views/Shared/_LayoutMainTwo.cshtml";
+}
+@section head{
+    <script src="@Url.Content("~/Javascripts/WebChat/MsgManager.js")"></script>
 }
 
 <div region="center" style="padding: 5px;" border="false">
@@ -14,25 +18,28 @@
         <form action="javascript:;" id="formsearch" method="post">
             <table cellpadding="0" cellspacing="0" cellspacing="1" class="Admin_Table" style="width: 100%; margin: 0px auto;">
                 <tr>
-                    <td style="width: 10%; text-align: right">
-                        标题：
+                    <td style="width: 20%; text-align: right">
+                        公众号名称：
                     </td>
-                    <td style="width: 40%; text-align: left">
-                        @Html.TextBox("Title", "", new {@style = "width:80%;height:18px", @class = "text"}).ForSearch(QueryMethod.Contains)
+                    <td style="width: 30%; text-align: left">
+                        @Html.TextBox("AppName", "", new {@style = "width:80%;height:18px", @class = "text"}).ForSearch(QueryMethod.Contains)
                     </td>
-                    <td style="width: 10%; text-align: right">
-                        公众号：
+                    <td style="width: 20%; text-align: right">
+                        菜单Code：
                     </td>
-                    <td style="width: 40%; text-align: left">
-                        @Html.TextBox("AppId", "", new {@style = "width:80%;height:18px", @class = "text"}).ForSearch(QueryMethod.Contains)
+                    <td style="width: 30%; text-align: left">
+                        @Html.TextBox("Code", "", new { @style = "width:80%;height:18px", @class = "text" }).ForSearch(QueryMethod.Contains)
                     </td>
-                    <td style="width: 10%; text-align: right">
+                </tr>
+                <tr>
+                    <td style="width: 20%; text-align: right">
                         消息类型：
                     </td>
-                    <td style="width: 40%; text-align: left">
-                        @Html.TextBox("MsgType", "", new {@style = "width:80%;height:18px", @class = "text"}).ForSearch(QueryMethod.Equal)
+                    <td style="width: 30%; text-align: left">
+                        @Html.DropDownList("MsgType", (SelectList) ViewBag.MsgType, new {@style = "width:80%;height:22px", @class = "text"}).ForSearch(QueryMethod.Equal)
                     </td>
-
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
             <div style="height: 10px">

@@ -177,13 +177,6 @@
       <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Sys_WebChat_MsgType" Member="Sys_WebChat_MsgType">
-    <Type Name="Sys_WebChat_MsgType">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MsgType" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.sys_webchat_ReplyMsgs" Member="sys_webchat_ReplyMsgs">
     <Type Name="sys_webchat_ReplyMsgs">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -375,6 +368,24 @@
       <Association Name="Sys_Company_Sys_User" Member="Sys_Company" ThisKey="Cid" OtherKey="Id" Type="Sys_Company" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Sys_Role_Sys_User" Member="Sys_Role" ThisKey="RoleId" OtherKey="Id" Type="Sys_Role" IsForeignKey="true" />
       <Association Name="Sys_UserStatus_Sys_User" Member="Sys_UserStatus" ThisKey="Status" OtherKey="Id" Type="Sys_UserStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_V_MsgMap" Member="Sys_WebChat_V_MsgMap">
+    <Type Name="Sys_WebChat_V_MsgMap">
+      <Column Name="AppName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Token" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MsgOrGroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MsgTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MsgType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_WebChat_MsgType" Member="Sys_WebChat_MsgType">
+    <Type Name="Sys_WebChat_MsgType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MsgType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsReply" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

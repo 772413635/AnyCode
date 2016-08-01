@@ -268,6 +268,7 @@
     <Content Include="Javascripts\Content\Text_Add.js" />
     <Content Include="Javascripts\Home\Index.js" />
     <Content Include="Javascripts\System\LoginUserManager.js" />
+    <Content Include="Javascripts\WebChat\MsgManager.js" />
     <Content Include="Javascripts\WebChat\WxAccount.js" />
     <Content Include="Javascripts\WebChat\WxAccount_Add.js" />
     <Content Include="Javascripts\WebChat\WxMenuManger.js" />

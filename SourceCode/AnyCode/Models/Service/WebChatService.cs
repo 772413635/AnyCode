@@ -222,5 +222,18 @@ namespace AnyCode.Models.Service
             var menuModel = Menu(cfgid);
             return CommonApi.CreateMenu(appId, (object)menuModel);
         }
+
+        public JqueryGridObject MsgMapList(DataGridParam param)
+        {
+            var tquery = _db.Sys_WebChat_V_MsgMap.Where(param.Query.GetModel());
+            var count = tquery.Count();
+            var query = tquery.Skip((param.Page - 1)*param.RP).Take(param.RP);
+            return new JqueryGridObject
+            {
+                DataGridParam = param,
+                total = count,
+                Query = query
+            };
+        }
     }
 }
