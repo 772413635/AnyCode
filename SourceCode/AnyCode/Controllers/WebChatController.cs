@@ -56,7 +56,7 @@ namespace AnyCode.Controllers
             //自定义MessageHandler，对微信请求的详细判断操作都在这里面。
             var messageHandler = new CustomMessageHandler(Request.InputStream, postModel, maxRecordCount, _db, webChat)
             {
-                OmitRepeatedMessage = true
+                OmitRepeatedMessage = false
             };
 
             /* 如果需要添加消息去重功能，只需打开OmitRepeatedMessage功能，SDK会自动处理。
@@ -67,7 +67,7 @@ namespace AnyCode.Controllers
             messageHandler.Execute();
 
 
-            return new FixWeixinBugWeixinResult(messageHandler); //为了解决官方微信5.0软件换行bug暂时添加的方法，平时用下面一个方法即可
+            return new WeixinResult(messageHandler);
         }
 
 
