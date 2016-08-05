@@ -5,7 +5,9 @@ using AnyCode.Models.Interfaces;
 using AnyCode.Models.Service;
 using Common;
 using System.Linq;
+using System.Text;
 using Senparc.Weixin.MP;
+using Senparc.Weixin.MP.Entities;
 using Senparc.Weixin.MP.Entities.Request;
 using Senparc.Weixin.MP.MvcExtension;
 
@@ -65,8 +67,6 @@ namespace AnyCode.Controllers
 
             //执行微信处理过程
             messageHandler.Execute();
-
-
             return new WeixinResult(messageHandler);
         }
 
