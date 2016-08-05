@@ -80,7 +80,7 @@ namespace AnyCode.Models.Service
         /// <returns></returns>
         public override IResponseMessageBase OnEvent_ClickRequest(RequestMessageEvent_Click requestMessage)
         {
-            var msgType = _db.Sys_WebChat_MsgMap.SingleOrDefault(c => c.Code == requestMessage.EventKey);
+            var msgType = _db.Sys_WebChat_MsgMap.SingleOrDefault(c => c.Token == _postModel.Token && c.Code == requestMessage.EventKey);
             if (msgType != null)
             {
                 return ReplyMsaage(msgType.MsgType, msgType.MsgOrGroupId, requestMessage);
