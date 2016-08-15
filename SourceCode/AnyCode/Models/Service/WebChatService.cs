@@ -223,7 +223,7 @@ namespace AnyCode.Models.Service
             return CommonApi.CreateMenu(appId, (object)menuModel);
         }
 
-        public JqueryGridObject MsgMapList(DataGridParam param)
+        public JqueryGridObject AutoReplyList(DataGridParam param)
         {
             var tquery = _db.Sys_WebChat_V_MsgMap.Where(param.Query.GetModel());
             var count = tquery.Count();

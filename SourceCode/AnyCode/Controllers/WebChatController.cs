@@ -99,7 +99,7 @@ namespace AnyCode.Controllers
             return View();
         }
 
-        public ActionResult MsgManager()
+        public ActionResult KeyWord()
         {
             var msgType = _db.Sys_WebChat_MsgType.Where(c => c.IsReply);
             ViewBag.MsgType = new SelectList(msgType,"MsgType","Name");
@@ -229,9 +229,9 @@ namespace AnyCode.Controllers
             return Json(wxres);
         }
 
-        public JsonResult MsgMapList(DataGridParam param)
+        public JsonResult AutoReplyList(DataGridParam param)
         {
-            return Json(_service.MsgMapList(param));
+            return Json(_service.AutoReplyList(param));
         }
     }
 }

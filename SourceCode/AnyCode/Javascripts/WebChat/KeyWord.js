@@ -29,7 +29,7 @@ toolbar = DealWithFunction([{
 
 
 $(function () {
-    BaseLoadTable("/WebChat/MsgMapList", "#table", columns, null, "Id", toolbar, "#formsearch");
+    BaseLoadTable("/WebChat/AutoReplyList", "#table", columns, null, "Id", toolbar, "#formsearch");
 });
 
 

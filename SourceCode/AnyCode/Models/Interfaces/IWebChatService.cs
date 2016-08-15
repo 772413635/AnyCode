@@ -64,6 +64,6 @@ namespace AnyCode.Models.Interfaces
         dynamic Menu(int configId);
         WxJsonResult CreateMenu(int cfgid, string token);
 
-        JqueryGridObject MsgMapList(DataGridParam param);
+        JqueryGridObject AutoReplyList(DataGridParam param);
     }
 }

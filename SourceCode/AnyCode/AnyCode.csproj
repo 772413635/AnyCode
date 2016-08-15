@@ -276,7 +276,7 @@
     <Content Include="Javascripts\Content\Text_Add.js" />
     <Content Include="Javascripts\Home\Index.js" />
     <Content Include="Javascripts\System\LoginUserManager.js" />
-    <Content Include="Javascripts\WebChat\MsgManager.js" />
+    <Content Include="Javascripts\WebChat\KeyWord.js" />
     <Content Include="Javascripts\WebChat\WxAccount.js" />
     <Content Include="Javascripts\WebChat\WxAccount_Add.js" />
     <Content Include="Javascripts\WebChat\WxMenuManger.js" />
@@ -822,6 +822,7 @@
     <Content Include="Res\jquery-easyui-1.3.2\themes\metro-green\images\Thumbs.db" />
     <Content Include="Res\jquery-easyui-1.3.2\themes\metro-orange\images\Thumbs.db" />
     <Content Include="Res\jquery-easyui-1.3.2\themes\metro-red\images\Thumbs.db" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\ftp.pubxml" />
     <None Include="Properties\PublishProfiles\webmvc.pubxml" />
     <Content Include="Res\jquery-easyui-1.3.2\themes\black\images\Thumbs.db" />
@@ -869,6 +870,7 @@
     <Content Include="Views\Content\Pwd_Add.cshtml" />
     <Content Include="Res\jquery-easyui-1.3.2\themes\deepblue\images\Thumbs.db" />
     <Content Include="Views\WebChat\MsgManager.cshtml" />
+    <Content Include="Views\WebChat\KeyWord.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

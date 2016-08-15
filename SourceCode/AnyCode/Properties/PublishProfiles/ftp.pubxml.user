@@ -11,31 +11,31 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AnyCode.dll">
-      <publishTime>08/05/2016 10:48:08</publishTime>
+      <publishTime>08/15/2016 16:51:43</publishTime>
     </File>
     <File Include="bin/AnyCode.pdb">
-      <publishTime>08/05/2016 10:48:08</publishTime>
+      <publishTime>08/15/2016 16:51:43</publishTime>
     </File>
     <File Include="bin/Common.dll">
-      <publishTime>08/05/2016 10:48:07</publishTime>
+      <publishTime>08/15/2016 16:32:56</publishTime>
     </File>
     <File Include="bin/Common.pdb">
-      <publishTime>08/05/2016 10:48:07</publishTime>
+      <publishTime>08/15/2016 16:32:56</publishTime>
     </File>
     <File Include="bin/DBlinq.dll">
-      <publishTime>08/02/2016 14:27:23</publishTime>
+      <publishTime>08/15/2016 16:32:56</publishTime>
     </File>
     <File Include="bin/DBlinq.pdb">
-      <publishTime>08/02/2016 14:27:23</publishTime>
+      <publishTime>08/15/2016 16:32:56</publishTime>
     </File>
     <File Include="bin/Dynamic.dll">
       <publishTime>03/09/2016 09:22:29</publishTime>
     </File>
     <File Include="bin/EfSearchModel.dll">
-      <publishTime>08/05/2016 10:48:07</publishTime>
+      <publishTime>08/15/2016 16:32:56</publishTime>
     </File>
     <File Include="bin/EfSearchModel.pdb">
-      <publishTime>08/05/2016 10:48:07</publishTime>
+      <publishTime>08/15/2016 16:32:56</publishTime>
     </File>
     <File Include="bin/Ionic.Zip.dll">
       <publishTime>03/09/2016 09:22:29</publishTime>
@@ -400,6 +400,9 @@
     <File Include="Javascripts/System/ShowNews.js">
       <publishTime>06/15/2016 18:15:32</publishTime>
     </File>
+    <File Include="Javascripts/WebChat/KeyWord.js">
+      <publishTime>08/15/2016 16:26:01</publishTime>
+    </File>
     <File Include="Javascripts/WebChat/MsgManager.js">
       <publishTime>08/01/2016 17:49:06</publishTime>
     </File>
@@ -413,7 +416,7 @@
       <publishTime>06/15/2016 18:15:32</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/19/2016 11:37:39</publishTime>
+      <publishTime>08/15/2016 16:21:02</publishTime>
     </File>
     <File Include="Res/formValidator/css/template.css">
       <publishTime>06/15/2016 18:15:32</publishTime>
@@ -2101,8 +2104,11 @@
     <File Include="Views/Web.config">
       <publishTime>06/15/2016 18:15:34</publishTime>
     </File>
+    <File Include="Views/WebChat/KeyWord.cshtml">
+      <publishTime>08/15/2016 16:27:45</publishTime>
+    </File>
     <File Include="Views/WebChat/MsgManager.cshtml">
-      <publishTime>08/01/2016 17:50:30</publishTime>
+      <publishTime>08/15/2016 16:26:27</publishTime>
     </File>
     <File Include="Views/WebChat/WxAccount.cshtml">
       <publishTime>06/15/2016 18:15:34</publishTime>
@@ -2114,7 +2120,7 @@
       <publishTime>06/15/2016 18:15:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/22/2016 11:49:31</publishTime>
+      <publishTime>08/15/2016 16:47:06</publishTime>
     </File>
   </ItemGroup>
 </Project>
