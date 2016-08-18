@@ -10,6 +10,8 @@ using Senparc.Weixin.MP;
 using Senparc.Weixin.MP.Entities;
 using Senparc.Weixin.MP.Entities.Request;
 using Senparc.Weixin.MP.MvcExtension;
+using Senparc.Weixin.Open;
+using Senparc.Weixin.Open.OAuthAPIs;
 
 namespace AnyCode.Controllers
 {
@@ -68,6 +70,15 @@ namespace AnyCode.Controllers
             //执行微信处理过程
             messageHandler.Execute();
             return new WeixinResult(messageHandler);
+        }
+
+
+        [HttpGet]
+        public void WxLogin(string code)
+        {
+
+            var accessToken = OAuthApi.GetAccessToken("wxc4a45051a808cbf1", "", "", code);
+            Redirect("/Home/index");
         }
 
 

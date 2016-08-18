@@ -5,45 +5,60 @@
 }
 @section head{
     <script src="@Url.Content("~/Javascripts/Account/Index.js")"></script>
+    <style type="text/css">
+        .btn-sub {
+            font-size: 15px;
+            float: left;
+            margin-right: 12px;
+            line-height: 1.2em;
+            font-family: arial, sans-serif;
+        }
+    </style>
 }
 <div class="p40">
     <div class="dialog center">
         <div class="dialog_content">
             <div style="margin: 25px 0; text-align: center; clear: both;">
                 <span id="span_info" style="color: Red"></span><a href="#">
-                    <img src="@Url.Content("~/Images/logo_medium.png")"></a>
+                    <img src="@Url.Content("~/Images/logo_medium.png")">
+                </a>
             </div>
             <div id="logins">
                 <form id="fm" action="javascript:;">
                     <div class="content" style="height: 110px;">
                         <table class="login_table">
                             <tr>
-                                <td class="login_table_title">账 号
+                                <td class="login_table_title">
+                                    账 号
                                 </td>
                                 <td class="login_table_input">
                                     <label for="Name">请输入用户名</label>
-                                    @Html.TextBoxFor(m => m.Name, new { @class = "validate[required]", style = "width: 200px;", tabindex = "2", onchange = "changeText()", onkeydown="keydown()" })
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "validate[required]", style = "width: 200px;", tabindex = "2", onchange = "changeText()", onkeydown = "keydown()" })
                                 </td>
                             </tr>
                             <tr>
-                                <td class="login_table_title">密 码
+                                <td class="login_table_title">
+                                    密 码
                                 </td>
                                 <td class="login_table_input">
-                                     <label for="Password">请输入密码</label>
+                                    <label for="Password">请输入密码</label>
                                     @Html.PasswordFor(m => m.Password, new { @class = "validate[required]", style = "width: 200px;", tabindex = "3", onchange = "changeText()", onkeydown = "keydown()" })
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td style="height: 20px;line-height:20px">
-                                    <input type="checkbox" id="remember" style="width: 20px; vertical-align: middle;" tabindex="4"/>记住密码
+                                    <input type="checkbox" id="remember" style="width: 20px; vertical-align: middle;" tabindex="4" />记住密码
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div class="dialog_buttons">
-                        <button class="btn-sub ui-button-blue" id="btn_signin" name="btn_signin" style="font-size: 14px; float: left; margin-right: 50px; line-height: 1.2em; font-family: arial,sans-serif" tabindex="5" type="button" onclick="Login()">
-                            登 录</button>
+                        <button class="btn-sub ui-button-blue" id="btn_signin" name="btn_signin" style="" tabindex="5" type="button" onclick="Login()">
+                            登 录
+                        </button>
+
+                        <a class="btn-sub ui-button-green" href="https://open.weixin.qq.com/connect/qrconnect?appid=wxc4a45051a808cbf1&redirect_uri=http://localhost/webchat/WxLogin&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect">微信登陆</a>
                     </div>
                 </form>
             </div>

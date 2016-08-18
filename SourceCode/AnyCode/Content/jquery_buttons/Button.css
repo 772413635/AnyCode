@@ -42,6 +42,10 @@
         background-color: #09b009;
     }
 
+        .ui-button-green:hover .ui-button-text {
+            color: white;
+        }
+
     .ui-button-green:active {
         background-color: #019801;
     }

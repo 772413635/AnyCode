@@ -46,7 +46,7 @@ namespace AnyCode
         {
             string controlName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
             string actionName = filterContext.ActionDescriptor.ActionName;
-            if (controlName.ToLower() == "account" || (controlName.ToLower() == "webchat" && actionName.ToLower() == "index"))//如果是登录则跳过安全认证
+            if (controlName.ToLower() == "account" || (controlName.ToLower() == "webchat" && actionName.ToLower() == "index")|| (controlName.ToLower() == "webchat" && actionName.ToLower() == "wxlogin"))//如果是登录则跳过安全认证
             {
                 if (UserTicket.Users.Any(c => c.Id == UserTicket.Id))//如果用户上次为安全退出，并且认证cookie未丢失，则直接跳转至主页面
                 {

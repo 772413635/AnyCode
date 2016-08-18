@@ -222,9 +222,6 @@
     <Content Include="Content\images\textfield_key.png" />
     <Content Include="Content\images\titlebg.jpg" />
     <Content Include="Content\jquery_buttons\Button.css" />
-    <Content Include="Content\jquery_buttons\Button.min.css">
-      <DependentUpon>Button.css</DependentUpon>
-    </Content>
     <Content Include="Content\jquery_buttons\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\logincommon.css" />
     <Content Include="Content\top.css" />
