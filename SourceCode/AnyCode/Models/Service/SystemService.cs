@@ -31,12 +31,13 @@ namespace AnyCode
         public JsonResult GetPerformLogList(DataGridParam param)
         {
             var qm = param.Query.GetModel();
-            var tquery = from tt in _db.Sys_PerformLog
+            var tquery = from tt in _db.Sys_PerformLog.OrderBy(param.SortName+" "+ param.SortOrder)
                 join cc in _db.Sys_User on tt.UserId equals cc.Id
                 select new
                 {
                     tt.Id,
                     UserName = cc.Name,
+                    NickName=cc.MyName,
                     tt.Ip,
                     tt.Controller,
                     tt.Action,

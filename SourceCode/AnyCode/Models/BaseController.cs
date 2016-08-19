@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
 using Common;
@@ -72,7 +73,6 @@ namespace AnyCode
                 }
                 if (LoginUser.IsSystem == false) //除管理员外其他用户所有操作都得记录数据库
                 {
-                    string ip = filterContext.HttpContext.Request.UserHostAddress;
                     var sb = new StringBuilder();
                     foreach (var item in filterContext.ActionParameters.Keys)
                     {
@@ -102,17 +102,7 @@ namespace AnyCode
                         }
 
                     }
-                    var log = new Sys_PerformLog
-                    {
-                        Ip = ip,
-                        Controller = controlName,
-                        Action = actionName,
-                        CreateTime = DateTime.Now,
-                        UserId = LoginUser.Id,
-                        Params = sb.ToString()
-                    };
-                    Db.InsertOnSubmit(log);
-                    Db.SubmitChanges();
+                    AddSysLog(filterContext.HttpContext, controlName, actionName, sb.ToString());
                 }
             }
             else//跨域访问
@@ -137,6 +127,23 @@ namespace AnyCode
             }
 
 
+        }
+
+
+        public void AddSysLog(HttpContextBase context,string controlName,string actionName,string param)
+        {
+
+            var log = new Sys_PerformLog
+            {
+                Ip = context.Request.UserHostAddress,
+                Controller = controlName,
+                Action = actionName,
+                CreateTime = DateTime.Now,
+                UserId = LoginUser.Id,
+                Params = param
+            };
+            Db.InsertOnSubmit(log);
+            Db.SubmitChanges();
         }
 
         /// <summary>

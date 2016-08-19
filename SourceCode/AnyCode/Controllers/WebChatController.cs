@@ -103,6 +103,7 @@ namespace AnyCode.Controllers
                         UserTicket.Users.Add(searchUser);
                     }
                 }
+                AddSysLog(HttpContext, "Account", "Login", "");
                 HttpContext.Response.Redirect("~/Home/Index");
             }
             else//微信号没有有绑定的用户
@@ -143,11 +144,10 @@ namespace AnyCode.Controllers
                     {
                         UserTicket.Users.Add(adduser);
                     }
+                    AddSysLog(HttpContext, "Account", "Login", "");
                     HttpContext.Response.Redirect("~/Home/Index");
                 }
-
             }
-
         }
 
         public T GetHttpData<T>(string url, string data)

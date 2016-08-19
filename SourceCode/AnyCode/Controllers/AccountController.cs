@@ -39,17 +39,7 @@ namespace AnyCode.Controllers
                 }
                 if (user.IsSystem == false)
                 {
-                    var log = new Sys_PerformLog
-                    {
-                        Ip = HttpContext.Request.UserHostAddress,
-                        Controller = "Account",
-                        Action = "Login",
-                        CreateTime = DateTime.Now,
-                        UserId = LoginUser.Id,
-                        Params = ""
-                    };
-                    Db.InsertOnSubmit(log);
-                    Db.SubmitChanges();
+                    AddSysLog(HttpContext, "Account", "Login", "");
                 }
 
 

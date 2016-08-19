@@ -8,6 +8,7 @@ function LoadTable() {
         return $.JsonToDate(val).fullDateString;
     } },
     { title: '用户', field: 'UserName', align: 'center', width: 100, sortable: true },
+    { title: '昵称', field: 'NickName', align: 'center', width: 100, sortable: true },
     { title: 'IP地址', field: 'Ip', align: 'center', width: 300, sortable: true }
     ]];
     var columns = [[
