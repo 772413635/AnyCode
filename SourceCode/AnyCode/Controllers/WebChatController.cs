@@ -103,6 +103,7 @@ namespace AnyCode.Controllers
                         UserTicket.Users.Add(searchUser);
                     }
                 }
+                HttpContext.Response.Redirect("~/Home/Index");
             }
             else//微信号没有有绑定的用户
             {
@@ -118,23 +119,35 @@ namespace AnyCode.Controllers
                     Remark = "微信登录用户",
                     Status = 1,
                     CreatePerson = 2,
-                    IsSystem = true,
+                    IsSystem = false,
                     RoleId = 1,
                     Theme = "deepblue",
                     UserToken = Guid.NewGuid().ToString("D"),
-                    openid = userinfo.openid
+                    openid = userinfo.openid,
+                    CreateTime=DateTime.Now
                 };
-                Db.Sys_User.InsertOnSubmit(user);
+                Db.InsertOnSubmit(user);
                 Db.SubmitChanges();
-                //向用户池中添加用户
-                UserTicket.Id = searchUser.Id;
-                UserTicket.Theme = searchUser.Theme;
-                lock (MvcApplication.lockObject)
+                var adduser = Db.Sys_User.SingleOrDefault(c => c.openid == userinfo.openid);
+                if (adduser == null)
                 {
-                    UserTicket.Users.Add(searchUser);
+                    //微信登录失败调至默认登录界面
+                    HttpContext.Response.Redirect("~/Account/Index");
                 }
+                else
+                {
+                    //向用户池中添加用户
+                    UserTicket.Id = adduser.Id;
+                    UserTicket.Theme = adduser.Theme;
+                    lock (MvcApplication.lockObject)
+                    {
+                        UserTicket.Users.Add(adduser);
+                    }
+                    HttpContext.Response.Redirect("~/Home/Index");
+                }
+
             }
-            HttpContext.Response.Redirect("~/Home/Index");
+
         }
 
         public T GetHttpData<T>(string url, string data)
