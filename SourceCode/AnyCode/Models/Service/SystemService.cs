@@ -419,22 +419,9 @@ namespace AnyCode
                 Method = QueryMethod.Equal,
                 Value = false
             });
-            var performLog = MongoDbHelper.DataBase.GetCollection("Sys_PerformLog");
-            var mongoLoginQuery = new QueryDocument();
-            mongoLoginQuery.Add("Controller", "Account");
-            mongoLoginQuery.Add("Action", "Login");
-            mongoLoginQuery.Add("UserId", 0);
-
-            var signoutQuery = new QueryDocument();
-            signoutQuery.Add("Controller", "Home");
-            signoutQuery.Add("Action", "Exit");
-            signoutQuery.Add("UserId", 0);
-
             var query = (from tt in UserTicket.Users.AsQueryable().Where(qm)
-                         let login = mongoLoginQuery.Set("UserId", tt.Id)
-                         let signout = signoutQuery.Set("UserId", tt.Id)
-                         let loger = performLog.FindAs<Sys_PerformLog>(mongoLoginQuery).OrderByDescending(c => c.CreateTime).FirstOrDefault()
-                         let singoutloger = performLog.FindAs<Sys_PerformLog>(signoutQuery).OrderByDescending(c => c.CreateTime).FirstOrDefault()
+                         let loger = _db.Sys_PerformLog.Where(c=>c.Controller== "Account"&&c.Action== "Login"&&c.UserId==tt.Id).OrderByDescending(c=>c.CreateTime).FirstOrDefault()
+                         let singoutloger = _db.Sys_PerformLog.Where(c => c.Controller == "Home" && c.Action == "Exit" && c.UserId == tt.Id).OrderByDescending(c => c.CreateTime).FirstOrDefault()
                          select new
                          {
                              tt.Id,
