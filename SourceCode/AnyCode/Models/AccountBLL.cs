@@ -97,14 +97,25 @@ namespace AnyCode.Models
         public static List<Sys_User> Users = new List<Sys_User>();
 
         /// <summary>
-        /// 读取存储在cookie中的用户id
+        /// 存储或写入在cookie中的用户id
         /// </summary>
         /// <returns></returns>
         public static int Id
         {
-            get { return AccountBLL.ReadCookie("AnyCode") == null?0:AccountBLL.ReadCookie("AnyCode").Value.GetInt(); }
+            get { return AccountBLL.ReadCookie("AnyCode") == null ? 0 : AccountBLL.ReadCookie("AnyCode").Value.GetInt(); }
+            set { AccountBLL.SaveCookie("AnyCode", value.ToString(), DateTime.Now.AddDays(1), "/"); }
         }
 
+
+        /// <summary>
+        /// 存储或写入在cookie中的用户theme
+        /// </summary>
+        /// <returns></returns>
+        public static string Theme
+        {
+            get { return AccountBLL.ReadCookie("theme") == null ? "" : AccountBLL.ReadCookie("theme").Value; }
+            set { AccountBLL.SaveCookie("theme", value, DateTime.Now.AddDays(1), "/"); }
+        }
 
     }
 

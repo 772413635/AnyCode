@@ -6793,6 +6793,8 @@ namespace DBlinq
 		
 		private string _UserToken;
 		
+		private string _openid;
+		
 		private EntityRef<Sys_Company> _Sys_Company;
 		
 		private EntityRef<Sys_Role> _Sys_Role;
@@ -6847,6 +6849,8 @@ namespace DBlinq
     partial void OnThemeChanged();
     partial void OnUserTokenChanging(string value);
     partial void OnUserTokenChanged();
+    partial void OnopenidChanging(string value);
+    partial void OnopenidChanged();
     #endregion
 		
 		public Sys_User()
@@ -7305,6 +7309,26 @@ namespace DBlinq
 					this._UserToken = value;
 					this.SendPropertyChanged("UserToken");
 					this.OnUserTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_openid", DbType="varchar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string openid
+		{
+			get
+			{
+				return this._openid;
+			}
+			set
+			{
+				if ((this._openid != value))
+				{
+					this.OnopenidChanging(value);
+					this.SendPropertyChanging();
+					this._openid = value;
+					this.SendPropertyChanged("openid");
+					this.OnopenidChanged();
 				}
 			}
 		}

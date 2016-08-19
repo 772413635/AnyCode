@@ -5,13 +5,14 @@ using AnyCode.Models.Interfaces;
 using AnyCode.Models.Service;
 using Common;
 using System.Linq;
+using System.Net;
 using System.Text;
+using AnyCode.Models;
 using Senparc.Weixin.MP;
 using Senparc.Weixin.MP.Entities;
 using Senparc.Weixin.MP.Entities.Request;
 using Senparc.Weixin.MP.MvcExtension;
-using Senparc.Weixin.Open;
-using Senparc.Weixin.Open.OAuthAPIs;
+using Newtonsoft.Json;
 
 namespace AnyCode.Controllers
 {
@@ -77,9 +78,101 @@ namespace AnyCode.Controllers
         public void WxLogin(string code)
         {
 
-            var accessToken = OAuthApi.GetAccessToken("wxc4a45051a808cbf1", "", "", code);
-            Redirect("/Home/index");
+            var accessToken = GetHttpData<AccessToken>("https://api.weixin.qq.com/sns/oauth2/access_token",
+                        "?appid=wxc4a45051a808cbf1" +
+                        "&secret=b2416ec8ce8317cbf9211fd8ce681934" +
+                        "&code=" + code +
+                        "&grant_type=authorization_code"
+                    );
+
+            var userinfo = GetHttpData<UserInfo>("https://api.weixin.qq.com/sns/userinfo",
+                        "?access_token=" + accessToken.access_token +
+                        "&openid=" + accessToken.openid
+                    );
+
+
+            var searchUser = Db.Sys_User.SingleOrDefault(c => c.openid == userinfo.openid);
+            if (searchUser != null)//微信号有绑定的用户
+            {
+                if (UserTicket.Users.All(c => c.Id != searchUser.Id))//用户没有登录
+                {
+                    UserTicket.Id = searchUser.Id;
+                    UserTicket.Theme = searchUser.Theme;
+                    lock (MvcApplication.lockObject)
+                    {
+                        UserTicket.Users.Add(searchUser);
+                    }
+                }
+            }
+            else//微信号没有有绑定的用户
+            {
+                //新增用户
+                var com = Db.Sys_Company.FirstOrDefault();
+                var user = new Sys_User
+                {
+                    Cid = com == null ? "" : com.Id,
+                    Name = userinfo.openid,
+                    MyName = userinfo.nickname,
+                    Password = MD5.Encrypt("123456", 32),
+                    Address = string.Format("{0} {1} {2}", userinfo.country, userinfo.province, userinfo.city),
+                    Remark = "微信登录用户",
+                    Status = 1,
+                    CreatePerson = 2,
+                    IsSystem = true,
+                    RoleId = 1,
+                    Theme = "deepblue",
+                    UserToken = Guid.NewGuid().ToString("D"),
+                    openid = userinfo.openid
+                };
+                Db.Sys_User.InsertOnSubmit(user);
+                Db.SubmitChanges();
+                //向用户池中添加用户
+                UserTicket.Id = searchUser.Id;
+                UserTicket.Theme = searchUser.Theme;
+                lock (MvcApplication.lockObject)
+                {
+                    UserTicket.Users.Add(searchUser);
+                }
+            }
+            HttpContext.Response.Redirect("~/Home/Index");
         }
+
+        public T GetHttpData<T>(string url, string data)
+        {
+            var client = new WebClient();
+            byte[] bResponse = client.DownloadData(url + data);
+            string returnText = Encoding.UTF8.GetString(bResponse);
+            return JsonConvert.DeserializeObject<T>(returnText);
+        }
+
+        public class AccessToken
+        {
+            public string access_token { get; set; }
+            public int expires_in { get; set; }
+            public string refresh_token { get; set; }
+            public string openid { get; set; }
+            public string scope { get; set; }
+            public string unionid { get; set; }
+
+        }
+
+        public class UserInfo
+        {
+            public string openid { get; set; }
+            public string nickname { get; set; }
+            public int sex { get; set; }
+            public string language { get; set; }
+            public string city { get; set; }
+            public string province { get; set; }
+            public string country { get; set; }
+
+            public string headimgurl { get; set; }
+            public string[] privilege { get; set; }
+            public string unionid { get; set; }
+
+        }
+
+
 
 
         public ActionResult WxAccount()
@@ -113,7 +206,7 @@ namespace AnyCode.Controllers
         public ActionResult KeyWord()
         {
             var msgType = _db.Sys_WebChat_MsgType.Where(c => c.IsReply);
-            ViewBag.MsgType = new SelectList(msgType,"MsgType","Name");
+            ViewBag.MsgType = new SelectList(msgType, "MsgType", "Name");
             return View();
         }
 

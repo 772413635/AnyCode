@@ -46,7 +46,7 @@ namespace AnyCode
         {
             string controlName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
             string actionName = filterContext.ActionDescriptor.ActionName;
-            if (controlName.ToLower() == "account" || (controlName.ToLower() == "webchat" && actionName.ToLower() == "index")|| (controlName.ToLower() == "webchat" && actionName.ToLower() == "wxlogin"))//如果是登录则跳过安全认证
+            if (controlName.ToLower() == "account" || (controlName.ToLower() == "webchat" && actionName.ToLower() == "index")|| (controlName.ToLower() == "webchat" && actionName.ToLower() == "wxlogin"))//跳过安全登录认证
             {
                 if (UserTicket.Users.Any(c => c.Id == UserTicket.Id))//如果用户上次为安全退出，并且认证cookie未丢失，则直接跳转至主页面
                 {
@@ -58,10 +58,10 @@ namespace AnyCode
                 }
 
             }
-            //处理跨域安全认证问题
+            //判断是否跨域访问
             var cross = CrossDomain(filterContext, actionName);
-
-            if (cross.Flag) //返回类型不是jsonpResult，参数类型不是DataGridParam，参数对象中没有UserId属性
+            //验证用户是否登陆
+            if (cross.Flag) //非跨域访问，返回类型不是jsonpResult，参数类型不是DataGridParam，参数对象中没有UserId属性
             {
                 if (LoginUser == null) //如果未登录
                 {
@@ -115,10 +115,11 @@ namespace AnyCode
                     Db.SubmitChanges();
                 }
             }
-            else
+            else//跨域访问
             {
-                if (cross.User == null)
+                if (cross.User == null)//没有安全登陆凭据
                 {
+                    //根据不同的请求类型返回相应的提示
                     if (!filterContext.HttpContext.Request.IsAjaxRequest())
                     {
                         filterContext.Result = new JsonpResult()
