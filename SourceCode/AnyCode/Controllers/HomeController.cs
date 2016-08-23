@@ -24,6 +24,7 @@ namespace AnyCode.Controllers
             ViewData["username"] = LoginUser.MyName;
             ViewData["isSystem"] = LoginUser.IsSystem;
             ViewData["userId"] = LoginUser.Id;
+            ViewBag.HeadImgUrl = LoginUser.HeadImgUrl;
             ViewBag.HomeNewsList = HomeNewsList();
             WebInfo();
             return View();

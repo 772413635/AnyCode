@@ -11,10 +11,10 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AnyCode.dll">
-      <publishTime>08/23/2016 11:44:41</publishTime>
+      <publishTime>08/23/2016 11:52:43</publishTime>
     </File>
     <File Include="bin/AnyCode.pdb">
-      <publishTime>08/23/2016 11:44:41</publishTime>
+      <publishTime>08/23/2016 11:52:43</publishTime>
     </File>
     <File Include="bin/Common.dll">
       <publishTime>08/15/2016 16:32:56</publishTime>
@@ -2054,7 +2054,7 @@
       <publishTime>06/15/2016 18:15:34</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/16/2016 18:14:41</publishTime>
+      <publishTime>08/23/2016 11:55:02</publishTime>
     </File>
     <File Include="Views/News/NewsList.cshtml">
       <publishTime>06/15/2016 18:15:34</publishTime>
