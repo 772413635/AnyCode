@@ -6795,6 +6795,8 @@ namespace DBlinq
 		
 		private string _openid;
 		
+		private string _HeadImgUrl;
+		
 		private EntityRef<Sys_Company> _Sys_Company;
 		
 		private EntityRef<Sys_Role> _Sys_Role;
@@ -6851,6 +6853,8 @@ namespace DBlinq
     partial void OnUserTokenChanged();
     partial void OnopenidChanging(string value);
     partial void OnopenidChanged();
+    partial void OnHeadImgUrlChanging(string value);
+    partial void OnHeadImgUrlChanged();
     #endregion
 		
 		public Sys_User()
@@ -7329,6 +7333,26 @@ namespace DBlinq
 					this._openid = value;
 					this.SendPropertyChanged("openid");
 					this.OnopenidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeadImgUrl", DbType="varchar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string HeadImgUrl
+		{
+			get
+			{
+				return this._HeadImgUrl;
+			}
+			set
+			{
+				if ((this._HeadImgUrl != value))
+				{
+					this.OnHeadImgUrlChanging(value);
+					this.SendPropertyChanging();
+					this._HeadImgUrl = value;
+					this.SendPropertyChanged("HeadImgUrl");
+					this.OnHeadImgUrlChanged();
 				}
 			}
 		}

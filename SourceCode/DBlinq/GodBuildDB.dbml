@@ -366,6 +366,7 @@
       <Column Name="Theme" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="UserToken" Type="System.String" DbType="VarChar(36)" CanBeNull="true" />
       <Column Name="openid" Type="System.String" DbType="varchar(50)" CanBeNull="true" />
+      <Column Name="HeadImgUrl" Type="System.String" DbType="varchar(250)" CanBeNull="true" />
       <Association Name="Sys_Company_Sys_User" Member="Sys_Company" ThisKey="Cid" OtherKey="Id" Type="Sys_Company" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Sys_Role_Sys_User" Member="Sys_Role" ThisKey="RoleId" OtherKey="Id" Type="Sys_Role" IsForeignKey="true" />
       <Association Name="Sys_UserStatus_Sys_User" Member="Sys_UserStatus" ThisKey="Status" OtherKey="Id" Type="Sys_UserStatus" IsForeignKey="true" />
