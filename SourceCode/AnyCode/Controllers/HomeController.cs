@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using AnyCode.Models.Service;
 using DBlinq;
 using AnyCode.Models;
+using Common;
 
 namespace AnyCode.Controllers
 {
@@ -93,5 +94,23 @@ namespace AnyCode.Controllers
                 return search.Take(7).ToList();
 
         }
+
+    
+        public JsonpResult TableDemo(DataGridParam param)
+        {
+            var data = from tt in Db.JB_IsaacTable
+                       select tt;
+           return new JsonpResult
+            {
+                Data=new 
+                {
+                    Total = data.Count(),
+                    DataGridParam=param,
+                    Rows=data.Skip((param.Page-1)*param.RP).Take(param.RP)
+                },
+                JsonRequestBehavior=JsonRequestBehavior.AllowGet
+            };
+        }
+
     }
 }
