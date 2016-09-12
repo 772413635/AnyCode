@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.75, 13.5" name="GodBuild">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.75, 11.75" name="GodBuild">
   <DataContextMoniker Name="/GodBuildDB" />
   <nestedChildShapes>
     <classShape Id="1ac7b03d-d786-4f68-8ac9-e8b8291e7ce4" isExpanded="false" absoluteBounds="9.125, 0.5, 2, 0.45">
@@ -236,7 +236,7 @@
         <elementListCompartment Id="1444ad1e-eb4b-411e-94e4-c931fd60c0ca" absoluteBounds="5.89, 8.46, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c1350e38-ec0e-4ccf-893d-3136bf26e82e" absoluteBounds="3.5, 11, 2, 2.2764815266927094">
+    <classShape Id="c1350e38-ec0e-4ccf-893d-3136bf26e82e" isExpanded="false" absoluteBounds="3.5, 11, 2, 0.45">
       <DataClassMoniker Name="/GodBuildDB/JB_IsaacTable" />
       <nestedChildShapes>
         <elementListCompartment Id="7ce01ff7-32c6-49a9-aa79-3c0c0d8c1aa7" absoluteBounds="3.5149999999999997, 11.46, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
