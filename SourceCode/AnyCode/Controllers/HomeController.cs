@@ -112,5 +112,42 @@ namespace AnyCode.Controllers
             };
         }
 
+        public JsonpResult DelTableDemo(DataGridParam param)
+        {
+            try
+            {
+                var ids = param.Query.Split(',');
+
+                var dd = new int[ids.Length];
+                for(var i=0;i<ids.Length;i++)
+                {
+                    dd[i] =int.Parse(ids[i]) ;
+                }
+
+                var query = from tt in Db.JB_IsaacTable
+                            where dd.Contains(tt.Id)
+                            select tt;
+
+                Db.JB_IsaacTable.DeleteAllOnSubmit(query);
+                Db.SubmitChanges();
+                return new JsonpResult
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = true
+                };
+            }
+            catch
+            {
+                return new JsonpResult
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = false
+                };
+            }
+
+            
+        }
+
+
     }
 }
