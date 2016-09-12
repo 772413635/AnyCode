@@ -8,6 +8,7 @@ using AnyCode.Models.Service;
 using DBlinq;
 using AnyCode.Models;
 using Common;
+using System;
 
 namespace AnyCode.Controllers
 {
@@ -124,11 +125,9 @@ namespace AnyCode.Controllers
                     dd[i] =int.Parse(ids[i]) ;
                 }
 
-                var query = from tt in Db.JB_IsaacTable
-                            where dd.Contains(tt.Id)
-                            select tt;
+                var query = Db.GetTable<JB_IsaacTable>().Where(c=>dd.Contains(c.Id));
 
-                Db.JB_IsaacTable.DeleteAllOnSubmit(query);
+                Db.GetTable<JB_IsaacTable>().DeleteAllOnSubmit(query);
                 Db.SubmitChanges();
                 return new JsonpResult
                 {
@@ -136,7 +135,7 @@ namespace AnyCode.Controllers
                     Data = true
                 };
             }
-            catch
+            catch(Exception ex)
             {
                 return new JsonpResult
                 {
