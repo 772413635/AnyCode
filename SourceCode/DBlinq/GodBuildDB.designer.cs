@@ -114,6 +114,9 @@ namespace DBlinq
     partial void InsertSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
     partial void UpdateSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
     partial void DeleteSys_WebChat_MsgType(Sys_WebChat_MsgType instance);
+    partial void InsertJB_IsaacTable(JB_IsaacTable instance);
+    partial void UpdateJB_IsaacTable(JB_IsaacTable instance);
+    partial void DeleteJB_IsaacTable(JB_IsaacTable instance);
     #endregion
 		
 		public GodBuildDB() : 
@@ -7740,8 +7743,10 @@ namespace DBlinq
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.JB_IsaacTable")]
-	public partial class JB_IsaacTable
+	public partial class JB_IsaacTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Id;
 		
@@ -7759,11 +7764,34 @@ namespace DBlinq
 		
 		private System.Nullable<System.DateTime> _CreateTime;
 		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTypeChanging(System.Nullable<int> value);
+    partial void OnTypeChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnSexChanging(System.Nullable<int> value);
+    partial void OnSexChanged();
+    partial void OnAgeChanging(System.Nullable<int> value);
+    partial void OnAgeChanged();
+    partial void OnProfessionChanging(string value);
+    partial void OnProfessionChanged();
+    partial void OnMessageChanging(string value);
+    partial void OnMessageChanged();
+    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateTimeChanged();
+    #endregion
+		
 		public JB_IsaacTable()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -7774,7 +7802,11 @@ namespace DBlinq
 			{
 				if ((this._Id != value))
 				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
 					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
 				}
 			}
 		}
@@ -7790,7 +7822,11 @@ namespace DBlinq
 			{
 				if ((this._Type != value))
 				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
 					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
 				}
 			}
 		}
@@ -7806,7 +7842,11 @@ namespace DBlinq
 			{
 				if ((this._Name != value))
 				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
 					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
 				}
 			}
 		}
@@ -7822,7 +7862,11 @@ namespace DBlinq
 			{
 				if ((this._Sex != value))
 				{
+					this.OnSexChanging(value);
+					this.SendPropertyChanging();
 					this._Sex = value;
+					this.SendPropertyChanged("Sex");
+					this.OnSexChanged();
 				}
 			}
 		}
@@ -7838,7 +7882,11 @@ namespace DBlinq
 			{
 				if ((this._Age != value))
 				{
+					this.OnAgeChanging(value);
+					this.SendPropertyChanging();
 					this._Age = value;
+					this.SendPropertyChanged("Age");
+					this.OnAgeChanged();
 				}
 			}
 		}
@@ -7854,7 +7902,11 @@ namespace DBlinq
 			{
 				if ((this._Profession != value))
 				{
+					this.OnProfessionChanging(value);
+					this.SendPropertyChanging();
 					this._Profession = value;
+					this.SendPropertyChanged("Profession");
+					this.OnProfessionChanged();
 				}
 			}
 		}
@@ -7870,7 +7922,11 @@ namespace DBlinq
 			{
 				if ((this._Message != value))
 				{
+					this.OnMessageChanging(value);
+					this.SendPropertyChanging();
 					this._Message = value;
+					this.SendPropertyChanged("Message");
+					this.OnMessageChanged();
 				}
 			}
 		}
@@ -7886,8 +7942,32 @@ namespace DBlinq
 			{
 				if ((this._CreateTime != value))
 				{
+					this.OnCreateTimeChanging(value);
+					this.SendPropertyChanging();
 					this._CreateTime = value;
+					this.SendPropertyChanged("CreateTime");
+					this.OnCreateTimeChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
