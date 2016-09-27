@@ -103,6 +103,7 @@ namespace AnyCode.Controllers
         {
             var query = param.Query.GetModel();
             var data = from tt in Db.JB_IsaacTable.Where(query)
+                       orderby tt.CreateTime descending
                        select tt;
             return new JsonpResult
              {
@@ -150,11 +151,14 @@ namespace AnyCode.Controllers
 
         }
 
-        public JsonpResult AddTableDemo(JB_IsaacTable model)
+        public JsonpResult AddTableDemo(DataGridParam param)
         {
+            var model = Newtonsoft.Json.JsonConvert.DeserializeObject<JB_IsaacTable>(param.Query);
             try
             {
                 model.CreateTime = DateTime.Now;
+                var random = new Random();
+                model.Type = 1;
                 Db.GetTable<JB_IsaacTable>().InsertOnSubmit(model);
                 Db.SubmitChanges();
                 return new JsonpResult
