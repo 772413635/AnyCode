@@ -9,6 +9,8 @@ using DBlinq;
 using AnyCode.Models;
 using Common;
 using System;
+using EfSearchModel;
+using DBlinq;
 
 namespace AnyCode.Controllers
 {
@@ -38,7 +40,7 @@ namespace AnyCode.Controllers
             var fid = LoginUser.Sys_Role.Fid;
             var sysMenuService = new SysMenuService(LoginUser);
             var pidLoadList = new List<string>();
-            if (!LoginUser.IsSystem) 
+            if (!LoginUser.IsSystem)
             {
                 pidLoadList = pids.Split(',').ToList();
             }
@@ -83,34 +85,36 @@ namespace AnyCode.Controllers
         public IList HomeNewsList()
         {
             var search = from s1 in Db.News_User_Company.Where(c => c.Code == LoginUser.Id)
-                             orderby s1.IsRead ascending, s1.CreateTime descending
-                             select new
-                             {
-                                 s1.Id,
-                                 s1.News,
-                                 s1.Title,
-                                 s1.CreateTime,
-                                 s1.IsRead
-                             };
-                return search.Take(7).ToList();
+                         orderby s1.IsRead ascending, s1.CreateTime descending
+                         select new
+                         {
+                             s1.Id,
+                             s1.News,
+                             s1.Title,
+                             s1.CreateTime,
+                             s1.IsRead
+                         };
+            return search.Take(7).ToList();
 
         }
 
-    
+
         public JsonpResult TableDemo(DataGridParam param)
         {
-            var data = from tt in Db.JB_IsaacTable
+            var query = param.Query.GetModel();
+            var data = from tt in Db.JB_IsaacTable.Where(query)
+                       orderby tt.CreateTime descending
                        select tt;
-           return new JsonpResult
-            {
-                Data=new 
-                {
-                    Total = data.Count(),
-                    DataGridParam=param,
-                    Rows=data.Skip((param.Page-1)*param.RP).Take(param.RP)
-                },
-                JsonRequestBehavior=JsonRequestBehavior.AllowGet
-            };
+            return new JsonpResult
+             {
+                 Data = new
+                 {
+                     Total = data.Count(),
+                     DataGridParam = param,
+                     Rows = data.Skip((param.Page - 1) * param.RP).Take(param.RP)
+                 },
+                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
+             };
         }
 
         public JsonpResult DelTableDemo(DataGridParam param)
@@ -120,12 +124,12 @@ namespace AnyCode.Controllers
                 var ids = param.Query.Split(',');
 
                 var dd = new int[ids.Length];
-                for(var i=0;i<ids.Length;i++)
+                for (var i = 0; i < ids.Length; i++)
                 {
-                    dd[i] =int.Parse(ids[i]) ;
+                    dd[i] = int.Parse(ids[i]);
                 }
 
-                var query = Db.GetTable<JB_IsaacTable>().Where(c=>dd.Contains(c.Id));
+                var query = Db.GetTable<JB_IsaacTable>().Where(c => dd.Contains(c.Id));
 
                 Db.GetTable<JB_IsaacTable>().DeleteAllOnSubmit(query);
                 Db.SubmitChanges();
@@ -135,7 +139,7 @@ namespace AnyCode.Controllers
                     Data = true
                 };
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new JsonpResult
                 {
@@ -144,9 +148,34 @@ namespace AnyCode.Controllers
                 };
             }
 
-            
+
         }
 
+        public JsonpResult AddTableDemo(DataGridParam param)
+        {
+            var model = Newtonsoft.Json.JsonConvert.DeserializeObject<JB_IsaacTable>(param.Query);
+            try
+            {
+                model.CreateTime = DateTime.Now;
+                var random = new Random();
+                model.Type = 1;
+                Db.GetTable<JB_IsaacTable>().InsertOnSubmit(model);
+                Db.SubmitChanges();
+                return new JsonpResult
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new JsonpResult
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = false
+                };
+            }
 
+        }
     }
 }
