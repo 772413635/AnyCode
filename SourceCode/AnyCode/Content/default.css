@@ -2248,3 +2248,19 @@ a {
 .tu2026 {
     background-position: -380px -500px;
 }
+.joburl, .joburl:active {
+    color: #5b636b;
+}
+.footerContainer {
+    height: 26px;
+    width: 100%;
+    border-top: none;
+}
+.footerContent {
+    line-height: 25px;
+    text-align: center
+}
+.importantInfo {
+    color: red;
+    font-weight: normal;
+}

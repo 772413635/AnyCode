@@ -3615,3 +3615,25 @@ fieldset .fields_wrapper .formError, fieldset .small .formError {
         margin: 8px 0 0 5px;
         text-decoration: underline;
     }
+.joburl, .joburl:active {
+    color: #5b636b;
+}
+.footerContainer {
+    height: 26px;
+    width: 100%;
+    border-top: none;
+}
+
+.footerContent {
+    line-height: 25px;
+    text-align: center
+}
+.login_footerContainer {
+    position: absolute;
+    bottom: 0;
+    background-color: #000
+}
+.importantInfo {
+    color: red;
+    font-weight: normal;
+}
