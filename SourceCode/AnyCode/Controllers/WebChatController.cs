@@ -94,7 +94,7 @@ namespace AnyCode.Controllers
             var searchUser = Db.GetTable<Sys_User>().SingleOrDefault(c => c.openid == userinfo.openid);
             if (searchUser != null)//微信号有绑定的用户
             {
-                if (UserTicket.Users.All(c => c.Id != searchUser.Id))//用户没有登录
+                if (UserTicket.Users.All(c => c.Id != searchUser.Id)) //用户没有登录
                 {
                     UserTicket.Id = searchUser.Id;
                     UserTicket.Theme = searchUser.Theme;
@@ -103,11 +103,18 @@ namespace AnyCode.Controllers
                         UserTicket.Users.Add(searchUser);
                     }
                 }
+                else//如果用户已经登录，未安全退出
+                {
+                    if (UserTicket.Id == 0)//登录者userid未存储至cookie
+                        UserTicket.Id = searchUser.Id;
+                    if (string.IsNullOrWhiteSpace(UserTicket.Theme))//登录者的theme未存储至cookie
+                        UserTicket.Theme = searchUser.Theme;
+                }
 
                 searchUser.HeadImgUrl = userinfo.headimgurl;
-               
+
                 Db.SubmitChanges();
-  
+
                 AddSysLog(HttpContext, "Account", "Login", "");
                 HttpContext.Response.Redirect("~/Home/Index");
             }
@@ -130,8 +137,8 @@ namespace AnyCode.Controllers
                     Theme = "deepblue",
                     UserToken = Guid.NewGuid().ToString("D"),
                     openid = userinfo.openid,
-                    CreateTime=DateTime.Now,
-                    HeadImgUrl=userinfo.headimgurl
+                    CreateTime = DateTime.Now,
+                    HeadImgUrl = userinfo.headimgurl
 
                 };
                 Db.InsertOnSubmit(user);
