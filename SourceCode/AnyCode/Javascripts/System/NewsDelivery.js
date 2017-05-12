@@ -39,16 +39,7 @@
     });
 });
 function backList() {
-    var subtitle = "公告列表";
-    var url = '/News/NewsList/';
-    if (parent.TabExists(subtitle)) {
-        self.parent.selectTab(subtitle, url);
-    }
-    else {
-        self.parent.addTab(subtitle, url);
-    }
-    self.parent.closeTab("查看公告");
-    return false;
+    BaseBackPage("消息推送", "公告列表", '/News/NewsList/');
 }
 //检查用户输入是否有效
 function searchClick() {

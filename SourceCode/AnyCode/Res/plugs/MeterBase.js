@@ -348,11 +348,12 @@ function showToastMessage(message) {
 }
 
 //返回页面
-function BaseBackPage() {
+function BaseBackPage(tTitle, lTitle, url) {
+    debugger;
     var options = parent.getSelectTabOptions();////获取当前tab的属性
-    var thisTitle = options.title;
-    var lastTitle = options.backTabTitile;
-    var lastUrl = options.backTabUrl;
+    var thisTitle = tTitle||options.title;
+    var lastTitle = lTitle||options.backTabTitile;
+    var lastUrl = url||options.backTabUrl;
     if (parent.TabExists(lastTitle)) {
         try { parent.tempWin.refresh(); }
         catch (err) {
@@ -764,6 +765,11 @@ function MergeChildCell(arrCols, intRow, firstMerge, table, i) {
 }
 
 //easyui扩展
+$.extend($.fn.tabs.defaults, {
+    backTabTitile: "",//返回标题
+    backTabUrl: "",//返回tab的ur
+    thisUrl: ""//当前tab的ur
+});
 $.extend($.fn.validatebox.defaults.rules, {
     mixLength: {
         validator: function (value, param) {
@@ -877,7 +883,6 @@ $.extend($.fn.validatebox.defaults.rules, {
         message: '请输入英文,长度范围为{0}到{1}'
     }
 });
-
 
 
 

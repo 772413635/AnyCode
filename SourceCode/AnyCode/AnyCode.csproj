@@ -328,7 +328,6 @@
     <Content Include="Res\plugs\DES.js" />
     <Content Include="Res\plugs\jquery.PrintArea.js" />
     <Content Include="Res\plugs\LoginBase.js" />
-    <Content Include="Res\plugs\outlook2.js" />
     <Content Include="Javascripts\System\ErrorLog.js" />
     <Content Include="Javascripts\System\NewsDelivery.js" />
     <Content Include="Res\plugs\jquery.pretext.js" />
