@@ -1,7 +1,7 @@
 ﻿$(function () {
     LoadMenu();
     //初始化连接
-    wait();
+    //wait();
     //每一小时提示一次查看消息
     HappyAsk();
 });
