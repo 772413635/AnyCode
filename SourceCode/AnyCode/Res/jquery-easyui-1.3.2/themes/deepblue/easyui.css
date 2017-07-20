@@ -135,7 +135,6 @@
     background: -o-linear-gradient(top,#F8F8F8 0,#eeeeee 100%);
     background: linear-gradient(to bottom,#F8F8F8 0,#eeeeee 100%);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F8F8F8,endColorstr=#eeeeee,GradientType=0);
 }
 
 .panel-body {
