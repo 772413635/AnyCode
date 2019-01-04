@@ -35,6 +35,7 @@
 
         #note {
             position: relative;
+            width:700px;
         }
 
         .panel-body-noborder {
@@ -69,7 +70,7 @@
                             </td>
                         </tr>
                     </table>
-                    <table style="">
+                    <table style="background:#2f3c54;width:100%">
                         <tr>
                             <td class="ThreeDiv"></td>
                             <td style="text-align: right">
@@ -114,19 +115,7 @@
                             <div class="easyui-calendar" style="width: 180px; height: 180px;"></div>
                         </div>
                     </div>
-                    <div class="easyui-draggable easyui-resizable mytitleDiv" handle="#mytitle2" data-options="disabled:true">
-                        <div id="mytitle2" class="mytitle">时间</div>
-                        <div style="padding: 5px; text-align: center">
-                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="../../Res/googleTime/swflash.cab#version=6,0,0,0" width="150" height="150">
-                                <param name="movie" value="../../Res/googleTime/clock.swf">
-                                <param name="quality" value="high">
-                                <param name="wmode" value="transparent">
-                                <param name="menu" value="false">
-                                <embed src="../../Res/googleTime/clock.swf" width="150" height="150" quality="high" wmode="transparent" menu="false"></embed>
-                            </object>
-                        </div>
-                    </div>
-                    <div id="note" class="easyui-draggable easyui-resizable mytitleDiv" handle="#mytitle3" data-options="minWidth:252,minHeight:217">
+                    <div id="note" class="easyui-draggable easyui-resizable mytitleDiv" handle="#mytitle3" data-options="minWidth:400,minHeight:100">
                         <div id="mytitle3" class="mytitle">消息</div>
                         <div style="padding: 5px;text-align: center">
                             <ul id="tb-news">

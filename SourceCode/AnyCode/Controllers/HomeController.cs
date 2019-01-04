@@ -8,6 +8,7 @@ using AnyCode.Models.Service;
 using DBlinq;
 using AnyCode.Models;
 using Common;
+using EfSearchModel;
 
 namespace AnyCode.Controllers
 {
@@ -98,7 +99,7 @@ namespace AnyCode.Controllers
     
         public JsonpResult TableDemo(DataGridParam param)
         {
-            var data = from tt in Db.JB_IsaacTable
+            var data = from tt in Db.JB_IsaacTable.Where(param.Query.GetModel())
                        select tt;
            return new JsonpResult
             {

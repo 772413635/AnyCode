@@ -233,7 +233,7 @@ $(function () {
         icons: {
             primary: "ui-icon-arrowreturnthick-1-w"
         },
-        text: false
+        text: true
     });
     $(".btn-search").button({
         icons: { primary: "ui-icon-search" }
@@ -335,7 +335,7 @@ function AlertError(c) {
 
 }
 //简单提示
-function showToastMessage(message) {
+function showToastMessage(message,successfn) {
     if (message == "" || message == null) {
         message = "操作失败";
     }
@@ -349,7 +349,6 @@ function showToastMessage(message) {
 
 //返回页面
 function BaseBackPage(tTitle, lTitle, url) {
-    debugger;
     var options = parent.getSelectTabOptions();////获取当前tab的属性
     var thisTitle = tTitle||options.title;
     var lastTitle = lTitle||options.backTabTitile;
@@ -445,7 +444,7 @@ function flexiQuery(div, title) {
     });
 }
 //查询表
-function BaseSearch(serchId, tableId) {
+function BaseSearch(serchId, tableId,otherQuery) {
     var queryText = "";
     var rex = /\[\w+\]/;
     $(serchId).find(":input").each(function () {
@@ -457,6 +456,10 @@ function BaseSearch(serchId, tableId) {
             }
         }
     });
+    if (otherQuery)
+    {
+        queryText += "^" + otherQuery
+    }
     var options = $(tableId).datagrid('options');
     options.queryParams.Query = queryText;
     options.pageNumber = 1;
@@ -762,6 +765,310 @@ function MergeChildCell(arrCols, intRow, firstMerge, table, i) {
         RequiredCell: childCell,
         MaxMerge: firstMerge
     }
+}
+
+
+//初始化图片上传
+function initImgUpload(selecter, formOid, showUl, exts) {
+    $(selecter).uploadify({
+        height: 20,
+        multi: true,
+        fileTypeExts: exts||"*.jpg; *.png",
+        "buttonText": "上传图片",
+        'swf': '../../Res/uploadify/uploadify.swf',
+        'uploader': '/Index/UploadImg',
+        formData: { fromOid: formOid },
+        removeTimeout:1,
+        onUploadSuccess: function (file, data, response) {
+            if (data == "1")
+            {
+                showToastMessage("上传成功");
+                loadSource(formOid, showUl);
+            } else
+            {
+                showToastMessage("上传失败");
+            }
+
+        }
+    });
+    loadSource(formOid, showUl);
+}
+//初始化音频上传
+function initAudioUpload(selecter, formOid, showUl, exts, multi) {
+    $(selecter).uploadify({
+        height: 20,
+        multi: multi||true,
+        fileTypeExts: exts||"*.mp3",
+        "buttonText": "上传音频",
+        'swf': '../../Res/uploadify/uploadify.swf',
+        'uploader': '/Index/UploadAudio',
+        formData: { fromOid: formOid },
+        removeTimeout: 1,
+        onUploadSuccess: function (file, data, response) {
+            if (data == "1") {
+                showToastMessage("上传成功");
+                loadAudio(formOid, showUl);
+            } else {
+                showToastMessage("上传失败");
+            }
+
+        }
+    });
+    loadAudio(formOid, showUl);
+}
+//初始化视频上传
+function initVideoUpload(selecter, formOid, showUl, exts) {
+    $(selecter).uploadify({
+        height: 20,
+        multi: true,
+        fileTypeExts: exts||"*.mp4",
+        "buttonText": "上传视频",
+        'swf': '../../Res/uploadify/uploadify.swf',
+        'uploader': '/Index/UploadVideo',
+        formData: { fromOid: formOid },
+        removeTimeout: 1,
+        onUploadSuccess: function (file, data, response) {
+            if (data == "1") {
+                showToastMessage("上传成功");
+                loadVideo(formOid, showUl);
+            } else {
+                showToastMessage("上传失败");
+            }
+
+        }
+    });
+    loadVideo(formOid, showUl);
+}
+//初始化文件上传
+function initFileUpload(selecter, formOid, showUl, exts, multi) {
+    $(selecter).uploadify({
+        height: 20,
+        multi: multi||true,
+        fileTypeExts: exts||"*.pdf",
+        "buttonText": "上传文件",
+        'swf': '../../Res/uploadify/uploadify.swf',
+        'uploader': '/Index/UploadFile',
+        formData: { fromOid: formOid },
+        removeTimeout: 1,
+        onUploadSuccess: function (file, data, response) {
+            if (data == "1") {
+                showToastMessage("上传成功");
+                loadFile(formOid, showUl);
+            } else {
+                showToastMessage("上传失败");
+            }
+
+        }
+    });
+    loadFile(formOid, showUl);
+}
+//加载图片
+function loadSource(formOid,selecter)
+{
+    $.ajax({
+        url: "/Index/LoadSource",
+        dataType: "json",
+        type: "post",
+        data: { fromOid: formOid },
+        success: function (res) {
+            var li = "";
+            $(res).each(function (i, d) {
+                li += '<li><span class="li-name" onclick="showImg(\''+d.Path+'\')">' + d.FullName + '</span>' +
+                    '<span class="li-look" onclick="showImg(\'' + d.Path + '\')"> [查看]</span >' +
+                    '<span class="li-del" onclick="delSource(\'' + d.Id + '\',\'' + formOid + '\',\'' + selecter+'\')">[删除]</span></li > ';
+            });
+            if (li == "")
+                li = "<li class='nosource'>您未上传任何图片，请点击上方上传按钮就行上传</li>";
+            $(selecter).html(li);
+        }
+    });
+}
+//加载音频
+function loadAudio(formOid, selecter) {
+    $.ajax({
+        url: "/Index/LoadSource",
+        dataType: "json",
+        type: "post",
+        data: { fromOid: formOid },
+        success: function (res) {
+            var li = "";
+            $(res).each(function (i, d) {
+                li += '<li><span class="li-name" onclick="showAudio(\'' + d.Path + '\')">' + d.FullName + '</span>' +
+                    '<span class="li-look" onclick="showAudio(\'' + d.Path + '\')"> [播放]</span >' +
+                    '<span class="li-del" onclick="delAudio(\'' + d.Id + '\',\'' + formOid + '\',\'' + selecter + '\')">[删除]</span></li > ';
+            });
+            if (li == "")
+                li = "<li class='nosource'>您未上传任何音频，请点击上方上传按钮就行上传</li>";
+            $(selecter).html(li);
+        }
+    });
+}
+//加载视频
+function loadVideo(formOid, selecter) {
+    $.ajax({
+        url: "/Index/LoadSource",
+        dataType: "json",
+        type: "post",
+        data: { fromOid: formOid },
+        success: function (res) {
+            var li = "";
+            $(res).each(function (i, d) {
+                li += '<li><span class="li-name" onclick="showVideo(\'' + d.Path + '\')">' + d.FullName + '</span>' +
+                    '<span class="li-look" onclick="showVideo(\'' + d.Path + '\')"> [播放]</span >' +
+                    '<span class="li-del" onclick="delVideo(\'' + d.Id + '\',\'' + formOid + '\',\'' + selecter + '\')">[删除]</span></li > ';
+            });
+            if (li == "")
+                li = "<li class='nosource'>您未上传任何视频，请点击上方上传按钮就行上传</li>";
+            $(selecter).html(li);
+        }
+    });
+}
+//加载文件
+function loadFile(formOid, selecter) {
+    $.ajax({
+        url: "/Index/LoadSource",
+        dataType: "json",
+        type: "post",
+        data: { fromOid: formOid },
+        success: function (res) {
+            var li = "";
+            $(res).each(function (i, d) {
+                li += '<li><a class="li-name" target="_blank" href="' + d.Path + '">' + d.FullName + '</a>' +
+                    '<a class="li-look" target="_blank" href="' + d.Path + '"> [查看]</a >' +
+                    '<span class="li-del" onclick="delFile(\'' + d.Id + '\',\'' + formOid + '\',\'' + selecter + '\')">[删除]</span></li > ';
+            });
+            if (li == "")
+                li = "<li class='nosource'>您未上传任何文件，请点击上方上传按钮就行上传</li>";
+            $(selecter).html(li);
+        }
+    });
+}
+//显示图片
+function showImg(path) {
+    $("<div></div>").dialog({
+        title: "查看图片",
+        width: 700,
+        height:500,
+        content: '<img class="dialog-show-img" src="'+path+'">',
+        modal: true,
+        resizable:true,
+    }).show();
+}
+//播放音频
+function showAudio(path) {
+    $("<div></div>").dialog({
+        title: "播放音频",
+        width: 400,
+        height: 130,
+        content: '<audio class="dialog-show-audio" controls="controls" src="' + path + '">您的浏览器不支持播放</audio>',
+        modal: true,
+        resizable: true,
+    }).show();
+}
+//播放视频
+function showVideo(path) {
+    $("<div></div>").dialog({
+        title: "播放视频",
+        width: 600,
+        height: 400,
+        content: '<video class="dialog-show-video" controls="controls" src="' + path + '">您的浏览器不支持播放</video>',
+        modal: true,
+        resizable: true,
+    }).show();
+}
+//删除资源
+function delSource(id, formOid, selecter)
+{
+    $.messager.confirm("提示", "您确定删除吗？", function (r) {
+        if (r) {
+            $.ajax({
+                url: "/Index/DeleteSource",
+                type: "post",
+                dateType: "text",
+                data: { id: id },
+                success: function (res) {
+                    if (res == "1")
+                    {
+                        showToastMessage("删除成功");
+                        loadSource(formOid, selecter);
+                    } else {
+                        showToastMessage("删除失败");
+                    }
+                    
+                }
+
+            });
+        }
+    });
+}
+//删除音频
+function delAudio(id, formOid, selecter) {
+    $.messager.confirm("提示", "您确定删除吗？", function (r) {
+        if (r) {
+            $.ajax({
+                url: "/Index/DeleteSource",
+                type: "post",
+                dateType: "text",
+                data: { id: id },
+                success: function (res) {
+                    if (res == "1") {
+                        showToastMessage("删除成功");
+                        loadAudio(formOid, selecter);
+                    } else {
+                        showToastMessage("删除失败");
+                    }
+
+                }
+
+            });
+        }
+    });
+}
+//删除文件
+function delFile(id, formOid, selecter) {
+    $.messager.confirm("提示", "您确定删除吗？", function (r) {
+        if (r) {
+            $.ajax({
+                url: "/Index/DeleteSource",
+                type: "post",
+                dateType: "text",
+                data: { id: id },
+                success: function (res) {
+                    if (res == "1") {
+                        showToastMessage("删除成功");
+                        loadFile(formOid, selecter);
+                    } else {
+                        showToastMessage("删除失败");
+                    }
+
+                }
+
+            });
+        }
+    });
+}
+//删除视频
+function delVideo(id, formOid, selecter) {
+    $.messager.confirm("提示", "您确定删除吗？", function (r) {
+        if (r) {
+            $.ajax({
+                url: "/Index/DeleteSource",
+                type: "post",
+                dateType: "text",
+                data: { id: id },
+                success: function (res) {
+                    if (res == "1") {
+                        showToastMessage("删除成功");
+                        loadVideo(formOid, selecter);
+                    } else {
+                        showToastMessage("删除失败");
+                    }
+
+                }
+
+            });
+        }
+    });
 }
 
 //easyui扩展

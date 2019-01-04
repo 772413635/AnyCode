@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AnyCode" Class="GodBuildDB" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=www.isaacxu.com;Initial Catalog=AnyCode;Persist Security Info=True;User ID=wsoft" SettingsObjectName="DBlinq.Properties.Settings" SettingsPropertyName="AnyCodeConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="test" Class="GodBuildDB" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=120.76.73.57;Initial Catalog=test;Persist Security Info=True;User ID=sa" SettingsObjectName="DBlinq.Properties.Settings" SettingsPropertyName="AnyCodeConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Sys_Exception" Member="Sys_Exception">
     <Type Name="Sys_Exception">
       <Column Name="Id" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -400,6 +400,18 @@
       <Column Name="Profession" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Message" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sys_Resource" Member="Sys_Resource">
+    <Type Name="Sys_Resource">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Path" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SmallPath" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FromOid" Type="System.String" DbType="VarChar(36) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

@@ -12,6 +12,10 @@ using EfSearchModel.Model;
 using AnyCode.Controllers;
 using AnyCode.Models;
 using MongoDB.Driver;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+
 namespace AnyCode
 {
     public abstract class BaseController : Controller
@@ -139,7 +143,7 @@ namespace AnyCode
                 Controller = controlName,
                 Action = actionName,
                 CreateTime = DateTime.Now,
-                UserId = LoginUser.Id,
+                UserId = LoginUser==null?-1:LoginUser.Id,
                 Params = param
             };
             Db.InsertOnSubmit(log);
@@ -274,6 +278,275 @@ namespace AnyCode
 
         }
 
+
+        /// <summary>
+        /// 获取图片
+        /// </summary>
+        /// <param name="fromOid"></param>
+        /// <returns></returns>
+        protected IList GetImage(string fromOid)
+        {
+            var data = from tt in Db.Sys_Resource
+                       where tt.Type == 1 && tt.FromOid == fromOid
+                       orderby tt.CreateTime descending
+                       select new
+                       {
+                           Id = tt.Id,
+                           Name = tt.Name,
+                           Path = GetRootUrl() + tt.Path
+                       };
+            return data.ToList();
+        }
+
+        protected string GetResourceUrl(string fromOid)
+        {
+            var data = (from tt in Db.Sys_Resource
+                        where tt.FromOid == fromOid
+                        orderby tt.CreateTime descending
+                        select new
+                        {
+                            Path = GetRootUrl() + tt.Path
+                        }).FirstOrDefault();
+            if (data == null)
+                return "";
+            else
+                return data.Path;
+        }
+        protected string GetResourceUrl(int id)
+        {
+            var data = (from tt in Db.Sys_Resource
+                        where tt.Id == id
+                        orderby tt.CreateTime descending
+                        select new
+                        {
+                            Path = GetRootUrl() + tt.Path
+                        }).FirstOrDefault();
+            if (data == null)
+                return "";
+            else
+                return data.Path;
+        }
+
+        /// <summary>
+        /// 获取视频
+        /// </summary>
+        /// <param name="fromOid"></param>
+        /// <returns></returns>
+        protected List<Sys_Resource> GetVideo(string fromOid)
+        {
+            var data = from tt in Db.Sys_Resource
+                       where tt.Type == 2 && tt.FromOid == fromOid
+                       orderby tt.CreateTime descending
+                       select tt;
+            return data.ToList();
+        }
+
+        /// <summary>
+        /// 获取文档
+        /// </summary>
+        /// <param name="fromOid"></param>
+        /// <returns></returns>
+        protected List<Sys_Resource> GetFile(string fromOid)
+        {
+            var data = from tt in Db.Sys_Resource
+                       where tt.Type == 3 && tt.FromOid == fromOid
+                       orderby tt.CreateTime descending
+                       select tt;
+            return data.ToList();
+        }
+
+        protected string GetRootUrl()
+        {
+
+            return "http://" + Request.Url.Authority + "//";
+        }
+
+        /// <summary>
+        /// 上传图片
+        /// </summary>
+        /// <param name="fromOid"></param>
+        public int UploadImg(string fromOid)
+        {
+            var rooturl = AppDomain.CurrentDomain.BaseDirectory;
+            var xurl = "file\\images";
+            if (!Directory.Exists(Path.Combine(rooturl, xurl)))
+            {
+                Directory.CreateDirectory(Path.Combine(rooturl, xurl));
+            }
+            var files = Request.Files;
+            foreach (string key in files.Keys)
+            {
+                var f = files[key];
+                var name = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(f.FileName);
+                f.SaveAs(Path.Combine(rooturl, xurl, name));
+                var source = new Sys_Resource
+                {
+                    FromOid = fromOid,
+                    Path = Path.Combine(xurl, name).Replace("\\", "/"),
+                    SmallPath = Path.Combine(xurl, name).Replace("\\", "/"),
+                    Name = Path.GetFileNameWithoutExtension(f.FileName),
+                    FullName = f.FileName,
+                    Type = 1
+                };
+                Db.Sys_Resource.InsertOnSubmit(source);
+                Db.SubmitChanges();
+            }
+            return 1;
+        }
+        /// <summary>
+        /// 上传音频
+        /// </summary>
+        /// <param name="fromOid"></param>
+        public int UploadAudio(string fromOid)
+        {
+            var rooturl = AppDomain.CurrentDomain.BaseDirectory;
+            var xurl = "file\\audios";
+            if (!Directory.Exists(Path.Combine(rooturl, xurl)))
+            {
+                Directory.CreateDirectory(Path.Combine(rooturl, xurl));
+            }
+            var files = Request.Files;
+            foreach (string key in files.Keys)
+            {
+                var f = files[key];
+                var name = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(f.FileName);
+                f.SaveAs(Path.Combine(rooturl, xurl, name));
+                var source = new Sys_Resource
+                {
+                    FromOid = fromOid,
+                    Path = Path.Combine(xurl, name).Replace("\\", "/"),
+                    SmallPath = Path.Combine(xurl, name).Replace("\\", "/"),
+                    Name = Path.GetFileNameWithoutExtension(f.FileName),
+                    FullName = f.FileName,
+                    Type = 2
+                };
+                Db.Sys_Resource.InsertOnSubmit(source);
+                Db.SubmitChanges();
+            }
+            return 1;
+        }
+        /// <summary>
+        /// 上传视频
+        /// </summary>
+        /// <param name="fromOid"></param>
+        public int UploadVideo(string fromOid)
+        {
+            var rooturl = AppDomain.CurrentDomain.BaseDirectory;
+            var xurl = "file\\videos";
+            if (!Directory.Exists(Path.Combine(rooturl, xurl)))
+            {
+                Directory.CreateDirectory(Path.Combine(rooturl, xurl));
+            }
+            var files = Request.Files;
+            foreach (string key in files.Keys)
+            {
+                var f = files[key];
+                var name = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(f.FileName);
+                f.SaveAs(Path.Combine(rooturl, xurl, name));
+                var source = new Sys_Resource
+                {
+                    FromOid = fromOid,
+                    Path = Path.Combine(xurl, name).Replace("\\", "/"),
+                    SmallPath = Path.Combine(xurl, name).Replace("\\", "/"),
+                    Name = Path.GetFileNameWithoutExtension(f.FileName),
+                    FullName = f.FileName,
+                    Type = 3
+                };
+                Db.Sys_Resource.InsertOnSubmit(source);
+                Db.SubmitChanges();
+            }
+            return 1;
+        }
+
+        /// <summary>
+        /// 上传文件
+        /// </summary>
+        /// <param name="fromOid"></param>
+        public int UploadFile(string fromOid)
+        {
+            var rooturl = AppDomain.CurrentDomain.BaseDirectory;
+            var xurl = "file\\files";
+            if (!Directory.Exists(Path.Combine(rooturl, xurl)))
+            {
+                Directory.CreateDirectory(Path.Combine(rooturl, xurl));
+            }
+            var files = Request.Files;
+            foreach (string key in files.Keys)
+            {
+                var f = files[key];
+                var name = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(f.FileName);
+                f.SaveAs(Path.Combine(rooturl, xurl, name));
+                var source = new Sys_Resource
+                {
+                    FromOid = fromOid,
+                    Path = Path.Combine(xurl, name).Replace("\\", "/"),
+                    SmallPath = Path.Combine(xurl, name).Replace("\\", "/"),
+                    Name = Path.GetFileNameWithoutExtension(f.FileName),
+                    FullName = f.FileName,
+                    Type = 4
+                };
+                Db.Sys_Resource.InsertOnSubmit(source);
+                Db.SubmitChanges();
+            }
+            return 1;
+        }
+
+        /// <summary>
+        /// 获取资源列表
+        /// </summary>
+        /// <param name="fromOid"></param>
+        /// <returns></returns>
+        public JsonResult LoadSource(string fromOid)
+        {
+            var query = from tt in Db.Sys_Resource
+                        where tt.FromOid == fromOid
+                        orderby tt.CreateTime descending
+                        select new
+                        {
+                            tt.Id,
+                            tt.Name,
+                            tt.FullName,
+                            Path = GetRootUrl() + tt.Path
+                        };
+            return Json(query);
+        }
+        /// <summary>
+        /// 删除资源
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DeleteSource(int id)
+        {
+            var query = Db.Sys_Resource.FirstOrDefault(c => c.Id == id);
+            if (query != null)
+            {
+                Db.Sys_Resource.DeleteOnSubmit(query);
+                Db.SubmitChanges();
+                var filepath = Server.MapPath("/" + query.Path);
+                System.IO.File.Delete(filepath);
+                return 1;
+            }
+            else
+                return 0;
+        }
+
+        /// <summary>
+        /// 去除html标签，获取固定长度
+        /// </summary>
+        /// <param name="html"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        protected string ReplaceHtmlTag(string html, int length = 0)
+        {
+            string strText = System.Text.RegularExpressions.Regex.Replace(html, "<[^>]+>", "");
+            strText = System.Text.RegularExpressions.Regex.Replace(strText, "&[^;]+;", "");
+            if (length > 0)
+            {
+                var subLength = length > strText.Length ? strText.Length : length;
+                return strText.Substring(0, subLength) + "...";
+            }
+            return strText;
+        }
 
     }
 

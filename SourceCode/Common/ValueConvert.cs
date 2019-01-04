@@ -401,13 +401,16 @@ namespace Common
         public static Dictionary<string, string> GetPermissionsById(this string functionstring)
         {
             var permissions = new Dictionary<string, string>();
-            var fs = functionstring.Split(',');
-            foreach (var f in fs)
+            if(!string.IsNullOrWhiteSpace(functionstring))
             {
-                var father = f.Substring(0, f.IndexOf('['));
-                var children = f.Replace(father, "").TrimStart('[').TrimEnd(']');
-                permissions.Add(father, children);
+                var fs = functionstring.Split(',');
+                foreach (var f in fs)
+                {
+                    var father = f.Substring(0, f.IndexOf('['));
+                    var children = f.Replace(father, "").TrimStart('[').TrimEnd(']');
+                    permissions.Add(father, children);
 
+                }
             }
             return permissions;
         }

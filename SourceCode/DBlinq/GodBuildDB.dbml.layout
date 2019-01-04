@@ -87,7 +87,7 @@
         <elementListCompartment Id="f13a0346-c9e5-4f5c-abdd-df423aafc31f" absoluteBounds="6.515, 5.71, 1.9700000000000002, 3.7492167154947915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.5 : 5.7); (7.5 : 7.1); (5.375 : 7.1)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.5 : 5.7); (7.5 : 7.1); (5.375 : 7.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/GodBuildDB/Sys_Company/Sys_Company_Sys_Role" />
       <nodes>
         <classShapeMoniker Id="9c151701-cea2-4c4d-a53d-7221af771e03" />
@@ -203,7 +203,7 @@
         <elementListCompartment Id="5d9ec5ba-74ad-49da-8636-b753f242515f" absoluteBounds="3.6399999999999997, 5.46, 1.9700000000000002, 4.673187255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.5 : 5.35); (5.625 : 5.35)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.5 : 5.35); (5.625 : 5.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/GodBuildDB/Sys_Company/Sys_Company_Sys_User" />
       <nodes>
         <classShapeMoniker Id="9c151701-cea2-4c4d-a53d-7221af771e03" />
@@ -217,7 +217,7 @@
         <classShapeMoniker Id="8f2eb7e1-bb1a-419d-a84c-ab123625150a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.625 : 4.075); (4.625 : 5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.90625 : 4.075); (4.90625 : 5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/GodBuildDB/Sys_UserStatus/Sys_UserStatus_Sys_User" />
       <nodes>
         <classShapeMoniker Id="97961b2c-bf44-4c5b-9f81-4db9831d5616" />
@@ -240,6 +240,12 @@
       <DataClassMoniker Name="/GodBuildDB/JB_IsaacTable" />
       <nestedChildShapes>
         <elementListCompartment Id="7ce01ff7-32c6-49a9-aa79-3c0c0d8c1aa7" absoluteBounds="3.5149999999999997, 11.46, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="864d4f60-03ed-41f9-99d1-01994382ad93" isExpanded="false" absoluteBounds="5.875, 11, 2, 0.45">
+      <DataClassMoniker Name="/GodBuildDB/Sys_Resource" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a96eb140-2b26-47e8-8e48-80d49fb1389e" absoluteBounds="5.8900000000000006, 11.46, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

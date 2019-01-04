@@ -24,7 +24,7 @@
             <td style="width:40%; text-align:left"> @Html.TextBox("CreateTime", null, new {@class="Wdate text",@style="width:80%", @onclick = "WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" }).ForSearch(QueryMethod.LessThanOrEqual)</td>
            </tr>
             <tr>
-                <td style="width:10%; text-align:right">标&nbsp;&nbsp;&nbsp;&nbsp;题：</td>
+                <td style="width:10%; text-align:right">标题：</td>
                 <td style="width:40%; text-align:left">@Html.TextBox("Title", "", new { @class = "text", @style = "width:80%"}).ForSearch(QueryMethod.Contains)</td>
                 <td style="width: 10%; text-align: right">
                     内容包含：
