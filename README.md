@@ -3,7 +3,7 @@
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
-![anycode](https://server.isaacxu.com:3001/exca/getImg?code=th9hft)
+![anycode](http://7u.isaacxu.com/th9hft.png)
 
 ## 简介
 * 轻量级系统框架，为您减轻工作压力，降低工作量，让你更专注于业务开发
